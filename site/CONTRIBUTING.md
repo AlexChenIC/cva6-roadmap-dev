@@ -59,10 +59,10 @@ When adding or editing a partner need:
 The public board has four lanes. Lanes are derived from lifecycle status in
 `lib/lanes.ts`.
 
-- `Released` -> Available.
-- `In Progress` and `Verification` -> In Progress.
+- `Released` -> Released.
+- `In Progress` and `Verification` -> Active Work.
 - `Planned` -> Planned.
-- `Proposed`, `Idea`, and `Deferred` -> Future Idea.
+- `Proposed`, `Idea`, and `Deferred` -> Exploratory.
 
 Use the most specific lifecycle status that reflects current commitment:
 

@@ -7,7 +7,7 @@ proposingOrgs:
   - openhw
   - unibo
 owner: OpenHW CVA6 maintainers
-targetWindow: Available
+targetWindow: Released baseline
 targetRelease: Ariane/CVA6 4.x
 tags:
   - RV64GC
