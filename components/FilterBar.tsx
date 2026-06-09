@@ -11,6 +11,7 @@ export interface FilterBarProps {
   organizations: readonly Organization[];
   themes: readonly Theme[];
   lanes?: readonly LaneMeta[];
+  showGroupBy?: boolean;
   className?: string;
 }
 
@@ -63,7 +64,13 @@ function FilterGroup({ label, options, selected, onToggle }: FilterGroupProps) {
   );
 }
 
-export function FilterBar({ organizations, themes, lanes = LANES, className = "" }: FilterBarProps) {
+export function FilterBar({
+  organizations,
+  themes,
+  lanes = LANES,
+  showGroupBy = true,
+  className = "",
+}: FilterBarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -112,25 +119,27 @@ export function FilterBar({ organizations, themes, lanes = LANES, className = ""
         </label>
 
         <div className="flex flex-wrap items-center gap-2">
-          <div className="inline-flex rounded-lg border border-border bg-slate-50 p-1" aria-label="Group by">
-            {groupByOptions.map((option) => (
-              <button
-                key={option.value}
-                type="button"
-                onClick={() => replaceParams({ group: option.value === "lane" ? null : option.value })}
-                className={`rounded-md px-3 py-2 text-sm font-bold transition ${
-                  groupBy === option.value ? "bg-openhw-navy text-white shadow-sm" : "text-slate-600 hover:text-openhw-navy"
-                }`}
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
+          {showGroupBy ? (
+            <div className="inline-flex rounded-lg border border-border bg-slate-50 p-1" aria-label="Group by">
+              {groupByOptions.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => replaceParams({ group: option.value === "lane" ? null : option.value })}
+                  className={`rounded-md px-3 py-2 text-sm font-bold transition ${
+                    groupBy === option.value ? "bg-openhw-navy text-white shadow-sm" : "text-slate-600 hover:text-openhw-navy"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          ) : null}
 
           <button
             type="button"
             onClick={clearAll}
-            disabled={activeFilterCount === 0 && groupBy === "lane"}
+            disabled={activeFilterCount === 0 && (!showGroupBy || groupBy === "lane")}
             className="inline-flex h-10 items-center gap-2 rounded-lg border border-border px-3 text-sm font-bold text-slate-700 transition hover:border-openhw-green hover:text-openhw-navy disabled:cursor-not-allowed disabled:opacity-50"
           >
             <RotateCcw className="h-4 w-4" aria-hidden="true" />

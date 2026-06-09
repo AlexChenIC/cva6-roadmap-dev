@@ -49,7 +49,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
   - **Accept:** filters/search/group-by work; reload preserves state via URL; cards link to detail.
     Commit `feat: roadmap board + filters`.
 
-- [ ] **T8 — Features catalog**
+- [x] **T8 — Features catalog**
   - Build `/features` per SPEC §7.4 (search-first flat list reusing filter primitives).
   - **Accept:** search filters list; rows link to detail. Commit `feat: features catalog`.
 

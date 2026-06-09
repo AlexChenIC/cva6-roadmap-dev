@@ -61,3 +61,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `app/roadmap/page.tsx`, `app/roadmap/RoadmapExplorer.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed; browser checks confirmed default board counts `20/7/5/4/4`, search for `hypervisor` updates URL and filters to one card, `group=theme` survives reload, combined `lane=future&org=capabilities&theme=Security` filters to two cards, all cards link to `/features/[id]`, and the page has no horizontal overflow at 375px.
 - Status: DONE
+
+## 2026-06-09 13:54 — T8 Features catalog
+- Did: Added `/features` with a search-first flat catalog, dense linked feature rows, reused lane/org/theme filter primitives, filtered summary counts, empty state handling, and a board link back to `/roadmap`; updated `FilterBar` so catalog pages can hide group-by controls.
+- Files: `app/features/page.tsx`, `app/features/FeaturesCatalog.tsx`, `components/FilterBar.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed; browser checks confirmed 20 default rows, row hrefs like `/features/rv64gc-core`, no group-by control on the catalog, typed search for `CHERI` updates URL and filters to one row, combined `lane=in-progress&org=lowrisc&theme=Security` filters to one row, and no horizontal overflow at 375px.
+- Status: DONE
