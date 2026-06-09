@@ -22,7 +22,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
   - Create `lib/types.ts` (SPEC §5) and `lib/lanes.ts` (`statusToLane`, `LANES` metadata, `itemsByLane`).
   - **Accept:** `npx tsc --noEmit` passes. Commit `feat: core types + lane mapping`.
 
-- [ ] **T3 — Seed data**
+- [x] **T3 — Seed data**
   - Create `data/organizations.ts`, `data/releases.ts`, `data/pillars.ts`, `data/roadmap.ts` (SPEC §6).
     Type out all ~18 roadmap items with real summaries, userValue, tags, dates.
   - **Accept:** data imports type-check; `npx tsc --noEmit` clean. Commit `feat: seed roadmap dataset`.

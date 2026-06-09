@@ -31,3 +31,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `lib/types.ts`, `lib/lanes.ts`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npx tsc --noEmit` passed.
 - Status: DONE
+
+## 2026-06-09 13:32 — T3 Seed data
+- Did: Added typed seed data modules for organizations, releases, strategic pillars, and 20 illustrative CVA6 roadmap items spanning all lanes, themes, and contributing organizations.
+- Files: `data/organizations.ts`, `data/releases.ts`, `data/pillars.ts`, `data/roadmap.ts`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npx tsc --noEmit` passed.
+- Status: DONE

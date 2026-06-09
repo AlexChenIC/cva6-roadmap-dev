@@ -1,0 +1,40 @@
+import type { Pillar } from "@/lib/types";
+
+export const pillars: Pillar[] = [
+  {
+    id: "arch",
+    title: "Architecture & ISA",
+    icon: "cpu",
+    description: "RISC-V ISA coverage, extensions, and profile alignment.",
+  },
+  {
+    id: "security",
+    title: "Security",
+    icon: "shield",
+    description: "Memory safety, capabilities, and trusted execution.",
+  },
+  {
+    id: "safety",
+    title: "Safety & Certification",
+    icon: "badge-check",
+    description: "Functional safety and certification-ready collateral.",
+  },
+  {
+    id: "verification",
+    title: "Verification",
+    icon: "check-check",
+    description: "Open, reproducible verification of every capability.",
+  },
+  {
+    id: "performance",
+    title: "Performance",
+    icon: "gauge",
+    description: "Microarchitecture, frequency, and efficiency gains.",
+  },
+  {
+    id: "ecosystem",
+    title: "Tooling & Ecosystem",
+    icon: "blocks",
+    description: "Toolchains, SoC integration, and developer experience.",
+  },
+];
