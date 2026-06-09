@@ -24,7 +24,7 @@ Released RISC-V Hypervisor extension support for CVA6, recorded from the real CV
 
 ## Description
 
-Hypervisor support adds architectural state and privilege behavior needed to run virtualized guests. Partner needs now track validation, evidence, and platform-readiness work on top of the released implementation.
+Hypervisor support adds architectural state and privilege behavior needed to run virtualized guests. Partner needs now track validation, MMU/PMP evidence, and platform-readiness work on top of the released implementation.
 
 ## User value
 
@@ -33,4 +33,7 @@ Opens CVA6 to virtualized embedded and edge platforms with stronger software iso
 ## Links
 
 - [CVA6 5.1.0 release](https://github.com/openhwgroup/cva6/releases/tag/v5.1.0)
+- [Issue #3317 - H-extension mideleg reset behavior](https://github.com/openhwgroup/cva6/issues/3317)
+- [Issue #3299 - PTW PMP access fault reporting](https://github.com/openhwgroup/cva6/issues/3299)
+- [CVA6 MMU documentation](https://docs.openhwgroup.org/projects/cva6-user-manual/03_cva6_design/MMU.html)
 - [CVA6 GitHub repository](https://github.com/openhwgroup/cva6)

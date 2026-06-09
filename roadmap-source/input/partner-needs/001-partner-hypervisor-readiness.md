@@ -1,6 +1,6 @@
 ---
 id: partner-hypervisor-readiness
-title: Virtualization-ready CVA6 platforms
+title: Hypervisor/MMU readiness evidence
 sourceType: meeting-synthesis
 status: under-review
 proposingOrgs:
@@ -12,25 +12,32 @@ tags:
   - virtualization
   - isolation
   - RISC-V-H
-targetWindow: 2026 H2
+  - MMU
+  - PMP
+targetWindow: Evidence review
 owner: OpenHW CVA6 maintainers
 ---
-# Virtualization-ready CVA6 platforms
+# Hypervisor/MMU readiness evidence
 
 ## Summary
 
-Partners want a clear path for running isolated software stacks and virtualized guests on CVA6-based systems.
+Industrial users need release-linked evidence that CVA6 Hypervisor extension support, MMU behavior, PMP behavior, and known limitations are tracked visibly before virtualization readiness is presented as a stable platform claim.
 
 ## Requested capabilities
 
-- RISC-V Hypervisor extension support
-- stronger privilege and memory-protection validation
-- public verification evidence for virtualization use cases
+- release baseline tied to CVA6 5.1.0 Hypervisor extension support
+- MMU/PMP exception behavior evidence with public documentation links
+- open issue tracking for H-extension, PMP, and page-fault corner cases
+- regression notes that distinguish released functionality from platform-readiness evidence
 
 ## Public notes
 
-Keep this as a partner signal until release scope and verification evidence are confirmed by maintainers.
+Keep this as a partner signal until maintainers agree which issue closures, tests, and documentation are sufficient for a public readiness statement.
 
 ## Evidence
 
-- [CVA6 upstream repository](https://github.com/openhwgroup/cva6)
+- [CVA6 5.1.0 release](https://github.com/openhwgroup/cva6/releases/tag/v5.1.0)
+- [CVA6 MMU documentation](https://docs.openhwgroup.org/projects/cva6-user-manual/03_cva6_design/MMU.html)
+- [Issue #3317 - H-extension mideleg reset behavior](https://github.com/openhwgroup/cva6/issues/3317)
+- [Issue #3299 - PTW PMP access fault reporting](https://github.com/openhwgroup/cva6/issues/3299)
+- [CVA6 issues list](https://github.com/openhwgroup/cva6/issues)

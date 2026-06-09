@@ -24,7 +24,7 @@ Released CV-X-IF 1.0.0 coprocessor interface support for CVA6, with additional s
 
 ## Description
 
-CV-X-IF support gives integrators a structured path to connect custom execution resources while preserving the maintainability of the upstream CVA6 core. Future accelerator ideas are tracked separately as partner needs or exploratory roadmap items.
+CV-X-IF support gives integrators a structured path to connect custom execution resources while preserving the maintainability of the upstream CVA6 core. Future accelerator ideas are tracked separately as partner signals, with open issues used to identify integration and verification gaps.
 
 ## User value
 
@@ -34,4 +34,6 @@ Lets projects add specialized compute while staying aligned with the shared CVA6
 
 - [CVA6 5.2.0 release](https://github.com/openhwgroup/cva6/releases/tag/v5.2.0)
 - [CVA6 v5.3.0 release](https://github.com/openhwgroup/cva6/releases/tag/v5.3.0)
+- [Issue #3279 - WFI, interrupt flush, and CV-X-IF instructions](https://github.com/openhwgroup/cva6/issues/3279)
+- [Issue #3308 - CV-X-IF result.data and commit timing](https://github.com/openhwgroup/cva6/issues/3308)
 - [CVA6 GitHub repository](https://github.com/openhwgroup/cva6)

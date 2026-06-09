@@ -11,7 +11,8 @@ labels:
 sourceUrl: https://github.com/openhwgroup/cva6/releases
 includedRoadmapItems:
   - formal-verif
-  - iso26262-collateral
+  - safety-evaluation-evidence
+  - cvxif-integration-guide
 releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
 ---
 # CVA6 roadmap candidate (expected)
@@ -23,8 +24,9 @@ Demonstration planning line for showing how future OpenHW release candidates can
 ## Highlights
 
 - Expected scope should be approved in the monthly roadmap meeting before it becomes a commitment.
-- Formal verification evidence can be connected when public artifacts are available.
-- Safety collateral can be tracked here until maintainers create a concrete release tag.
+- Verification evidence can be connected when public artifacts are available.
+- Safety evaluation evidence can be tracked here without implying certification scope.
+- CV-X-IF integration guidance can be included once maintainers agree the issue-linked guidance is ready.
 
 ## Support
 

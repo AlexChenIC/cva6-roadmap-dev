@@ -1,35 +1,38 @@
 ---
 id: cheri-capabilities
-title: CHERI capabilities support
+title: CVA6-CHERI memory-safety study
 theme: Security
-status: Proposed
+status: Idea
 proposingOrgs:
   - lowrisc
   - capabilities
-owner: lowRISC / Capabilities working group
-targetWindow: Exploratory
+owner: lowRISC / Capabilities research partners
+targetWindow: Research
 tags:
   - CHERI
   - capabilities
   - memory-safety
   - security
-lastUpdated: 2026-05-01
+  - research
+lastUpdated: 2026-06-09
 featured: true
 ---
-# CHERI capabilities support
+# CVA6-CHERI memory-safety study
 
 ## Summary
 
-Exploratory support for CHERI-style architectural capabilities in CVA6. The goal is to assess memory-safety benefits and implementation impact before commitment.
+Research/scoping item that tracks public lowRISC and Capabilities work around CVA6-CHERI and CHERI-Mocha as a memory-safety direction, not as an accepted upstream CVA6 commitment.
 
 ## Description
 
-This future idea looks at capability-aware pointers, bounds, permissions, and the verification implications of bringing CHERI concepts into CVA6.
+The item records that CHERI-enhanced CVA6 designs are active in the wider ecosystem. Any upstream CVA6 roadmap decision should be discussed separately with maintainers and backed by concrete pull requests, issues, and verification evidence.
 
 ## User value
 
-Could make CVA6 a stronger platform for memory-safe open hardware research and products.
+Keeps memory-safety research visible while making the boundary clear between external CHERI-Mocha activity and the shared CVA6 roadmap.
 
 ## Links
 
-- [CVA6 GitHub repository](https://github.com/openhwgroup/cva6)
+- [lowRISC CHERI-Mocha announcement](https://lowrisc.org/news/cheri-mocha-memory-safe-compute-subsystem-is-now-open/)
+- [lowRISC CHERI-Mocha Secure Enclave page](https://lowrisc.org/cosmic/)
+- [Capabilities Limited CHERI page](https://www.capabilitieslimited.co.uk/cheri)

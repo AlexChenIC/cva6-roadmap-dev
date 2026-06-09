@@ -58,8 +58,8 @@
   summary: Released RISC-V Hypervisor extension support for CVA6, recorded from the real CVA6 5.1.0
     upstream release.
   description: Hypervisor support adds architectural state and privilege behavior needed to run
-    virtualized guests. Partner needs now track validation, evidence, and platform-readiness work on
-    top of the released implementation.
+    virtualized guests. Partner needs now track validation, MMU/PMP evidence, and platform-readiness
+    work on top of the released implementation.
   theme: Architecture & ISA
   status: Released
   proposingOrgs:
@@ -76,6 +76,12 @@
   links:
     - label: CVA6 5.1.0 release
       url: https://github.com/openhwgroup/cva6/releases/tag/v5.1.0
+    - label: "Issue #3317 - H-extension mideleg reset behavior"
+      url: https://github.com/openhwgroup/cva6/issues/3317
+    - label: "Issue #3299 - PTW PMP access fault reporting"
+      url: https://github.com/openhwgroup/cva6/issues/3299
+    - label: CVA6 MMU documentation
+      url: https://docs.openhwgroup.org/projects/cva6-user-manual/03_cva6_design/MMU.html
     - label: CVA6 GitHub repository
       url: https://github.com/openhwgroup/cva6
   lastUpdated: 2024-07-11
@@ -86,7 +92,8 @@
     configuration coverage in the CVA6 5.3.0 release line.
   description: CV-X-IF support gives integrators a structured path to connect custom execution
     resources while preserving the maintainability of the upstream CVA6 core. Future accelerator
-    ideas are tracked separately as partner needs or exploratory roadmap items.
+    ideas are tracked separately as partner signals, with open issues used to identify integration
+    and verification gaps.
   theme: Tooling & Ecosystem
   status: Released
   proposingOrgs:
@@ -106,99 +113,133 @@
       url: https://github.com/openhwgroup/cva6/releases/tag/v5.2.0
     - label: CVA6 v5.3.0 release
       url: https://github.com/openhwgroup/cva6/releases/tag/v5.3.0
+    - label: "Issue #3279 - WFI, interrupt flush, and CV-X-IF instructions"
+      url: https://github.com/openhwgroup/cva6/issues/3279
+    - label: "Issue #3308 - CV-X-IF result.data and commit timing"
+      url: https://github.com/openhwgroup/cva6/issues/3308
     - label: CVA6 GitHub repository
       url: https://github.com/openhwgroup/cva6
   lastUpdated: 2025-01-16
 - id: formal-verif
-  title: Formal verification of control path
-  summary: Formal verification campaign for key CVA6 control-path behavior. It complements simulation
-    regressions with stronger proofs around critical state transitions.
-  description: The effort targets properties where formal methods can catch corner cases that are hard
-    to reach through directed or random simulation alone.
+  title: Control-path verification evidence
+  summary: Verification evidence track for selected control-path behavior, intended to connect public
+    issues, requirements, tests, and future formal artifacts once maintainers approve the scope.
+  description: This item is phrased as an evidence track rather than a completed formal campaign. It
+    gives the roadmap a place to collect verification references for security- and safety-relevant
+    behavior without claiming unpublished proof coverage.
   theme: Verification
   status: Verification
   proposingOrgs:
     - lowrisc
   owner: OpenHW verification working group
-  targetWindow: 2026 H1
+  targetWindow: Evidence review
   targetRelease: CVA6 roadmap candidate (expected)
   tags:
     - formal
     - control-path
     - properties
     - verification
-  userValue: Increases confidence in safety- and security-relevant control behavior before release.
+    - evidence
+  userValue: Increases confidence by making verification intent, public evidence, and remaining gaps
+    easier for partners to review.
   links:
-    - label: CVA6 GitHub repository
-      url: https://github.com/openhwgroup/cva6
-  lastUpdated: 2026-03-20
+    - label: CVA6 Requirement Specification
+      url: https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html
+    - label: CVA6 issues list
+      url: https://github.com/openhwgroup/cva6/issues
+  lastUpdated: 2026-06-09
   featured: true
-- id: iso26262-collateral
-  title: ISO 26262 safety collateral
-  summary: Planned collateral package to support ISO 26262-oriented evaluation of CVA6. The scope is
-    documentation, traceability, and verification evidence, not certification by the website.
-  description: The safety collateral track organizes the artifacts integrators need when assessing
-    CVA6 for automotive or other functional-safety programs.
+- id: safety-evaluation-evidence
+  title: Safety evaluation evidence package
+  summary: Proposed evidence package that helps safety-oriented adopters evaluate selected CVA6
+    configurations through requirements links, verification references, release scope, and
+    known-limitations tracking.
+  description: This is not a certification roadmap item. It is a maintainer-reviewed structure for
+    collecting public evaluation evidence that can later support partner-specific safety programs if
+    the relevant teams approve the scope.
   theme: Safety & Certification
-  status: Planned
+  status: Proposed
   proposingOrgs:
     - thales
-  owner: Thales safety team
-  targetWindow: "2027"
+  owner: OpenHW verification maintainers / Thales reviewers
+  targetWindow: Candidate evidence package
   tags:
-    - ISO-26262
     - safety
-    - collateral
+    - evidence
     - traceability
-  userValue: Helps safety-focused adopters understand what evidence exists and what remains to be produced.
+    - requirements
+  userValue: Gives safety-focused adopters a clear, reviewable map from roadmap claims to
+    requirements, verification evidence, and unresolved public issues.
   links:
-    - label: CVA6 GitHub repository
-      url: https://github.com/openhwgroup/cva6
-  lastUpdated: 2026-04-12
+    - label: CVA6 Requirement Specification
+      url: https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html
+    - label: CVA6 issues list
+      url: https://github.com/openhwgroup/cva6/issues
+    - label: CVA6 MMU documentation
+      url: https://docs.openhwgroup.org/projects/cva6-user-manual/03_cva6_design/MMU.html
+  lastUpdated: 2026-06-09
   featured: true
 - id: cheri-capabilities
-  title: CHERI capabilities support
-  summary: Exploratory support for CHERI-style architectural capabilities in CVA6. The goal is to
-    assess memory-safety benefits and implementation impact before commitment.
-  description: This future idea looks at capability-aware pointers, bounds, permissions, and the
-    verification implications of bringing CHERI concepts into CVA6.
+  title: CVA6-CHERI memory-safety study
+  summary: Research/scoping item that tracks public lowRISC and Capabilities work around CVA6-CHERI
+    and CHERI-Mocha as a memory-safety direction, not as an accepted upstream CVA6 commitment.
+  description: The item records that CHERI-enhanced CVA6 designs are active in the wider ecosystem.
+    Any upstream CVA6 roadmap decision should be discussed separately with maintainers and backed by
+    concrete pull requests, issues, and verification evidence.
   theme: Security
-  status: Proposed
+  status: Idea
   proposingOrgs:
     - lowrisc
     - capabilities
-  owner: lowRISC / Capabilities working group
-  targetWindow: Exploratory
+  owner: lowRISC / Capabilities research partners
+  targetWindow: Research
   tags:
     - CHERI
     - capabilities
     - memory-safety
     - security
-  userValue: Could make CVA6 a stronger platform for memory-safe open hardware research and products.
+    - research
+  userValue: Keeps memory-safety research visible while making the boundary clear between external
+    CHERI-Mocha activity and the shared CVA6 roadmap.
   links:
-    - label: CVA6 GitHub repository
-      url: https://github.com/openhwgroup/cva6
-  lastUpdated: 2026-05-01
+    - label: lowRISC CHERI-Mocha announcement
+      url: https://lowrisc.org/news/cheri-mocha-memory-safe-compute-subsystem-is-now-open/
+    - label: lowRISC CHERI-Mocha Secure Enclave page
+      url: https://lowrisc.org/cosmic/
+    - label: Capabilities Limited CHERI page
+      url: https://www.capabilitieslimited.co.uk/cheri
+  lastUpdated: 2026-06-09
   featured: true
-- id: ml-coupling
-  title: ML accelerator coupling
-  summary: Exploratory coupling patterns for machine-learning accelerators next to CVA6. The work
-    focuses on clean interfaces and software handoff rather than a specific accelerator block.
-  description: This idea evaluates how CVA6 could orchestrate ML accelerators through memory,
-    interrupt, and coprocessor integration models while keeping the CPU roadmap focused.
+- id: cvxif-integration-guide
+  title: CV-X-IF custom extension integration guide
+  summary: Proposed guidance package for custom instructions and external coprocessors using CV-X-IF,
+    grounded in public CVA6 releases and open integration issues.
+  description: "The item keeps accelerator discussion at the integration-contract level: how to use
+    the released CV-X-IF interface, what verification evidence is expected, and which corner cases
+    need issue-driven closure before stronger platform claims are made."
   theme: Tooling & Ecosystem
   status: Proposed
   proposingOrgs:
+    - unibo
     - capabilities
-  owner: Capabilities working group
-  targetWindow: Exploratory
+  owner: OpenHW CV-X-IF maintainers
+  targetWindow: Candidate guidance
   tags:
-    - ML
-    - accelerator
-    - integration
-    - ecosystem
-  userValue: Helps AI-oriented integrators understand how CVA6 might sit beside domain-specific compute.
+    - CV-X-IF
+    - custom-instructions
+    - coprocessor
+    - verification
+  userValue: Helps research and product teams integrate custom execution resources without turning
+    every accelerator idea into a native CVA6 core feature.
   links:
-    - label: CVA6 GitHub repository
-      url: https://github.com/openhwgroup/cva6
-  lastUpdated: 2026-05-15
+    - label: CVA6 5.2.0 release
+      url: https://github.com/openhwgroup/cva6/releases/tag/v5.2.0
+    - label: CVA6 v5.3.0 release
+      url: https://github.com/openhwgroup/cva6/releases/tag/v5.3.0
+    - label: "Issue #3279 - WFI, interrupt flush, and CV-X-IF instructions"
+      url: https://github.com/openhwgroup/cva6/issues/3279
+    - label: "Issue #3308 - CV-X-IF result.data and commit timing"
+      url: https://github.com/openhwgroup/cva6/issues/3308
+    - label: "Issue #2499 - Custom instruction guidance"
+      url: https://github.com/openhwgroup/cva6/issues/2499
+  lastUpdated: 2026-06-09

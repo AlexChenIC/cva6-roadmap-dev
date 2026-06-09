@@ -176,13 +176,16 @@
   highlights:
     - Expected scope should be approved in the monthly roadmap meeting before it becomes a
       commitment.
-    - Formal verification evidence can be connected when public artifacts are available.
-    - Safety collateral can be tracked here until maintainers create a concrete release tag.
+    - Verification evidence can be connected when public artifacts are available.
+    - Safety evaluation evidence can be tracked here without implying certification scope.
+    - CV-X-IF integration guidance can be included once maintainers agree the issue-linked guidance
+      is ready.
   sourceUrl: https://github.com/openhwgroup/cva6/releases
   support: Example planning line only; final support policy must be confirmed by OpenHW maintainers.
   includedRoadmapItems:
     - formal-verif
-    - iso26262-collateral
+    - safety-evaluation-evidence
+    - cvxif-integration-guide
   releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
   verificationSummary: Example only. Intended to show how planned release scope can reference roadmap
     items without claiming an upstream release exists.
