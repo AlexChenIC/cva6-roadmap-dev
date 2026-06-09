@@ -3,7 +3,7 @@
   slug: cva6
   summary: OpenHW's application-class, Linux-capable RISC-V core roadmap.
   description: "This first portal scope focuses on CVA6 as the pilot project for the roadmap protocol:
-    public strategy, structured roadmap items, release windows, feature details, ownership, and
+    public strategy, structured roadmap items, release windows, roadmap detail pages, ownership, and
     contribution flow."
   maturity: Application-class core
   status: Active public roadmap pilot

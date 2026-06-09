@@ -1,18 +1,18 @@
 # Contributing to the CVA6 Roadmap
 
 This repository maintains a public roadmap portal for the OpenHW CVA6 RISC-V core.
-The site is intentionally source driven: roadmap content lives in YAML and Markdown
-files under `roadmap-source/`, and the Next.js app renders that data into the board,
-catalog, organization pages, release pages, partner signals, and feature detail pages.
+The site is intentionally source driven: roadmap content is edited as Markdown
+files under `roadmap-source/input/`, generated into YAML under
+`roadmap-source/generated/`, and rendered by the Next.js app.
 
 ## Ways to propose a change
 
 Use a roadmap proposal issue when a topic needs discussion before a data change.
 Use a pull request when the requested data update is already clear.
 
-Start partner requests in `roadmap-source/partner-needs.yml`. Move content into
-`roadmap-source/roadmap-items.yml` only after maintainers accept the owner, scope,
-status, timing, and evidence.
+Start partner requests in `roadmap-source/input/partner-needs/`. Move content
+into `roadmap-source/input/roadmap-items/` only after maintainers accept the
+owner, scope, status, timing, and evidence.
 
 Good proposals include:
 
@@ -27,16 +27,18 @@ Good proposals include:
 
 ## Editing roadmap source
 
-Roadmap items are defined in `roadmap-source/roadmap-items.yml`. Partner expectations
-that are not yet official commitments are defined in `roadmap-source/partner-needs.yml`.
-The app reads those files at build time through `lib/roadmap-source.ts`.
+Roadmap items are defined in `roadmap-source/input/roadmap-items/*.md`. Partner
+expectations that are not yet official commitments are defined in
+`roadmap-source/input/partner-needs/*.md`. The generator writes
+`roadmap-source/generated/*.yml`, and the app reads those generated files at
+build time through `lib/roadmap-source.ts`.
 
 When adding or editing an item:
 
 - Keep the `id` stable and URL-safe.
 - Use one of the existing `Theme` values from `lib/types.ts`.
 - Use one of the lifecycle statuses from `LifecycleStatus`.
-- Include at least one `proposingOrgs` id from `roadmap-source/organizations.yml`.
+- Include at least one `proposingOrgs` id from `roadmap-source/input/organizations/`.
 - Include an `owner` value that names a responsible team or point of contact group.
 - Keep `summary` to one or two sentences.
 - Add a practical `userValue` line.

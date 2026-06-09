@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "validate:data": "node scripts/validate-roadmap-source.mjs",
+    "generate:data": "node scripts/generate-roadmap-source.mjs",
+    "dev": "npm run generate:data && next dev",
+    "build": "npm run generate:data && next build",
+    "validate:data": "npm run generate:data && node scripts/validate-roadmap-source.mjs",
     "start": "next start",
     "lint": "eslint"
   },

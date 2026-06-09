@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping keep the CVA6 roadmap accurate. Partner requests usually start in roadmap-source/partner-needs.yml. Accepted public commitments move into roadmap-source/roadmap-items.yml after maintainer review.
+        Thanks for helping keep the CVA6 roadmap accurate. Partner requests usually start as Markdown files in roadmap-source/input/partner-needs/. Accepted public commitments move into roadmap-source/input/roadmap-items/ after maintainer review.
   - type: input
     id: title
     attributes:

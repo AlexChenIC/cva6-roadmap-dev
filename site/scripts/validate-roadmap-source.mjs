@@ -8,6 +8,7 @@ const sourceRootCandidates = [
   path.join(root, "..", "roadmap-source"),
 ];
 const sourceRoot = sourceRootCandidates.find((candidate) => fs.existsSync(candidate)) ?? sourceRootCandidates[0];
+const generatedFiles = new Set(["organizations.yml", "partner-needs.yml", "releases.yml", "roadmap-items.yml"]);
 
 const themes = new Set([
   "Architecture & ISA",
@@ -36,7 +37,10 @@ const partnerSourceTypes = new Set(["meeting-synthesis", "partner-proposal", "ma
 const errors = [];
 
 function readYaml(fileName) {
-  const filePath = path.join(sourceRoot, fileName);
+  const generatedPath = path.join(sourceRoot, "generated", fileName);
+  const filePath = generatedFiles.has(fileName) && fs.existsSync(generatedPath)
+    ? generatedPath
+    : path.join(sourceRoot, fileName);
 
   if (!fs.existsSync(filePath)) {
     errors.push(`${fileName}: missing file`);

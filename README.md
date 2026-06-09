@@ -22,13 +22,20 @@ deployment, and repository metadata.
 ## The Maintenance Model
 
 Partners and maintainers should not need to touch the website implementation for
-normal roadmap updates. The website reads structured files from
-`roadmap-source/` at build time and renders the public pages automatically.
+normal roadmap updates. The repository uses a two-layer source model:
+
+```text
+roadmap-source/input/      Human-edited Markdown files for normal PRs
+roadmap-source/templates/  Copyable starting points for new entries
+roadmap-source/generated/  Machine-generated YAML read by the website
+site/                      Static website renderer and validation scripts
+```
 
 Think of it as a public departure board:
 
-- `roadmap-source/` is the approved flight plan.
-- `site/` is the screen that displays it.
+- `input/` is the simple form partners fill in.
+- `generated/` is the timetable produced from those forms.
+- `site/` is the screen that displays the timetable.
 - Pull requests are the control gate.
 
 This is a good fit for an open-source organization because partners can propose
@@ -36,37 +43,40 @@ changes openly, while OpenHW maintainers still decide what becomes official.
 
 ## What Partners Usually Edit
 
-Most updates should touch only one or two files:
+Most updates should touch one Markdown file under `roadmap-source/input/`:
 
 ```text
-roadmap-source/partner-needs.yml     Partner expectations before commitment
-roadmap-source/roadmap-items.yml     Accepted roadmap items and feature plans
-roadmap-source/releases.yml          Real releases and planned release windows
-roadmap-source/organizations.yml     Organization names, labels, and logos
-roadmap-source/meeting-notes/        Monthly CVA6 roadmap meeting notes
+roadmap-source/input/partner-needs/*.md    Partner expectations before commitment
+roadmap-source/input/roadmap-items/*.md    Accepted roadmap items and feature plans
+roadmap-source/input/releases/*.md         Real releases and planned release windows
+roadmap-source/input/organizations/*.md    Organization names, labels, and logos
+roadmap-source/input/meeting-notes/*.md    Reviewed CVA6 meeting summaries
 ```
 
 Examples:
 
-- A partner asks for virtualization readiness: edit `partner-needs.yml`.
-- Maintainers accept a feature into the public roadmap: edit `roadmap-items.yml`.
-- A new upstream CVA6 release is published: edit `releases.yml`.
-- A new organization starts participating: edit `organizations.yml`, then refer
-  to its `id` from roadmap items or partner needs.
+- A partner asks for virtualization readiness: add or edit one file in
+  `input/partner-needs/`.
+- Maintainers accept a feature into the public roadmap: add or edit one file in
+  `input/roadmap-items/`.
+- A new upstream CVA6 release is published: add or edit one file in
+  `input/releases/`.
+- A new organization starts participating: add or edit one file in
+  `input/organizations/`, then refer to its `id` from roadmap items or partner
+  needs.
 
 ## Source Files
 
 ```text
 roadmap-source/
+  README.md                 Source-folder guide
+  input/                    Daily editing area for partners and maintainers
+  templates/                Copyable Markdown templates
+  generated/                YAML generated from input; do not hand-edit
   strategy.yml              Roadmap framing and governance policy
-  organizations.yml         Organizations, display labels, demo badges, URLs
   pillars.yml               Strategic themes used by filters
   projects.yml              Project-level metadata
-  roadmap-items.yml         Accepted roadmap items
-  releases.yml              Real releases plus clearly marked planned examples
-  partner-needs.yml         Partner expectations not yet official commitments
   updates/                  Public changelog-style notes
-  meeting-notes/            Monthly CVA6 roadmap meeting notes
   schemas/                  Validation notes
 ```
 
@@ -94,13 +104,14 @@ OpenHW delivery promise.
 ## Monthly Workflow
 
 1. Discuss roadmap changes in the CVA6 roadmap meeting.
-2. Capture decisions in `roadmap-source/meeting-notes/`.
-3. Update `partner-needs.yml`, `roadmap-items.yml`, or `releases.yml`.
-4. Run validation locally.
-5. Open a pull request.
-6. Review the Vercel preview.
-7. Merge only after owner, status, target window, and evidence are clear.
-8. Production updates automatically after merge or manual deployment.
+2. Capture reviewed decisions in `roadmap-source/input/meeting-notes/`.
+3. Copy a template from `roadmap-source/templates/` when adding a new entry.
+4. Update the relevant Markdown file under `roadmap-source/input/`.
+5. Run validation locally; it regenerates `roadmap-source/generated/*.yml`.
+6. Open a pull request.
+7. Review the Vercel preview.
+8. Merge only after owner, status, target window, and evidence are clear.
+9. Production updates automatically after merge or manual deployment.
 
 ## Local Review
 
@@ -109,6 +120,7 @@ The implementation lives under `site/`, so local commands run there:
 ```bash
 cd site
 npm install
+npm run generate:data
 npm run validate:data
 npm run lint
 npx tsc --noEmit
@@ -118,7 +130,8 @@ npm run dev
 
 Open http://localhost:3000.
 
-`npm run validate:data` checks for common governance and data problems:
+`npm run validate:data` first regenerates YAML from Markdown, then checks for
+common governance and data problems:
 
 - duplicate IDs
 - invalid organization references

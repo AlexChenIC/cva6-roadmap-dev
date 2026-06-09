@@ -12,9 +12,14 @@ import type {
 } from "@/lib/types";
 
 const sourceRoot = path.join(process.cwd(), "..", "roadmap-source");
+const generatedFiles = new Set(["organizations.yml", "partner-needs.yml", "releases.yml", "roadmap-items.yml"]);
 
 function readYaml<T>(fileName: string): T {
-  const filePath = path.join(sourceRoot, fileName);
+  const generatedPath = path.join(sourceRoot, "generated", fileName);
+  const filePath = generatedFiles.has(fileName) && fs.existsSync(generatedPath)
+    ? generatedPath
+    : path.join(sourceRoot, fileName);
+
   return parse(fs.readFileSync(filePath, "utf8")) as T;
 }
 

@@ -6,25 +6,31 @@ The website reads these files at build time and turns them into the public pages
 Partners should propose changes here through pull requests. Maintainers decide
 what is merged into the official roadmap.
 
-## Files
+## Folder Map
 
+- `input/` - the normal editing area. Partners and maintainers add or update
+  Markdown files here.
+- `templates/` - copyable Markdown templates for new roadmap items, partner
+  needs, releases, organizations, and meeting notes.
+- `generated/` - YAML produced from `input/`. The website reads these files at
+  build time. Do not hand-edit them.
 - `strategy.yml` - organization-level roadmap framing and policy.
-- `organizations.yml` - participating organizations shown across the site.
 - `pillars.yml` - strategic themes used for filtering and grouping.
 - `projects.yml` - project-level metadata.
-- `roadmap-items.yml` - accepted roadmap items and feature-level plans.
-- `releases.yml` - release windows and their included roadmap items.
-- `partner-needs.yml` - partner expectations that are not yet official commitments.
 - `updates/` - public changelog-style notes.
-- `meeting-notes/` - monthly CVA6 roadmap meeting notes.
+- `schemas/` - validation notes.
 
 ## How to propose a change
 
-1. Open a pull request that edits only the relevant files in this folder.
-2. For a partner request, start in `partner-needs.yml`.
-3. For an accepted roadmap commitment, update `roadmap-items.yml`.
-4. Link public evidence such as issues, PRs, specs, meeting notes, or verification results.
-5. Run `cd site && npm run validate:data` before asking for review.
+1. Copy the relevant template from `templates/`.
+2. Put the new Markdown file in the matching `input/` folder.
+3. For a partner request, start in `input/partner-needs/`.
+4. For an accepted roadmap commitment, use `input/roadmap-items/`.
+5. Link public evidence such as issues, PRs, specs, meeting notes, or verification results.
+6. Run `cd site && npm run validate:data` before asking for review.
+
+`npm run validate:data` regenerates `generated/*.yml` and then validates
+references, dates, IDs, URLs, release links, and organization IDs.
 
 ## Promotion rule
 
