@@ -10,7 +10,7 @@
 - [ ] Partner requests start in `roadmap-source/partner-needs.yml` unless maintainers have accepted them.
 - [ ] Official commitments in `roadmap-source/roadmap-items.yml` have a clear owner, status, target window or release, and evidence.
 - [ ] New or edited items have a stable `id`, `title`, `summary`, `theme`, `status`, `proposingOrgs`, `owner`, `tags`, and `lastUpdated`.
-- [ ] The lifecycle status maps to the intended public lane in `lib/lanes.ts`.
+- [ ] The lifecycle status maps to the intended public lane in `site/lib/lanes.ts`.
 - [ ] Organization ids already exist in `roadmap-source/organizations.yml`, or this PR adds them intentionally.
 - [ ] Links are public and useful to reviewers.
 
@@ -22,10 +22,10 @@
 
 ## Verification
 
-- [ ] `npm run validate:data`
-- [ ] `npm run lint`
-- [ ] `npx tsc --noEmit`
-- [ ] `npm run build` if page or component behavior changed
+- [ ] `cd site && npm run validate:data`
+- [ ] `cd site && npm run lint`
+- [ ] `cd site && npx tsc --noEmit`
+- [ ] `cd site && npm run build` if page or component behavior changed
 
 ## Notes for reviewers
 

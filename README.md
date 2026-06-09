@@ -2,188 +2,79 @@
 
 Public roadmap portal for the OpenHW CVA6 RISC-V core.
 
-The website is the display surface. The roadmap source lives in `roadmap-source/`.
-Think of `roadmap-source/` as the flight plan and the website as the public
-departure board: partners propose changes to the plan, maintainers approve the
-plan, and the site renders the approved state automatically.
+This repository is intentionally split into three visible parts:
+
+```text
+README.md        You are here: how to maintain and review the roadmap.
+roadmap-source/  The daily editing area for roadmap data and meeting notes.
+site/            The static website generator. Edit only when changing rendering.
+```
+
+Hidden folders such as `.github/`, `.vercel/`, and `.git/` contain automation,
+deployment, and repository metadata.
 
 ## Live Links
 
 - Production site: https://cva6-roadmap-dev.vercel.app
 - GitHub repository: https://github.com/AlexChenIC/cva6-roadmap-dev
+- Upstream CVA6 releases: https://github.com/openhwgroup/cva6/releases
 
-## What This Repo Is For
+## The Maintenance Model
 
-This repo is a pilot for an OpenHW-friendly roadmap protocol:
+Partners and maintainers should not need to touch the website implementation for
+normal roadmap updates. The website reads structured files from
+`roadmap-source/` at build time and renders the public pages automatically.
 
-- show what CVA6 already has
-- show what is being implemented or verified
-- show planned and exploratory work
-- separate partner requests from official commitments
-- connect roadmap items to owners, organizations, releases, and evidence
-- let partners propose updates through GitHub pull requests
+Think of it as a public departure board:
 
-It is not a Jira replacement, a CI dashboard, or a place for private planning.
+- `roadmap-source/` is the approved flight plan.
+- `site/` is the screen that displays it.
+- Pull requests are the control gate.
 
-## The Source Of Truth
+This is a good fit for an open-source organization because partners can propose
+changes openly, while OpenHW maintainers still decide what becomes official.
 
-All public roadmap content is maintained in `roadmap-source/`.
+## What Partners Usually Edit
+
+Most updates should touch only one or two files:
+
+```text
+roadmap-source/partner-needs.yml     Partner expectations before commitment
+roadmap-source/roadmap-items.yml     Accepted roadmap items and feature plans
+roadmap-source/releases.yml          Real releases and planned release windows
+roadmap-source/organizations.yml     Organization names, labels, and logos
+roadmap-source/meeting-notes/        Monthly CVA6 roadmap meeting notes
+```
+
+Examples:
+
+- A partner asks for virtualization readiness: edit `partner-needs.yml`.
+- Maintainers accept a feature into the public roadmap: edit `roadmap-items.yml`.
+- A new upstream CVA6 release is published: edit `releases.yml`.
+- A new organization starts participating: edit `organizations.yml`, then refer
+  to its `id` from roadmap items or partner needs.
+
+## Source Files
 
 ```text
 roadmap-source/
-  strategy.yml              # organization-level roadmap framing
-  organizations.yml         # partner and maintainer organization metadata
-  pillars.yml               # strategic themes used by filters
-  projects.yml              # project-level metadata
-  roadmap-items.yml         # accepted public roadmap items
-  releases.yml              # release windows and included roadmap items
-  partner-needs.yml         # partner expectations not yet official commitments
-  updates/                  # public update notes
-  meeting-notes/            # monthly CVA6 roadmap meeting notes
-  schemas/                  # validation notes
+  strategy.yml              Roadmap framing and governance policy
+  organizations.yml         Organizations, display labels, demo badges, URLs
+  pillars.yml               Strategic themes used by filters
+  projects.yml              Project-level metadata
+  roadmap-items.yml         Accepted roadmap items
+  releases.yml              Real releases plus clearly marked planned examples
+  partner-needs.yml         Partner expectations not yet official commitments
+  updates/                  Public changelog-style notes
+  meeting-notes/            Monthly CVA6 roadmap meeting notes
+  schemas/                  Validation notes
 ```
 
-The app reads these files during the Next.js build through `lib/roadmap-source.ts`.
-The `data/*.ts` files are now thin adapters, not the source data.
+The current release data includes real entries from
+https://github.com/openhwgroup/cva6/releases. Planned entries are explicitly
+tagged as examples, not commitments.
 
-## How To Use This Repo
-
-### I am a partner and want to propose a need
-
-Start in `roadmap-source/partner-needs.yml`.
-
-Use this when the request is important, but not yet an OpenHW/CVA6 commitment.
-Examples:
-
-- "We need stronger virtualization support."
-- "We need safety collateral and traceability."
-- "We want a clean accelerator extension path."
-
-Add a new object with:
-
-- stable `id`
-- `title`
-- `summary`
-- `sourceType`
-- `status`
-- `proposingOrgs`
-- `relatedRoadmapItems`
-- `requestedCapabilities`
-- `owner` when known
-- public `evidence` links when available
-
-Then open a pull request. Maintainers will review whether it should remain a
-partner need, be refined, or be promoted into `roadmap-items.yml`.
-
-### I am a maintainer and want to accept a roadmap item
-
-Edit `roadmap-source/roadmap-items.yml`.
-
-Use this file only for items that the roadmap maintainers are willing to show as
-official public roadmap content.
-
-Every accepted item should include:
-
-- `id`
-- `title`
-- `summary`
-- `theme`
-- `status`
-- `proposingOrgs`
-- `owner`
-- `targetWindow` or `targetRelease` when known
-- `tags`
-- `userValue`
-- `links`
-- `lastUpdated`
-
-If the item belongs to a release, also update `roadmap-source/releases.yml`.
-
-### I want to update a release target
-
-Edit `roadmap-source/releases.yml`.
-
-Use `includedRoadmapItems` to connect a release to accepted roadmap item IDs:
-
-```yaml
-includedRoadmapItems:
-  - hypervisor-h
-  - formal-verif
-  - rva23-profile
-```
-
-The validator checks that every referenced roadmap item exists.
-
-### I want to add a new organization
-
-Edit `roadmap-source/organizations.yml` first, then reference the new org ID from
-`roadmap-items.yml`, `partner-needs.yml`, or `projects.yml`.
-
-Use a short, URL-safe `id` such as `openhw`, `thales`, or `unibo`.
-
-### I want to record the monthly CVA6 roadmap meeting
-
-Add a note under `roadmap-source/meeting-notes/`.
-
-Recommended naming:
-
-```text
-roadmap-source/meeting-notes/2026-07-cva6-roadmap.md
-```
-
-Use the note to explain what changed and why. If the meeting changes official
-roadmap data, open a pull request that updates both the meeting note and the
-relevant YAML file.
-
-## Maintainer Workflow
-
-The monthly maintenance loop is:
-
-1. Discuss roadmap changes in the CVA6 roadmap meeting.
-2. Capture decisions in `roadmap-source/meeting-notes/`.
-3. Update `partner-needs.yml`, `roadmap-items.yml`, or `releases.yml`.
-4. Run validation locally.
-5. Open a pull request.
-6. Review the Vercel preview.
-7. Merge only after owner, status, target window, and evidence are clear.
-8. Production updates automatically after merge.
-
-## Validation
-
-Run this before opening a pull request:
-
-```bash
-npm run validate:data
-npm run lint
-npx tsc --noEmit
-npm run build
-```
-
-`npm run validate:data` checks the roadmap source for common governance mistakes:
-
-- duplicate IDs
-- invalid theme or status values
-- missing owners
-- broken organization references
-- release entries pointing at nonexistent roadmap items
-- partner needs pointing at nonexistent roadmap items
-- malformed URLs
-- malformed `lastUpdated` dates
-
-GitHub Actions runs the same checks on pull requests.
-
-## Pages Generated From The Source
-
-- `/` - overview, strategy, partner signals, highlights, organizations, release windows
-- `/roadmap` - public roadmap board with lane, organization, theme, and text filters
-- `/projects` - project-level protocol view for the CVA6 pilot
-- `/features` - searchable feature catalog
-- `/features/[id]` - roadmap item detail pages
-- `/releases` - release-oriented roadmap view
-- `/organizations` - organization attribution
-- `/contribute` - contribution and PR workflow
-
-## Governance Rule
+## Promotion Rule
 
 Partner needs are welcome, but they are not automatically official roadmap
 commitments.
@@ -193,31 +84,78 @@ A partner need becomes an official roadmap item only after maintainers agree on:
 - owner or responsible team
 - lifecycle status
 - target window or release
-- scope
+- scope and risk notes
 - public evidence links
-- risk or validation notes
+- verification or validation expectations
 
-This keeps the roadmap open to partner input without turning every request into
-an OpenHW delivery promise.
+This lets the website show partner demand without turning every request into an
+OpenHW delivery promise.
 
-## Local Development
+## Monthly Workflow
+
+1. Discuss roadmap changes in the CVA6 roadmap meeting.
+2. Capture decisions in `roadmap-source/meeting-notes/`.
+3. Update `partner-needs.yml`, `roadmap-items.yml`, or `releases.yml`.
+4. Run validation locally.
+5. Open a pull request.
+6. Review the Vercel preview.
+7. Merge only after owner, status, target window, and evidence are clear.
+8. Production updates automatically after merge or manual deployment.
+
+## Local Review
+
+The implementation lives under `site/`, so local commands run there:
 
 ```bash
+cd site
 npm install
+npm run validate:data
+npm run lint
+npx tsc --noEmit
+npm run build
 npm run dev
 ```
 
 Open http://localhost:3000.
 
-## Tech Stack
+`npm run validate:data` checks for common governance and data problems:
 
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- YAML roadmap source
-- Static build, no database, no auth, no runtime API dependency
-- Vercel deployment target
+- duplicate IDs
+- invalid organization references
+- invalid roadmap status or theme values
+- release entries pointing at nonexistent roadmap items
+- partner needs pointing at nonexistent roadmap items
+- malformed URLs
+- malformed `lastUpdated` dates
 
-## License
+## Deployment
 
-Apache License 2.0. CVA6 Roadmap is a project of the OpenHW Group.
+Deploy from the repository root using a prebuilt deployment. The local build
+runs inside `site/`, where the app can read `../roadmap-source/`:
+
+```bash
+npx vercel build --prod --cwd site
+npx vercel deploy --prebuilt --prod --cwd site
+```
+
+The Vercel config lives in `site/vercel.json` to keep the root directory focused
+on the README, roadmap source, and site generator. For Git-based Vercel builds,
+set the Vercel project Root Directory to `site`.
+
+## Generated Pages
+
+- `/` - overview, strategy, partner signals, highlights, organizations, releases
+- `/roadmap` - roadmap board with lane, organization, theme, and text filters
+- `/projects` - project-level protocol view for the CVA6 pilot
+- `/features` - searchable feature catalog
+- `/features/[id]` - roadmap item detail pages
+- `/releases` - real and planned release-oriented view
+- `/organizations` - organization attribution
+- `/contribute` - contribution and PR workflow
+
+## Editing Boundary
+
+For normal roadmap maintenance, edit `roadmap-source/` only.
+
+Edit `site/` when changing layout, visual design, filters, routes, validation
+logic, or deployment behavior.

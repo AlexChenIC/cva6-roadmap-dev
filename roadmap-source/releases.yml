@@ -1,10 +1,156 @@
-- id: v4
-  version: CVA6 4.x
+- id: cv32a60x-6-0-0
+  version: CV32A60X 6.0.0
   status: released
   releaseType: stable
-  date: "2024"
-  summary: Stable RV64GC / RV32 core, Linux-capable, OpenHW-verified.
-  support: Maintained through the upstream OpenHW CVA6 project.
+  tagName: cv32a60x-v6.0.0
+  date: 2025-04-23
+  summary: Real upstream CV32A60X configuration release targeting TRL5 readiness.
+  labels:
+    - real-release
+    - CV32A60X
+    - TRL5
+  highlights:
+    - Specific CV32A60X configuration released for TRL5.
+    - Pipeline hierarchy updated with OBI-oriented integration.
+    - Caches and PMP entries disabled for this configuration.
+    - Zifencei disabled for the CV32A60X release configuration.
+    - Code coverage, functional coverage, lint, and documentation improved for the configuration.
+  sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/cv32a60x-v6.0.0
+  support: Maintained through the upstream OpenHW CVA6 repository and CV32A60X configuration flow.
+  includedRoadmapItems:
+    - cv32a60x-trl5
+  releaseNotesUrl: https://github.com/openhwgroup/cva6/releases/tag/cv32a60x-v6.0.0
+  verificationSummary: Release notes identify coverage, lint, and documentation improvements around the
+    CV32A60X TRL5 configuration.
+- id: cva6-v5-3-0
+  version: CVA6 v5.3.0
+  status: released
+  releaseType: stable
+  tagName: v5.3.0
+  date: 2025-02-03
+  summary: Real upstream CVA6 release adding compressed instruction table support and superscalar
+    integration coverage around Zc and CV-X-IF work.
+  labels:
+    - real-release
+    - Zcmt
+    - CV-X-IF
+    - superscalar
+  highlights:
+    - Added support for the Zcmt extension.
+    - Added support for Zcmp, Zcmt, and CV-X-IF in superscalar configurations.
+  sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.3.0
+  support: Maintained through the upstream OpenHW CVA6 repository.
+  includedRoadmapItems:
+    - cv-x-if
+  releaseNotesUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.3.0
+  verificationSummary: Upstream release notes connect this release to extension and superscalar
+    configuration work; detailed verification scope should be confirmed from project artifacts.
+- id: cva6-5-2-0
+  version: CVA6 5.2.0
+  status: released
+  releaseType: stable
+  tagName: v5.2.0
+  date: 2025-01-16
+  summary: Real upstream CVA6 release with CV-X-IF 1.0.0 support, superscalar support, FPGA work,
+    PMP/MMU decoupling, and tandem verification tooling.
+  labels:
+    - real-release
+    - CV-X-IF-1.0.0
+    - superscalar
+    - FPGA
+  highlights:
+    - Added support for CV-X-IF 1.0.0.
+    - Added support for the Zbkb extension.
+    - Added superscalar support.
+    - Added Altera FPGA support and Spike tandem support.
+    - Made PMP independent from MMU and added LLVM toolchain build scripts.
+  sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.2.0
+  support: Maintained through the upstream OpenHW CVA6 repository.
+  includedRoadmapItems:
+    - cv-x-if
+  releaseNotesUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.2.0
+  verificationSummary: Release notes include Spike tandem support and integration-related platform work.
+- id: cva6-5-1-0
+  version: CVA6 5.1.0
+  status: released
+  releaseType: stable
+  tagName: v5.1.0
+  date: 2024-07-11
+  summary: Real upstream CVA6 release adding the RISC-V Hypervisor extension, MMU refactoring, FPGA
+    bitstream target support, and lint integration.
+  labels:
+    - real-release
+    - hypervisor
+    - MMU
+    - lint
+  highlights:
+    - Added the RISC-V Hypervisor extension.
+    - Refactored the MMU together with H-extension work.
+    - Added FPGA bitstream target support and a new MMU-enabled target.
+    - Integrated SpyGlass lint in CI.
+    - Added RISC-V ISA manual material for CV32A65X.
+  sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.1.0
+  support: Maintained through the upstream OpenHW CVA6 repository.
+  includedRoadmapItems:
+    - hypervisor-h
+  releaseNotesUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.1.0
+  verificationSummary: Release notes identify CI lint integration alongside architecture and MMU changes.
+- id: cva6-5-0-1
+  version: CVA6 5.0.1
+  status: released
+  releaseType: stable
+  tagName: v5.0.1
+  date: 2024-03-25
+  summary: Real upstream maintenance release fixing CV64A6 configurations.
+  labels:
+    - real-release
+    - maintenance
+    - configuration-fix
+  highlights:
+    - Fixed CV64A6 configurations.
+    - Published FPGA bitstream asset for the CV32A60X target line.
+  sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.0.1
+  support: Maintained through the upstream OpenHW CVA6 repository.
+  releaseNotesUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.0.1
+  verificationSummary: Maintenance release; detailed verification scope should be checked from linked
+    upstream artifacts.
+- id: cva6-5-0-0
+  version: CVA6 5.0.0
+  status: released
+  releaseType: stable
+  tagName: v5.0.0
+  date: 2024-03-21
+  summary: Real upstream CVA6 5.0.0 release opening a new release series.
+  labels:
+    - real-release
+    - series-start
+    - CVA6-5
+  highlights:
+    - First release in a new CVA6 release series.
+    - Release notes point users to the upstream changelog for the broader delta from earlier releases.
+    - Published FPGA bitstream asset for the CV32A60X target line.
+  sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.0.0
+  support: Maintained through the upstream OpenHW CVA6 repository.
+  releaseNotesUrl: https://github.com/openhwgroup/cva6/releases/tag/v5.0.0
+  verificationSummary: Baseline release for the 5.x series; detailed validation evidence should be
+    checked from linked upstream artifacts.
+- id: ariane-cva6-4-x
+  version: Ariane/CVA6 4.x
+  status: released
+  releaseType: stable
+  tagName: v4.0.0-v4.2.0
+  date: 2018-2019
+  summary: Historical upstream Ariane/CVA6 4.x release line covering the early public CVA6 baseline.
+  labels:
+    - real-release
+    - historical-baseline
+    - Ariane
+  highlights:
+    - Ariane 4.0.0 introduced early A-extension, floating-point, OpenPiton cache, FPGA, PLIC, and bootrom work.
+    - Ariane 4.1.2 added official FPU support, AXI 64-bit adaptation, atomics, and tandem simulation support.
+    - Ariane 4.2 added PMA/cacheability updates, AMO backoff, VCS fixes, tracer fixes, and privilege fixes.
+  sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/v4.2.0
+  support: Historical upstream release line; current support should be checked with OpenHW maintainers.
   includedRoadmapItems:
     - rv64gc-core
     - rv32-config
@@ -14,19 +160,27 @@
     - riscv-debug
     - core-v-verif
   releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
-  verificationSummary: Released capabilities are represented as the current stable baseline and open
-    verification environment.
-- id: v5
-  version: CVA6 5.x
+  verificationSummary: Historical baseline line represented in this site as released capability context.
+- id: roadmap-candidate-2026-h2
+  version: CVA6 roadmap candidate (expected)
   status: planned
   releaseType: planned
-  date: 2026 H2
-  summary: Hypervisor, expanded verification, profile alignment.
-  support: Planned release line; support window to be confirmed by OpenHW maintainers.
+  date: 2026 H2 example
+  summary: Demonstration planning line for showing how future OpenHW release candidates can be built
+    from accepted roadmap items.
+  labels:
+    - planned-example
+    - not-a-commitment
+    - roadmap-candidate
+  highlights:
+    - Expected scope should be approved in the monthly roadmap meeting before it becomes a commitment.
+    - Formal verification evidence can be connected when public artifacts are available.
+    - Profile-alignment work can be tracked here until maintainers create a concrete release tag.
+  sourceUrl: https://github.com/openhwgroup/cva6/releases
+  support: Example planning line only; final support policy must be confirmed by OpenHW maintainers.
   includedRoadmapItems:
-    - hypervisor-h
     - formal-verif
     - rva23-profile
   releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
-  verificationSummary: Expected to connect committed implementation work with expanded regression and
-    formal verification evidence.
+  verificationSummary: Example only. Intended to show how planned release scope can reference roadmap
+    items without claiming an upstream release exists.

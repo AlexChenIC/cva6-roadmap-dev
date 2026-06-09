@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink, Globe2, Users } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { LanePill, SectionHeading, ThemeTag } from "@/components";
 import { organizations } from "@/data/organizations";
@@ -36,13 +37,28 @@ export default function OrganizationsPage() {
               <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.5fr)]">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span
-                      className="flex h-12 w-12 items-center justify-center rounded-xl text-base font-bold text-white"
-                      style={{ backgroundColor: org.color }}
-                      aria-hidden="true"
-                    >
-                      {org.shortName.slice(0, 2)}
-                    </span>
+                    {org.logo ? (
+                      <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-white p-1.5">
+                        <Image
+                          src={org.logo}
+                          alt=""
+                          width={42}
+                          height={42}
+                          className="h-full w-full"
+                          aria-hidden="true"
+                          loading="eager"
+                          unoptimized
+                        />
+                      </span>
+                    ) : (
+                      <span
+                        className="flex h-12 w-12 items-center justify-center rounded-xl text-base font-bold text-white"
+                        style={{ backgroundColor: org.color }}
+                        aria-hidden="true"
+                      >
+                        {org.shortName.slice(0, 2)}
+                      </span>
+                    )}
                     <div>
                       <h2 className="text-2xl font-bold text-openhw-navy">{org.name}</h2>
                       <p className="mt-1 text-sm font-bold text-slate-500">{items.length} roadmap items</p>
@@ -50,6 +66,16 @@ export default function OrganizationsPage() {
                   </div>
 
                   {org.blurb ? <p className="mt-5 text-base leading-7 text-slate-700">{org.blurb}</p> : null}
+
+                  {org.tags && org.tags.length > 0 ? (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {org.tags.map((tag) => (
+                        <span key={tag} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
 
                   <div className="mt-5 flex flex-wrap gap-3">
                     {org.website ? (

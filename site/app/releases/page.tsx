@@ -41,9 +41,27 @@ export default function ReleasesPage() {
                       {release.date}
                     </p>
                   ) : null}
+                  {release.labels?.length ? (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {release.labels.map((label) => (
+                        <span
+                          key={label}
+                          className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-slate-600"
+                        >
+                          {label}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
                   {release.summary ? <p className="mt-4 text-sm leading-6 text-slate-700">{release.summary}</p> : null}
 
                   <dl className="mt-6 grid gap-4 text-sm">
+                    {release.tagName ? (
+                      <div>
+                        <dt className="font-bold text-openhw-navy">Git tag</dt>
+                        <dd className="mt-1 leading-6 text-slate-700">{release.tagName}</dd>
+                      </div>
+                    ) : null}
                     <div>
                       <dt className="font-bold text-openhw-navy">Support</dt>
                       <dd className="mt-1 leading-6 text-slate-700">{release.support ?? "To be confirmed"}</dd>
@@ -56,22 +74,39 @@ export default function ReleasesPage() {
                     </div>
                   </dl>
 
-                  {release.releaseNotesUrl ? (
+                  {release.releaseNotesUrl || release.sourceUrl ? (
                     <a
-                      href={release.releaseNotesUrl}
+                      href={release.releaseNotesUrl ?? release.sourceUrl}
                       className="mt-6 inline-flex h-10 items-center gap-2 rounded-lg border border-border bg-white px-3 text-sm font-bold text-openhw-navy transition hover:border-openhw-green hover:text-openhw-green"
                       rel="noreferrer"
                     >
-                      Release notes
+                      Source release
                       <ExternalLink className="h-4 w-4" aria-hidden="true" />
                     </a>
                   ) : null}
                 </aside>
 
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-normal text-slate-500">
+                  {release.highlights?.length ? (
+                    <div className="rounded-xl border border-border bg-slate-50 p-5">
+                      <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-normal text-slate-500">
+                        <ShieldCheck className="h-4 w-4 text-openhw-green" aria-hidden="true" />
+                        Release highlights
+                      </div>
+                      <ul className="mt-4 grid gap-3 text-sm leading-6 text-slate-700">
+                        {release.highlights.map((highlight) => (
+                          <li key={highlight} className="flex gap-3">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-openhw-green" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+
+                  <div className="mt-6 flex items-center gap-2 text-sm font-bold uppercase tracking-normal text-slate-500">
                     <PackageCheck className="h-4 w-4 text-openhw-green" aria-hidden="true" />
-                    Included roadmap items
+                    Connected roadmap items
                   </div>
 
                   <div className="mt-4 grid gap-3">
@@ -105,7 +140,7 @@ export default function ReleasesPage() {
                       ))
                     ) : (
                       <div className="rounded-xl border border-dashed border-border bg-slate-50 p-5 text-sm leading-6 text-muted">
-                        No roadmap items have been assigned to this release yet.
+                        No local roadmap item is connected to this upstream release yet.
                       </div>
                     )}
                   </div>

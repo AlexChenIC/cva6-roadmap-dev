@@ -19,18 +19,24 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: site/package-lock.json
 
       - name: Install dependencies
+        working-directory: site
         run: npm ci
 
       - name: Validate roadmap source
+        working-directory: site
         run: npm run validate:data
 
       - name: Lint
+        working-directory: site
         run: npm run lint
 
       - name: Typecheck
+        working-directory: site
         run: npx tsc --noEmit
 
       - name: Build
+        working-directory: site
         run: npm run build

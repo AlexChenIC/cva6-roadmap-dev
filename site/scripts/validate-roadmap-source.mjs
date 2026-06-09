@@ -3,7 +3,11 @@ import path from "node:path";
 import { parse } from "yaml";
 
 const root = process.cwd();
-const sourceRoot = path.join(root, "roadmap-source");
+const sourceRootCandidates = [
+  path.join(root, "roadmap-source"),
+  path.join(root, "..", "roadmap-source"),
+];
+const sourceRoot = sourceRootCandidates.find((candidate) => fs.existsSync(candidate)) ?? sourceRootCandidates[0];
 
 const themes = new Set([
   "Architecture & ISA",
@@ -164,6 +168,12 @@ organizations.forEach((org) => {
   assert(isString(org.name), `organizations.yml:${org.id}: name is required`);
   assert(isString(org.shortName), `organizations.yml:${org.id}: shortName is required`);
   assert(isString(org.color) && /^#[0-9A-Fa-f]{6}$/.test(org.color), `organizations.yml:${org.id}: color must be hex`);
+  if (org.logo !== undefined) {
+    assert(isString(org.logo), `organizations.yml:${org.id}: logo must be a string`);
+  }
+  if (org.tags !== undefined) {
+    assert(isStringArray(org.tags), `organizations.yml:${org.id}: tags must be strings`);
+  }
   if (org.website !== undefined) {
     assert(isValidUrl(org.website), `organizations.yml:${org.id}: website is invalid`);
   }
@@ -223,6 +233,15 @@ releases.forEach((release) => {
   if (release.releaseNotesUrl !== undefined) {
     assert(isValidUrl(release.releaseNotesUrl), `releases.yml:${release.id}: releaseNotesUrl is invalid`);
   }
+  if (release.sourceUrl !== undefined) {
+    assert(isValidUrl(release.sourceUrl), `releases.yml:${release.id}: sourceUrl is invalid`);
+  }
+  if (release.labels !== undefined) {
+    assert(isStringArray(release.labels), `releases.yml:${release.id}: labels must be strings`);
+  }
+  if (release.highlights !== undefined) {
+    assert(isStringArray(release.highlights), `releases.yml:${release.id}: highlights must be strings`);
+  }
   assert(
     release.includedRoadmapItems === undefined || isStringArray(release.includedRoadmapItems),
     `releases.yml:${release.id}: includedRoadmapItems must be strings`,
@@ -252,6 +271,9 @@ partnerNeeds.forEach((need) => {
     isStringArray(need.requestedCapabilities) && need.requestedCapabilities.length > 0,
     `partner-needs.yml:${need.id}: requestedCapabilities must not be empty`,
   );
+  if (need.tags !== undefined) {
+    assert(isStringArray(need.tags), `partner-needs.yml:${need.id}: tags must be strings`);
+  }
   validateLinks(need.evidence, `partner-needs.yml:${need.id}`);
 });
 

@@ -11,6 +11,10 @@
   relatedRoadmapItems:
     - hypervisor-h
     - pmp-enhance
+  tags:
+    - virtualization
+    - isolation
+    - RISC-V-H
   requestedCapabilities:
     - RISC-V Hypervisor extension support
     - stronger privilege and memory-protection validation
@@ -35,6 +39,10 @@
   relatedRoadmapItems:
     - iso26262-collateral
     - formal-verif
+  tags:
+    - safety
+    - traceability
+    - evidence
   requestedCapabilities:
     - safety collateral package
     - traceability from roadmap item to verification evidence
@@ -61,6 +69,10 @@
     - cv-x-if
     - vector-cvxif
     - ml-coupling
+  tags:
+    - CV-X-IF
+    - acceleration
+    - integration
   requestedCapabilities:
     - CV-X-IF integration guidance
     - accelerator verification strategy

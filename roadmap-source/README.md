@@ -24,7 +24,7 @@ what is merged into the official roadmap.
 2. For a partner request, start in `partner-needs.yml`.
 3. For an accepted roadmap commitment, update `roadmap-items.yml`.
 4. Link public evidence such as issues, PRs, specs, meeting notes, or verification results.
-5. Run `npm run validate:data` before asking for review.
+5. Run `cd site && npm run validate:data` before asking for review.
 
 ## Promotion rule
 

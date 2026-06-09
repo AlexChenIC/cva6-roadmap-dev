@@ -11,7 +11,7 @@ import type {
   RoadmapStrategy,
 } from "@/lib/types";
 
-const sourceRoot = path.join(process.cwd(), "roadmap-source");
+const sourceRoot = path.join(process.cwd(), "..", "roadmap-source");
 
 function readYaml<T>(fileName: string): T {
   const filePath = path.join(sourceRoot, fileName);

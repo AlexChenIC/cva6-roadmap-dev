@@ -12,7 +12,7 @@
     - unibo
   owner: OpenHW CVA6 maintainers
   targetWindow: Available
-  targetRelease: CVA6 4.x
+  targetRelease: Ariane/CVA6 4.x
   tags:
     - RV64GC
     - Linux
@@ -57,7 +57,7 @@
     - unibo
   owner: OpenHW CVA6 maintainers
   targetWindow: Available
-  targetRelease: CVA6 4.x
+  targetRelease: Ariane/CVA6 4.x
   tags:
     - Sv39
     - MMU
@@ -147,7 +147,7 @@
     - openhw
   owner: OpenHW verification working group
   targetWindow: Available
-  targetRelease: CVA6 4.x
+  targetRelease: Ariane/CVA6 4.x
   tags:
     - UVM
     - regression
@@ -161,20 +161,50 @@
       url: https://github.com/openhwgroup/core-v-verif
   lastUpdated: 2026-02-14
   featured: true
+- id: cv32a60x-trl5
+  title: CV32A60X TRL5 configuration release
+  summary: Real upstream CV32A60X 6.0.0 release focused on a TRL5-oriented CV32A60X configuration,
+    with configuration, coverage, lint, and documentation updates called out in the release notes.
+  description: This item records the real CV32A60X 6.0.0 upstream release as a public roadmap fact,
+    separate from future planning examples. It gives partners a concrete reference point for current
+    CVA6-family release evidence.
+  theme: Architecture & ISA
+  status: Released
+  proposingOrgs:
+    - openhw
+  owner: OpenHW CV32A60X maintainers
+  targetWindow: 2025-04
+  targetRelease: CV32A60X 6.0.0
+  tags:
+    - CV32A60X
+    - TRL5
+    - OBI
+    - coverage
+    - release
+  userValue: Gives partners a concrete, dated upstream release reference for the CV32A60X
+    configuration instead of relying on placeholder roadmap data.
+  links:
+    - label: CV32A60X 6.0.0 release
+      url: https://github.com/openhwgroup/cva6/releases/tag/cv32a60x-v6.0.0
+    - label: CVA6 releases
+      url: https://github.com/openhwgroup/cva6/releases
+  lastUpdated: 2025-04-23
+  featured: true
 - id: hypervisor-h
   title: Hypervisor extension (H)
-  summary: Implementation and verification of the RISC-V Hypervisor extension for CVA6. The work
-    targets virtualization-ready deployments and richer software stacks.
+  summary: Released RISC-V Hypervisor extension support for CVA6, recorded from the real CVA6 5.1.0
+    upstream release.
   description: Hypervisor support adds architectural state and privilege behavior needed to run
-    virtualized guests, enabling CVA6 in systems that need isolation and consolidation.
+    virtualized guests. Partner needs now track validation, evidence, and platform-readiness work on
+    top of the released implementation.
   theme: Architecture & ISA
-  status: In Progress
+  status: Released
   proposingOrgs:
     - thales
     - openhw
   owner: Thales / OpenHW architecture reviewers
-  targetWindow: 2026 H2
-  targetRelease: CVA6 5.x
+  targetWindow: 2024-07
+  targetRelease: CVA6 5.1.0
   tags:
     - hypervisor
     - virtualization
@@ -182,33 +212,42 @@
     - RISC-V-H
   userValue: Opens CVA6 to virtualized embedded and edge platforms with stronger software isolation.
   links:
+    - label: CVA6 5.1.0 release
+      url: https://github.com/openhwgroup/cva6/releases/tag/v5.1.0
     - label: CVA6 GitHub repository
       url: https://github.com/openhwgroup/cva6
-  lastUpdated: 2026-03-01
+  lastUpdated: 2024-07-11
   featured: true
 - id: cv-x-if
   title: CV-X-IF coprocessor interface
-  summary: Standardized coprocessor interface work for attaching domain-specific accelerators to CVA6.
-    The goal is a clean extension point without forking the core.
+  summary: Released CV-X-IF 1.0.0 coprocessor interface support for CVA6, with additional superscalar
+    configuration coverage in the CVA6 5.3.0 release line.
   description: CV-X-IF support gives integrators a structured path to connect custom execution
-    resources while preserving the maintainability of the upstream CVA6 core.
+    resources while preserving the maintainability of the upstream CVA6 core. Future accelerator
+    ideas are tracked separately as partner needs or exploratory roadmap items.
   theme: Tooling & Ecosystem
-  status: In Progress
+  status: Released
   proposingOrgs:
     - openhw
     - unibo
   owner: OpenHW CV-X-IF maintainers
-  targetWindow: 2026 H1
+  targetWindow: 2025-01
+  targetRelease: CVA6 5.2.0
   tags:
     - CV-X-IF
+    - CV-X-IF-1.0.0
     - coprocessor
     - accelerator
     - integration
   userValue: Lets projects add specialized compute while staying aligned with the shared CVA6 roadmap.
   links:
+    - label: CVA6 5.2.0 release
+      url: https://github.com/openhwgroup/cva6/releases/tag/v5.2.0
+    - label: CVA6 v5.3.0 release
+      url: https://github.com/openhwgroup/cva6/releases/tag/v5.3.0
     - label: CVA6 GitHub repository
       url: https://github.com/openhwgroup/cva6
-  lastUpdated: 2026-03-05
+  lastUpdated: 2025-01-16
 - id: vector-cvxif
   title: Vector acceleration via CV-X-IF
   summary: Vector-style acceleration explored through the CV-X-IF integration path. The current focus
@@ -244,7 +283,7 @@
     - lowrisc
   owner: OpenHW verification working group
   targetWindow: 2026 H1
-  targetRelease: CVA6 5.x
+  targetRelease: CVA6 roadmap candidate (expected)
   tags:
     - formal
     - control-path
@@ -291,7 +330,7 @@
     - openhw
   owner: OpenHW CVA6 maintainers
   targetWindow: 2026 H2
-  targetRelease: CVA6 5.x
+  targetRelease: CVA6 roadmap candidate (expected)
   tags:
     - RVA23
     - profile

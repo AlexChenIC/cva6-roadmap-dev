@@ -22,6 +22,8 @@ export interface Organization {
   name: string;
   shortName: string;
   color: string;
+  logo?: string;
+  tags?: string[];
   website?: string;
   blurb?: string;
 }
@@ -64,6 +66,7 @@ export interface PartnerNeed {
   proposingOrgs: string[];
   relatedRoadmapItems: string[];
   requestedCapabilities: string[];
+  tags?: string[];
   targetWindow?: string;
   owner?: string;
   publicNotes?: string;
@@ -75,8 +78,12 @@ export interface Release {
   version: string;
   status: "released" | "planned";
   releaseType?: "stable" | "preview" | "planned";
+  tagName?: string;
   date?: string;
   summary?: string;
+  labels?: string[];
+  highlights?: string[];
+  sourceUrl?: string;
   support?: string;
   includedRoadmapItems?: string[];
   releaseNotesUrl?: string;

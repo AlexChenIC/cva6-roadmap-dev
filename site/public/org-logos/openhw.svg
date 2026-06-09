@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="OpenHW badge">
+  <rect width="64" height="64" rx="14" fill="#18A13B"/>
+  <path d="M16 20h32v24H16z" fill="#fff" opacity=".18"/>
+  <path d="M20 24h7v16h-7zm10 0h5l3 7 3-7h5v16h-6v-7l-2 5h-1l-2-5v7h-5z" fill="#fff"/>
+  <path d="M45 24h4l-4 16h-5l-2-7-2 7h-5l-4-16h5l2 9 2-9h4l2 9z" fill="#D1FAE5"/>
+</svg>

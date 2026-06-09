@@ -242,6 +242,15 @@ export default function Home() {
                   </div>
                   <h3 className="mt-3 text-xl font-bold text-openhw-navy">{need.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-muted">{need.summary}</p>
+                  {need.tags?.length ? (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {need.tags.map((tag) => (
+                        <span key={tag} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
                   <div className="mt-4 flex flex-wrap gap-2">
                     {need.proposingOrgs.map((orgId) => {
                       const org = organizations.find((candidate) => candidate.id === orgId);
@@ -344,6 +353,15 @@ export default function Home() {
                   </span>
                 ) : null}
               </div>
+              {release.labels?.length ? (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {release.labels.map((label) => (
+                    <span key={label} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600">
+                      {label}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
               {release.summary ? <p className="mt-4 text-sm leading-6 text-muted">{release.summary}</p> : null}
             </article>
           ))}
