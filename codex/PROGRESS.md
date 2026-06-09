@@ -19,3 +19,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `.gitignore`, `AGENTS.md`, `CLAUDE.md`, `README.md`, `app/*`, `eslint.config.mjs`, `next-env.d.ts`, `next.config.ts`, `package.json`, `package-lock.json`, `postcss.config.mjs`, `public/*`, `tsconfig.json`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run dev` started on `http://localhost:3000`; browser check loaded the default Create Next App page with title `Create Next App`.
 - Status: DONE
+
+## 2026-06-09 13:27 — T1 Design tokens, fonts, logos
+- Did: Copied the specified OpenHW SVG logo assets into `public/openhw/`, added `app/icon.svg`, exposed OpenHW brand tokens through CSS variables and Tailwind v4 `--color-*` theme variables, switched the app font wiring to Inter, and set the base page background and ink colors.
+- Files: `app/globals.css`, `app/layout.tsx`, `app/icon.svg`, `public/openhw/openhw-horizontal.svg`, `public/openhw/openhw-horizontal-white.svg`, `public/openhw/openhw-stacked.svg`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npm run dev` started; browser check confirmed body background `rgb(248, 250, 252)`, body text `rgb(15, 23, 42)`, Inter font stack, OpenHW CSS tokens, and all four SVG assets returning HTTP 200.
+- Status: DONE

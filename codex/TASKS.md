@@ -12,7 +12,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
     If the CLI refuses to run in a non-empty dir, scaffold in a temp dir and copy the app files in.
   - **Accept:** `npm run dev` starts; default page loads at localhost:3000. Commit `chore: bootstrap next.js app`.
 
-- [ ] **T1 — Design tokens, fonts, logos**
+- [x] **T1 — Design tokens, fonts, logos**
   - Copy the 3 logo SVGs into `public/openhw/` per SPEC §4.5. Add `app/icon.svg` (stacked).
   - Add brand tokens to global CSS / Tailwind theme (SPEC §4.1–4.2). Wire **Inter** via `next/font`.
   - Set base page bg `--surface-subtle`, ink text color, container width.
