@@ -171,11 +171,11 @@ export default function OrganizationsPage() {
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <a
-                  href="https://github.com/openhwgroup/cva6"
+                  href="https://github.com/openhwgroup/cva6/blob/master/CONTRIBUTING.md"
                   className="inline-flex h-10 items-center gap-2 rounded-lg border border-border px-3 text-sm font-bold text-openhw-navy transition hover:border-openhw-green hover:text-openhw-green"
                   rel="noreferrer"
                 >
-                  CVA6 GitHub
+                  Contribution guide
                   <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               </div>
