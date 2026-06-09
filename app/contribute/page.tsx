@@ -15,11 +15,11 @@ import { SectionHeading } from "@/components";
 import { LANES } from "@/lib/lanes";
 
 export const metadata: Metadata = {
-  title: "Contribute | CVA6 Roadmap",
+  title: "Contribute",
   description: "How to propose or edit CVA6 roadmap items.",
 };
 
-const roadmapRepoUrl = "https://github.com/AlexChenIC/cva6-roadmap";
+const roadmapRepoUrl = "https://github.com/AlexChenIC/cva6-roadmap-dev";
 const issueTemplateUrl = `${roadmapRepoUrl}/issues/new?template=roadmap-item.yml`;
 const contributingUrl = `${roadmapRepoUrl}/blob/main/CONTRIBUTING.md`;
 
@@ -111,8 +111,11 @@ export default function ContributePage() {
               <h2 className="mt-4 text-2xl font-bold text-openhw-navy">One source of truth</h2>
               <p className="mt-3 text-base leading-7 text-slate-700">
                 A roadmap entry is a typed object with a title, summary, lifecycle status, theme, proposing
-                organizations, tags, target window, and links. Updating that data is enough for the public portal
-                to refresh its board, catalog, organization pages, and detail pages.
+                organizations, owner, tags, target window, and evidence links. Updating that data is enough for
+                the public portal to refresh its board, catalog, organization pages, release pages, and detail pages.
+              </p>
+              <p className="mt-4 rounded-lg border border-border bg-slate-50 px-3 py-2 text-sm font-semibold text-openhw-navy [overflow-wrap:anywhere]">
+                {`Repository URL: ${roadmapRepoUrl}`}
               </p>
             </div>
             <Link
@@ -224,7 +227,8 @@ export default function ContributePage() {
             <h2 className="mt-3 text-2xl font-bold text-openhw-navy">Keep proposals concrete</h2>
             <p className="mt-3 text-base leading-7 text-slate-700">
               A strong roadmap proposal names the capability, user value, theme, expected lifecycle status,
-              proposing organization, target window when known, and at least one useful link or discussion thread.
+              proposing organization, responsible owner, target window when known, and at least one useful evidence
+              link or discussion thread.
             </p>
           </div>
         </section>

@@ -17,6 +17,7 @@ Good proposals include:
 - The proposed theme.
 - The proposed lifecycle status or public lane.
 - The proposing or owning organization.
+- A named owner or responsible team.
 - A target window or release, if known.
 - Links to design notes, issues, specs, or implementation work.
 
@@ -31,6 +32,7 @@ When adding or editing an item:
 - Use one of the existing `Theme` values from `lib/types.ts`.
 - Use one of the lifecycle statuses from `LifecycleStatus`.
 - Include at least one `proposingOrgs` id from `data/organizations.ts`.
+- Include an `owner` value that names a responsible team or point of contact group.
 - Keep `summary` to one or two sentences.
 - Add a practical `userValue` line.
 - Use ISO dates for `lastUpdated`, such as `2026-05-01`.

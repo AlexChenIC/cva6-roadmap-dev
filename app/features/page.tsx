@@ -8,7 +8,7 @@ import type { Theme } from "@/lib/types";
 import { FeaturesCatalog } from "./FeaturesCatalog";
 
 export const metadata: Metadata = {
-  title: "Features | CVA6 Roadmap",
+  title: "Features",
   description: "Search the CVA6 roadmap feature catalog.",
 };
 

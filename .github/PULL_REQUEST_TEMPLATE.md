@@ -7,7 +7,7 @@
 ## Roadmap data checklist
 
 - [ ] I updated `data/roadmap.ts` only for public roadmap content.
-- [ ] New or edited items have a stable `id`, `title`, `summary`, `theme`, `status`, `proposingOrgs`, `tags`, and `lastUpdated`.
+- [ ] New or edited items have a stable `id`, `title`, `summary`, `theme`, `status`, `proposingOrgs`, `owner`, `tags`, and `lastUpdated`.
 - [ ] The lifecycle status maps to the intended public lane in `lib/lanes.ts`.
 - [ ] Organization ids already exist in `data/organizations.ts`, or this PR adds them intentionally.
 - [ ] Links are public and useful to reviewers.

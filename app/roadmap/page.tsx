@@ -8,7 +8,7 @@ import type { Theme } from "@/lib/types";
 import { RoadmapExplorer } from "./RoadmapExplorer";
 
 export const metadata: Metadata = {
-  title: "Roadmap | CVA6 Roadmap",
+  title: "Roadmap",
   description: "Browse, filter, and share the public CVA6 roadmap.",
 };
 
@@ -22,7 +22,7 @@ export default function RoadmapPage() {
           <SectionHeading
             eyebrow="Roadmap"
             title="Browse CVA6 work by lane, theme, or organization"
-            description="Search the public roadmap, filter by the organizations and themes that matter to you, then share the resulting URL with the community."
+            description="Search the public roadmap, filter by organizations and themes, and inspect each item for owner, target window, release mapping, tags, and evidence links."
           />
         </div>
       </section>

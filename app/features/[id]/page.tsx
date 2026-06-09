@@ -105,12 +105,12 @@ export async function generateMetadata({ params }: FeatureDetailPageProps): Prom
 
   if (!item) {
     return {
-      title: "Feature not found | CVA6 Roadmap",
+      title: "Feature not found",
     };
   }
 
   return {
-    title: `${item.title} | CVA6 Roadmap`,
+    title: item.title,
     description: item.summary,
   };
 }
@@ -183,6 +183,28 @@ export default async function FeatureDetailPage({ params }: FeatureDetailPagePro
                 </div>
               </section>
             ) : null}
+
+            <section className="rounded-xl border border-border bg-surface p-6 shadow-sm sm:p-8">
+              <h2 className="text-2xl font-bold text-openhw-navy">Evidence and review notes</h2>
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border border-border bg-slate-50 p-5">
+                  <h3 className="text-sm font-bold uppercase tracking-normal text-openhw-green">Evidence basis</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-700">
+                    This entry is grounded in the linked public references and the structured roadmap data for
+                    status, owner, target window, release alignment, organizations, and tags.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-50 p-5">
+                  <h3 className="text-sm font-bold uppercase tracking-normal text-openhw-green">
+                    Risks / validation needs
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-700">
+                    Owner, release scope, and verification evidence should be confirmed by OpenHW maintainers
+                    before this roadmap item is treated as a formal delivery commitment.
+                  </p>
+                </div>
+              </div>
+            </section>
 
             <section className="rounded-xl bg-openhw-navy p-6 text-white sm:p-8">
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">

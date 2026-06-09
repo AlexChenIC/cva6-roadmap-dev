@@ -6,7 +6,7 @@ import { organizations } from "@/data/organizations";
 import { roadmapItems } from "@/data/roadmap";
 
 export const metadata: Metadata = {
-  title: "Organizations | CVA6 Roadmap",
+  title: "Organizations",
   description: "Organizations contributing to the public CVA6 roadmap.",
 };
 

@@ -48,8 +48,13 @@ export interface Release {
   id: string;
   version: string;
   status: "released" | "planned";
+  releaseType?: "stable" | "preview" | "planned";
   date?: string;
   summary?: string;
+  support?: string;
+  includedRoadmapItems?: string[];
+  releaseNotesUrl?: string;
+  verificationSummary?: string;
 }
 
 export interface Pillar {
@@ -57,4 +62,21 @@ export interface Pillar {
   title: string;
   description: string;
   icon: string;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  slug: string;
+  summary: string;
+  description: string;
+  maturity: string;
+  status: string;
+  owner: string;
+  repositoryUrl: string;
+  docsUrl?: string;
+  participatingOrgs: string[];
+  strategicPillars: Theme[];
+  defaultBranch: string;
+  nextRelease?: string;
 }

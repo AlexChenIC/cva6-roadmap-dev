@@ -11,6 +11,7 @@ import Link from "next/link";
 import { OrgChip, RoadmapCard, SectionHeading } from "@/components";
 import { organizations } from "@/data/organizations";
 import { pillars } from "@/data/pillars";
+import { projects } from "@/data/projects";
 import { releases } from "@/data/releases";
 import { roadmapItems } from "@/data/roadmap";
 import { itemsByLane, LANES } from "@/lib/lanes";
@@ -168,6 +169,49 @@ export default function Home() {
 
       <section className="page-container py-14">
         <SectionHeading
+          eyebrow="Project portfolio"
+          title="CVA6 as the roadmap protocol pilot"
+          description="The first scope is a single project, but it keeps project metadata explicit so the same protocol can later aggregate multiple OpenHW roadmaps."
+          action={
+            <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-bold text-openhw-green">
+              View project layer
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          }
+        />
+        <div className="mt-8 grid gap-5">
+          {projects.map((project) => (
+            <article key={project.id} className="rounded-xl border border-border bg-surface p-6 shadow-sm">
+              <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-start">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-normal text-openhw-green">{project.status}</p>
+                  <h3 className="mt-2 text-2xl font-bold text-openhw-navy">{project.name}</h3>
+                  <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700">{project.summary}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.participatingOrgs.map((orgId) => {
+                      const org = organizations.find((candidate) => candidate.id === orgId);
+                      return org ? <OrgChip key={org.id} org={org} href={`/organizations#${org.id}`} /> : null;
+                    })}
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3 sm:min-w-64">
+                  <div className="rounded-lg border border-border bg-slate-50 p-4">
+                    <p className="text-2xl font-bold text-openhw-navy">{roadmapItems.length}</p>
+                    <p className="mt-1 text-xs font-bold text-slate-500">Items</p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-slate-50 p-4">
+                    <p className="text-2xl font-bold text-openhw-navy">{project.nextRelease}</p>
+                    <p className="mt-1 text-xs font-bold text-slate-500">Next release</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="page-container py-14">
+        <SectionHeading
           eyebrow="Highlights"
           title="Featured roadmap items"
           description="A quick look at representative work across released capabilities, committed engineering, planned milestones, and exploratory ideas."
@@ -214,6 +258,12 @@ export default function Home() {
           eyebrow="Releases"
           title="Release windows"
           description="A compact view of stable and planned CVA6 release lines connected to the public roadmap."
+          action={
+            <Link href="/releases" className="inline-flex items-center gap-2 text-sm font-bold text-openhw-green">
+              View release plan
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          }
         />
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {releases.map((release) => (

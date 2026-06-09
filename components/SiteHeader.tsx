@@ -9,7 +9,9 @@ import { useState } from "react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/roadmap", label: "Roadmap" },
+  { href: "/projects", label: "Projects" },
   { href: "/features", label: "Features" },
+  { href: "/releases", label: "Releases" },
   { href: "/organizations", label: "Organizations" },
   { href: "/contribute", label: "Contribute" },
 ];
@@ -61,7 +63,7 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
           {navLinks.map((link) => {
             const active = isActiveLink(pathname, link.href);
 
@@ -92,7 +94,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-openhw-navy shadow-sm transition hover:border-openhw-green md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-openhw-navy shadow-sm transition hover:border-openhw-green lg:hidden"
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
@@ -109,7 +111,7 @@ export function SiteHeader() {
       {menuOpen ? (
         <nav
           id="mobile-navigation"
-          className="border-t border-border bg-surface md:hidden"
+          className="border-t border-border bg-surface lg:hidden"
           aria-label="Mobile navigation"
         >
           <div className="page-container grid gap-1 py-3">

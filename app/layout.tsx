@@ -11,8 +11,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CVA6 Roadmap",
+  metadataBase: new URL("https://cva6-roadmap-dev.vercel.app"),
+  title: {
+    default: "CVA6 Roadmap",
+    template: "%s | CVA6 Roadmap",
+  },
   description: "Public roadmap for the OpenHW CVA6 RISC-V core.",
+  openGraph: {
+    title: "CVA6 Roadmap",
+    description: "Public roadmap for the OpenHW CVA6 RISC-V core.",
+    type: "website",
+    url: "https://cva6-roadmap-dev.vercel.app",
+  },
 };
 
 export default function RootLayout({

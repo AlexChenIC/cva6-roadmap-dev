@@ -66,6 +66,14 @@ body:
     validations:
       required: true
   - type: input
+    id: owner
+    attributes:
+      label: Owner or responsible team
+      description: Name the team, maintainer group, or point of contact responsible for follow-up.
+      placeholder: OpenHW CVA6 maintainers
+    validations:
+      required: true
+  - type: input
     id: target-window
     attributes:
       label: Target window or release
