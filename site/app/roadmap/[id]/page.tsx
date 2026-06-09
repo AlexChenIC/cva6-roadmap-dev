@@ -20,6 +20,8 @@ interface RoadmapItemDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
+export const dynamicParams = false;
+
 const dateFormatter = new Intl.DateTimeFormat("en", {
   day: "numeric",
   month: "long",
