@@ -53,7 +53,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
   - Build `/features` per SPEC §7.4 (search-first flat list reusing filter primitives).
   - **Accept:** search filters list; rows link to detail. Commit `feat: features catalog`.
 
-- [ ] **T9 — Item detail**
+- [x] **T9 — Item detail**
   - Build `/features/[id]` with `generateStaticParams`. Layout per SPEC §7.5. Handle unknown id → 404.
   - **Accept:** every item id renders; meta panel + org chips + links correct. Commit `feat: item detail`.
 

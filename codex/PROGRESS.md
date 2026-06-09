@@ -67,3 +67,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `app/features/page.tsx`, `app/features/FeaturesCatalog.tsx`, `components/FilterBar.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed; browser checks confirmed 20 default rows, row hrefs like `/features/rv64gc-core`, no group-by control on the catalog, typed search for `CHERI` updates URL and filters to one row, combined `lane=in-progress&org=lowrisc&theme=Security` filters to one row, and no horizontal overflow at 375px.
 - Status: DONE
+
+## 2026-06-09 13:58 — T9 Item detail
+- Did: Added statically generated `/features/[id]` detail pages with breadcrumbs, title, lane/status/theme chips, summary, full description, why-it-matters section, metadata panel, organization links, tags, related links, contribute CTA, and previous/next/back navigation.
+- Files: `app/features/[id]/page.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed and generated 20 `/features/[id]` SSG paths; browser checks confirmed `/features/hypervisor-h` renders metadata, org links, related GitHub link, contribute link, and navigation; `/features/not-a-real-item` returns the 404 page; `/features/rv64gc-core` has no horizontal overflow at 375px.
+- Status: DONE
