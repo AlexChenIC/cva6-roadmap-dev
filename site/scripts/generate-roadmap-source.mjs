@@ -167,7 +167,6 @@ function buildOrganizations() {
       shortName: scalar(frontmatter.shortName),
       color: scalar(frontmatter.color),
       logo: scalar(frontmatter.logo),
-      tags: array(frontmatter.tags),
       website: scalar(frontmatter.website),
       blurb: section(markdown, "Blurb") ?? scalar(frontmatter.blurb),
     });

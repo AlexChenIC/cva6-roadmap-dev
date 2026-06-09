@@ -65,16 +65,6 @@ export default function OrganizationsPage() {
 
                   {org.blurb ? <p className="mt-5 text-base leading-7 text-slate-700">{org.blurb}</p> : null}
 
-                  {org.tags && org.tags.length > 0 ? (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {org.tags.map((tag) => (
-                        <span key={tag} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  ) : null}
-
                   <div className="mt-5 flex flex-wrap gap-3">
                     {org.website ? (
                       <a

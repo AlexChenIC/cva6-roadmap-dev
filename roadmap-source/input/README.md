@@ -11,7 +11,7 @@ human-readable context.
 - `roadmap-items/` - accepted public roadmap items.
 - `partner-needs/` - partner requests that are not official commitments yet.
 - `releases/` - real upstream releases and clearly marked planned examples.
-- `organizations/` - organization labels, badges, and attribution metadata.
+- `organizations/` - organization names, websites, logos, and neutral public descriptions.
 - `meeting-notes/` - reviewed weekly or monthly meeting summaries.
 
 ## Workflow

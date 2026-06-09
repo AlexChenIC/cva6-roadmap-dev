@@ -4,12 +4,10 @@ name: Organization Name
 shortName: Org
 color: "#64748B"
 logo:
-tags:
-  - tag-one
 website: https://example.com
 ---
 # Organization Name
 
 ## Blurb
 
-One sentence explaining this organization's role in the CVA6 roadmap.
+Two short sentences introducing who the organization is and what it does, based on public or official information. Avoid assigning the organization to a specific CVA6 responsibility unless that role has been reviewed and approved.

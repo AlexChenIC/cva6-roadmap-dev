@@ -4,53 +4,43 @@
   shortName: OpenHW
   color: "#18A13B"
   logo: /openhw/openhw-horizontal.svg
-  tags:
-    - governance
-    - releases
-    - verification
   website: https://openhwfoundation.org/
-  blurb: "Stewards CVA6: governance, verification, and stable releases."
+  blurb: OpenHW Foundation is a global community for industrial-grade open source RISC-V CPU
+    development. It brings hardware and software designers together around open source core designs,
+    related IP, tools, and software for commercial and academic use.
 - id: thales
   name: Thales
   shortName: Thales
   color: "#1D4ED8"
   logo: /org-logos/thales.svg
-  tags:
-    - safety
-    - certification
-    - security
   website: https://www.thalesgroup.com
-  blurb: Safety-critical and certification-oriented use of CVA6.
+  blurb: Thales is a global technology company active in defence, aerospace and space, cyber, and
+    digital markets. It provides systems, services, and products for customers carrying out critical
+    missions.
 - id: unibo
   name: University of Bologna
   shortName: UniBo
   color: "#A21CAF"
   logo: /org-logos/unibo.png
-  tags:
-    - PULP
-    - microarchitecture
-    - acceleration
   website: https://www.unibo.it
-  blurb: "PULP heritage: vectors, energy efficiency, microarchitecture research."
+  blurb: The University of Bologna traces its Studium to 1088 and presents itself as the oldest
+    university in the Western world. Its teaching and research tradition spans science, engineering,
+    culture, and society.
 - id: lowrisc
   name: lowRISC
   shortName: lowRISC
   color: "#0E7490"
   logo: /org-logos/lowrisc.svg
-  tags:
-    - security
-    - verification
-    - capabilities
   website: https://lowrisc.org
-  blurb: Security, CHERI/capabilities, and open verification collateral.
+  blurb: lowRISC is a not-for-profit company that develops and maintains open source silicon designs,
+    software, and tools through collaborative engineering. It also provides a home for multi-partner
+    open silicon projects.
 - id: capabilities
   name: Capabilities Limited
   shortName: Capabilities
   color: "#B45309"
   logo: /org-logos/capabilities.png
-  tags:
-    - memory-safety
-    - CHERI
-    - research
   website: https://www.eclipse.org/membership/show-member/?member_id=1742
-  blurb: Memory-safety and capability-hardware extensions for CVA6.
+  blurb: Capabilities Limited is a security consultancy focused on hardware and software security and
+    privacy. Its public materials describe expertise across CHERI, toolchains, hardware-software
+    co-design, and formal verification.

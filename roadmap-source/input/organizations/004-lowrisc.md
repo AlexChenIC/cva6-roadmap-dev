@@ -4,14 +4,10 @@ name: lowRISC
 shortName: lowRISC
 color: "#0E7490"
 logo: /org-logos/lowrisc.svg
-tags:
-  - security
-  - verification
-  - capabilities
 website: https://lowrisc.org
 ---
 # lowRISC
 
 ## Blurb
 
-Security, CHERI/capabilities, and open verification collateral.
+lowRISC is a not-for-profit company that develops and maintains open source silicon designs, software, and tools through collaborative engineering. It also provides a home for multi-partner open silicon projects.
