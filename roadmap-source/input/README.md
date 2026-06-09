@@ -36,6 +36,9 @@ references.
   `partner-needs/`.
 - Accepted roadmap item: copy `../templates/roadmap-item.md` into
   `roadmap-items/`.
+- Release facts or baseline references can set `showOnOrganizations: false` so
+  they remain visible on Roadmap/Release pages without appearing as an
+  organization-owned feature plan.
 - New real or planned release: copy `../templates/release.md` into `releases/`.
 - New participating organization: copy `../templates/organization.md` into
   `organizations/`.

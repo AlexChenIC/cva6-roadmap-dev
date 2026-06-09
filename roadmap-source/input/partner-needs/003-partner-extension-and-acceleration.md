@@ -5,7 +5,6 @@ sourceType: meeting-synthesis
 status: candidate
 proposingOrgs:
   - unibo
-  - capabilities
 relatedRoadmapItems:
   - cv-x-if
   - cvxif-integration-guide

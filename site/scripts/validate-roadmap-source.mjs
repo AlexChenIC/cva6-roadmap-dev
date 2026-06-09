@@ -73,6 +73,10 @@ function isStringArray(value) {
   return Array.isArray(value) && value.every(isString);
 }
 
+function isBoolean(value) {
+  return typeof value === "boolean";
+}
+
 function isValidId(value) {
   return isString(value) && /^[a-z0-9][a-z0-9-]*$/.test(value);
 }
@@ -224,6 +228,9 @@ roadmapItems.forEach((item) => {
   assert(isValidDate(item.lastUpdated), `roadmap-items.yml:${item.id}: lastUpdated must be YYYY-MM-DD`);
   if (item.targetRelease !== undefined) {
     assert(releaseVersions.has(item.targetRelease), `roadmap-items.yml:${item.id}: unknown targetRelease "${item.targetRelease}"`);
+  }
+  if (item.showOnOrganizations !== undefined) {
+    assert(isBoolean(item.showOnOrganizations), `roadmap-items.yml:${item.id}: showOnOrganizations must be boolean`);
   }
   validateLinks(item.links, `roadmap-items.yml:${item.id}`);
 });

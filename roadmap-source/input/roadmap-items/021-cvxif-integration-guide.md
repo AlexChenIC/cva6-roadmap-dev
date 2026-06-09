@@ -5,7 +5,6 @@ theme: Tooling & Ecosystem
 status: Proposed
 proposingOrgs:
   - unibo
-  - capabilities
 owner: OpenHW CV-X-IF maintainers
 targetWindow: Candidate guidance
 tags:

@@ -43,7 +43,9 @@ function filterItems(
   return items.filter((item) => {
     const lane = statusToLane(item.status);
     const laneMatch = selectedLanes.length === 0 || selectedLanes.includes(lane);
-    const orgMatch = selectedOrgs.length === 0 || item.proposingOrgs.some((orgId) => selectedOrgs.includes(orgId));
+    const orgMatch =
+      selectedOrgs.length === 0 ||
+      (item.showOnOrganizations !== false && item.proposingOrgs.some((orgId) => selectedOrgs.includes(orgId)));
     const themeMatch = selectedThemes.length === 0 || selectedThemes.includes(item.theme);
 
     return laneMatch && orgMatch && themeMatch && matchesSearch(item, query);
@@ -134,7 +136,9 @@ function OrganizationGroups({
   return (
     <div className="grid gap-6">
       {organizations.map((org) => {
-        const orgItems = items.filter((item) => item.proposingOrgs.includes(org.id));
+        const orgItems = items.filter(
+          (item) => item.showOnOrganizations !== false && item.proposingOrgs.includes(org.id),
+        );
 
         if (orgItems.length === 0) {
           return null;

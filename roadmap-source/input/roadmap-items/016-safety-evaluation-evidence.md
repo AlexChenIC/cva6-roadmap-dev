@@ -1,36 +1,37 @@
 ---
 id: safety-evaluation-evidence
-title: Safety evaluation evidence package
+title: CVA6-Safe DCLS evaluation evidence
 theme: Safety & Certification
 status: Proposed
 proposingOrgs:
   - thales
 owner: OpenHW verification maintainers
-targetWindow: Candidate evidence package
+targetWindow: Candidate evidence review
 tags:
+  - CVA6-Safe
+  - DCLS
   - safety
   - evidence
-  - traceability
-  - requirements
+  - EDAC
 lastUpdated: 2026-06-09
 featured: true
 ---
-# Safety evaluation evidence package
+# CVA6-Safe DCLS evaluation evidence
 
 ## Summary
 
-Proposed evidence package that helps safety-oriented adopters evaluate selected CVA6 configurations through requirements links, verification references, release scope, and known-limitations tracking.
+Proposed evidence track for CVA6-Safe dual-core lockstep and cache error-detection/correction material, grounded in the public cva6-safe repository.
 
 ## Description
 
-This is not a certification roadmap item. It is a maintainer-reviewed structure for collecting public evaluation evidence that can later support partner-specific safety programs if the relevant teams approve the scope.
+The public cva6-safe repository describes a dual-core lockstep module based on CVA6 cores with split-mode capability and safety-oriented cache protection work. This roadmap item tracks reviewable evidence and integration questions only; it does not claim certification scope or assign delivery ownership to a partner.
 
 ## User value
 
-Gives safety-focused adopters a clear, reviewable map from roadmap claims to requirements, verification evidence, and unresolved public issues.
+Gives safety-focused adopters a concrete public reference for discussing DCLS and evidence expectations before any stronger platform or certification claims are made.
 
 ## Links
 
+- [OpenHW cva6-safe repository](https://github.com/openhwgroup/cva6-safe)
 - [CVA6 Requirement Specification](https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html)
-- [CVA6 issues list](https://github.com/openhwgroup/cva6/issues)
-- [CVA6 MMU documentation](https://docs.openhwgroup.org/projects/cva6-user-manual/03_cva6_design/MMU.html)
+- [CVA6 GitHub repository](https://github.com/openhwgroup/cva6)

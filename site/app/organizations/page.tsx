@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function OrganizationsPage() {
+  const organizationRoadmapItems = roadmapItems.filter((item) => item.showOnOrganizations !== false);
+
   return (
     <div className="bg-background">
       <section className="border-b border-border bg-surface py-12">
@@ -25,7 +27,7 @@ export default function OrganizationsPage() {
 
       <section className="page-container grid gap-6 py-10">
         {organizations.map((org) => {
-          const items = roadmapItems.filter((item) => item.proposingOrgs.includes(org.id));
+          const items = organizationRoadmapItems.filter((item) => item.proposingOrgs.includes(org.id));
 
           return (
             <article

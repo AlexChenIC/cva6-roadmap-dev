@@ -240,13 +240,15 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
           <h2 className="text-lg font-bold text-openhw-navy">Roadmap item metadata</h2>
 
           <div className="mt-4">
-            <MetaRow icon={Users} label="Associated organizations">
-              <div className="flex flex-wrap gap-2">
-                {item.proposingOrgs.map((orgId) => (
-                  <OrgChip key={orgId} org={organizationFor(orgId)} href={`/organizations#${orgId}`} />
-                ))}
-              </div>
-            </MetaRow>
+            {item.showOnOrganizations !== false ? (
+              <MetaRow icon={Users} label="Associated organizations">
+                <div className="flex flex-wrap gap-2">
+                  {item.proposingOrgs.map((orgId) => (
+                    <OrgChip key={orgId} org={organizationFor(orgId)} href={`/organizations#${orgId}`} />
+                  ))}
+                </div>
+              </MetaRow>
+            ) : null}
 
             {item.owner ? (
               <MetaRow icon={Users} label="Review lead">

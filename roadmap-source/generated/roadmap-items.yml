@@ -24,6 +24,7 @@
       url: https://github.com/openhwgroup/cva6
   lastUpdated: 2026-01-15
   featured: true
+  showOnOrganizations: false
 - id: cv32a60x-trl5
   title: CV32A60X TRL5 configuration release
   summary: Real upstream CV32A60X 6.0.0 release focused on a TRL5-oriented CV32A60X configuration,
@@ -53,6 +54,7 @@
       url: https://github.com/openhwgroup/cva6/releases
   lastUpdated: 2025-04-23
   featured: true
+  showOnOrganizations: false
 - id: hypervisor-h
   title: Hypervisor extension (H)
   summary: Released RISC-V Hypervisor extension support for CVA6, recorded from the real CVA6 5.1.0
@@ -86,6 +88,7 @@
       url: https://github.com/openhwgroup/cva6
   lastUpdated: 2024-07-11
   featured: true
+  showOnOrganizations: false
 - id: cv-x-if
   title: CV-X-IF coprocessor interface
   summary: Released CV-X-IF 1.0.0 coprocessor interface support for CVA6, with additional superscalar
@@ -121,62 +124,67 @@
       url: https://github.com/openhwgroup/cva6
   lastUpdated: 2025-01-16
 - id: formal-verif
-  title: Control-path verification evidence
-  summary: Verification evidence track for selected control-path behavior, intended to connect public
-    issues, requirements, tests, and future formal artifacts once maintainers approve the scope.
-  description: This item is phrased as an evidence track rather than a completed formal campaign. It
-    gives the roadmap a place to collect verification references for security- and safety-relevant
-    behavior without claiming unpublished proof coverage.
+  title: CVA6-CHERI verification scoping
+  summary: Scoping item for CVA6-CHERI verification evidence, grounded in public lowRISC, Capabilities
+    Limited, and COSMIC material rather than an upstream CVA6 commitment.
+  description: Public COSMIC and CHERI CVA6 material describe work toward stronger verification and
+    silicon-ready evidence for CVA6-CHERI. The roadmap keeps that signal visible as an
+    ecosystem-facing research/evidence item, while requiring separate maintainer review before any
+    upstream CVA6 scope is accepted.
   theme: Verification
-  status: Verification
+  status: Proposed
   proposingOrgs:
     - lowrisc
-  owner: OpenHW verification working group
-  targetWindow: Evidence review
+    - capabilities
+  owner: OpenHW CVA6 maintainers (scoping review)
+  targetWindow: Research evidence review
   targetRelease: CVA6 roadmap candidate (expected)
   tags:
+    - CHERI
     - formal
-    - control-path
-    - properties
+    - COSMIC
     - verification
     - evidence
-  userValue: Increases confidence by making verification intent, public evidence, and remaining gaps
-    easier for partners to review.
+  userValue: Helps maintainers and partners discuss memory-safety verification using concrete public
+    references instead of broad, unattributed formal-verification claims.
   links:
-    - label: CVA6 Requirement Specification
-      url: https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html
-    - label: CVA6 issues list
-      url: https://github.com/openhwgroup/cva6/issues
+    - label: lowRISC and partners COSMIC announcement
+      url: https://lowrisc.org/news/lowrisc-and-partners-to-deliver-commercial-quality-open-source-cheri-secure-enclave-with-innovateuk-support/
+    - label: Capabilities Limited CHERI CVA6 project
+      url: https://www.capabilitieslimited.co.uk/current-projects/cheri-cva6
+    - label: lowRISC CHERI-Mocha Secure Enclave page
+      url: https://lowrisc.org/cosmic/
   lastUpdated: 2026-06-09
   featured: true
 - id: safety-evaluation-evidence
-  title: Safety evaluation evidence package
-  summary: Proposed evidence package that helps safety-oriented adopters evaluate selected CVA6
-    configurations through requirements links, verification references, release scope, and
-    known-limitations tracking.
-  description: This is not a certification roadmap item. It is a maintainer-reviewed structure for
-    collecting public evaluation evidence that can later support partner-specific safety programs if
-    the relevant teams approve the scope.
+  title: CVA6-Safe DCLS evaluation evidence
+  summary: Proposed evidence track for CVA6-Safe dual-core lockstep and cache
+    error-detection/correction material, grounded in the public cva6-safe repository.
+  description: The public cva6-safe repository describes a dual-core lockstep module based on CVA6
+    cores with split-mode capability and safety-oriented cache protection work. This roadmap item
+    tracks reviewable evidence and integration questions only; it does not claim certification scope
+    or assign delivery ownership to a partner.
   theme: Safety & Certification
   status: Proposed
   proposingOrgs:
     - thales
   owner: OpenHW verification maintainers
-  targetWindow: Candidate evidence package
+  targetWindow: Candidate evidence review
   tags:
+    - CVA6-Safe
+    - DCLS
     - safety
     - evidence
-    - traceability
-    - requirements
-  userValue: Gives safety-focused adopters a clear, reviewable map from roadmap claims to
-    requirements, verification evidence, and unresolved public issues.
+    - EDAC
+  userValue: Gives safety-focused adopters a concrete public reference for discussing DCLS and
+    evidence expectations before any stronger platform or certification claims are made.
   links:
+    - label: OpenHW cva6-safe repository
+      url: https://github.com/openhwgroup/cva6-safe
     - label: CVA6 Requirement Specification
       url: https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html
-    - label: CVA6 issues list
-      url: https://github.com/openhwgroup/cva6/issues
-    - label: CVA6 MMU documentation
-      url: https://docs.openhwgroup.org/projects/cva6-user-manual/03_cva6_design/MMU.html
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
   lastUpdated: 2026-06-09
   featured: true
 - id: cheri-capabilities
@@ -221,7 +229,6 @@
   status: Proposed
   proposingOrgs:
     - unibo
-    - capabilities
   owner: OpenHW CV-X-IF maintainers
   targetWindow: Candidate guidance
   tags:
@@ -243,3 +250,93 @@
     - label: "Issue #2499 - Custom instruction guidance"
       url: https://github.com/openhwgroup/cva6/issues/2499
   lastUpdated: 2026-06-09
+- id: openhw-tiered-ci
+  title: CVA6 CI maintenance and visibility
+  summary: Active OpenHW work to maintain and optimize CVA6 CI through a two-layer GitHub CI model
+    with faster pull-request checks, broader regression coverage, and a dashboard-oriented view of
+    results.
+  description: The new tiered CI flow separates quick PR-facing checks from broader scheduled or
+    manually triggered validation. The roadmap presents this as active maintainer work because the
+    public CVA6 repository already contains merged CI/dashboard changes and follow-up maintenance
+    activity.
+  theme: Tooling & Ecosystem
+  status: In Progress
+  proposingOrgs:
+    - openhw
+  owner: OpenHW CVA6 maintainers
+  targetWindow: Active CI rollout
+  tags:
+    - CI
+    - Tier-1
+    - Tier-2
+    - dashboard
+    - Verilator
+  userValue: Makes upstream validation easier to inspect, maintain, and discuss when contributors
+    bring new CVA6 features or regression-sensitive changes.
+  links:
+    - label: "PR #3285 - Phase 1 tier workflows and tier dashboard"
+      url: https://github.com/openhwgroup/cva6/pull/3285
+    - label: "PR #3343 - Update GitHub checkout action for new CI"
+      url: https://github.com/openhwgroup/cva6/pull/3343
+    - label: OpenHW CORE-V CVA6 Platform project announcement
+      url: https://openhwfoundation.org/news/2023/11/07/openhw-group-announces-core-v-cva6-platform-project-for-risc-v-software-development-and-testing/
+  lastUpdated: 2026-06-09
+  featured: true
+- id: rvb23-verification-suite
+  title: RVB23 verification-suite integration
+  summary: Planned OpenHW work to integrate RVB23-oriented verification coverage into CVA6, with
+    simulator and toolchain configuration kept clean enough to support extension-focused tests.
+  description: The public CVA6 issue and pull request around Spike-specific extension configuration
+    provide an early implementation hook for RVA23/RVB23-style verification. This item records the
+    planned integration direction without presenting a completed RVB23 qualification result.
+  theme: Verification
+  status: Planned
+  proposingOrgs:
+    - openhw
+  owner: OpenHW CVA6 verification maintainers
+  targetWindow: Planned verification integration
+  tags:
+    - RVB23
+    - RVA23
+    - Spike
+    - verification
+    - regression
+  userValue: Gives maintainers and partners a clear place to track profile-oriented verification
+    coverage before it becomes release evidence.
+  links:
+    - label: "Issue #3249 - Allow Spike-specific ISA/extension configuration in cva6.py"
+      url: https://github.com/openhwgroup/cva6/issues/3249
+    - label: "PR #3280 - Add Spike-specific extension option in cva6.py"
+      url: https://github.com/openhwgroup/cva6/pull/3280
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-06-09
+  featured: true
+- id: thales-performance-model
+  title: Performance-model-guided CVA6 exploration
+  summary: Exploratory roadmap signal based on public Thales work using a CVA6 performance model to
+    study superscalar and dual-issue design choices before RTL changes.
+  description: The public article describes performance modeling as a way to evaluate CVA6
+    microarchitectural changes before implementation. The roadmap keeps this as an exploratory item
+    so it can support discussion without implying that a specific superscalar configuration has been
+    accepted into upstream CVA6.
+  theme: Performance
+  status: Idea
+  proposingOrgs:
+    - thales
+  owner: OpenHW CVA6 maintainers (scoping review)
+  targetWindow: Exploratory
+  tags:
+    - performance
+    - model
+    - dual-issue
+    - superscalar
+  userValue: Creates a realistic discussion point for performance-oriented roadmap ideas while keeping
+    implementation scope and upstream acceptance separate.
+  links:
+    - label: Using a Performance Model to Implement a Superscalar CVA6
+      url: https://riscv.org/blog/using-a-performance-model-to-implement-a-superscalar-cva6/
+    - label: TRISTAN project article on superscalar CVA6 modeling
+      url: https://tristan-project.eu/2025/11/04/using-a-performance-model-to-implement-a-superscalar-cva6/
+  lastUpdated: 2026-06-09
+  featured: false

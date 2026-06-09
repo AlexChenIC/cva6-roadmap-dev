@@ -44,3 +44,8 @@ A partner need becomes an official roadmap item only when maintainers agree on:
 
 This keeps the site open to partner input without turning every request into an
 OpenHW delivery commitment.
+
+Use `showOnOrganizations: false` on roadmap items that are release facts,
+baseline references, or historical context. They will still appear in the
+Roadmap and Release views, but the Organizations page will stay focused on
+current or proposed feature directions.

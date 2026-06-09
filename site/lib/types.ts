@@ -44,6 +44,7 @@ export interface RoadmapItem {
   links?: { label: string; url: string }[];
   lastUpdated: string;
   featured?: boolean;
+  showOnOrganizations?: boolean;
 }
 
 export interface RoadmapStrategy {

@@ -34,6 +34,7 @@ export function RoadmapCard({
 }: RoadmapCardProps) {
   const orgById = new Map(organizations.map((org) => [org.id, org]));
   const updated = dateFormatter.format(new Date(item.lastUpdated));
+  const showOrganizationChips = item.showOnOrganizations !== false;
 
   return (
     <Link
@@ -58,9 +59,9 @@ export function RoadmapCard({
 
         <div className="flex flex-wrap gap-2">
           <ThemeTag theme={item.theme} />
-          {item.proposingOrgs.map((orgId) => (
-            <OrgChip key={orgId} org={orgById.get(orgId) ?? { id: orgId }} />
-          ))}
+          {showOrganizationChips
+            ? item.proposingOrgs.map((orgId) => <OrgChip key={orgId} org={orgById.get(orgId) ?? { id: orgId }} />)
+            : null}
         </div>
 
         <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border pt-4 text-xs font-semibold text-slate-500">

@@ -12,6 +12,7 @@ tags:
   - tag-one
 lastUpdated: 2026-06-09
 featured: false
+showOnOrganizations: true
 ---
 # Roadmap item title
 

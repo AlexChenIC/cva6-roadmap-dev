@@ -15,6 +15,7 @@ tags:
   - application-class
 lastUpdated: 2026-01-15
 featured: true
+showOnOrganizations: false
 ---
 # RV64GC application core
 

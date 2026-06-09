@@ -238,6 +238,7 @@ function buildRoadmapItems() {
       links: links(section(markdown, "Links")),
       lastUpdated: scalar(frontmatter.lastUpdated),
       featured: bool(frontmatter.featured),
+      showOnOrganizations: bool(frontmatter.showOnOrganizations),
     });
   });
 }
