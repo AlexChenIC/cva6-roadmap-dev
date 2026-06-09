@@ -12,12 +12,6 @@ labels:
 sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/v4.2.0
 includedRoadmapItems:
   - rv64gc-core
-  - rv32-config
-  - sv39-mmu
-  - fpu-fd
-  - axi-subsystem
-  - riscv-debug
-  - core-v-verif
 releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
 ---
 # Ariane/CVA6 4.x
@@ -25,6 +19,7 @@ releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
 ## Summary
 
 Historical upstream Ariane/CVA6 4.x release line covering the early public CVA6 baseline.
+The roadmap portal keeps only one representative item from this historical line.
 
 ## Highlights
 

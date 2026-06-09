@@ -8,7 +8,6 @@ proposingOrgs:
   - openhw
 relatedRoadmapItems:
   - hypervisor-h
-  - pmp-enhance
 tags:
   - virtualization
   - isolation

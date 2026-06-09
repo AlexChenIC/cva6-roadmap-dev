@@ -4,7 +4,6 @@ title: CV-X-IF coprocessor interface
 theme: Tooling & Ecosystem
 status: Released
 proposingOrgs:
-  - openhw
   - unibo
 owner: OpenHW CV-X-IF maintainers
 targetWindow: 2025-01

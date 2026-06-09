@@ -5,7 +5,6 @@ theme: Architecture & ISA
 status: Released
 proposingOrgs:
   - thales
-  - openhw
 owner: Thales / OpenHW architecture reviewers
 targetWindow: 2024-07
 targetRelease: CVA6 5.1.0

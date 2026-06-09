@@ -4,7 +4,6 @@ title: Formal verification of control path
 theme: Verification
 status: Verification
 proposingOrgs:
-  - openhw
   - lowrisc
 owner: OpenHW verification working group
 targetWindow: 2026 H1

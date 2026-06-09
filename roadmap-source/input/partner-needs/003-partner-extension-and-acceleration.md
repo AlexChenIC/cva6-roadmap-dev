@@ -8,7 +8,6 @@ proposingOrgs:
   - capabilities
 relatedRoadmapItems:
   - cv-x-if
-  - vector-cvxif
   - ml-coupling
 tags:
   - CV-X-IF

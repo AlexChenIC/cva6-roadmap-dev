@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarDays, GitPullRequest, Map, Package, Users } from "lucide-react";
+import { ArrowRight, GitPullRequest, Map, Package, Users } from "lucide-react";
 import Link from "next/link";
 
 const entryPoints = [
@@ -102,21 +102,13 @@ export default function Home() {
               Reviewed source, public pages
             </h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div>
             <article className="rounded-lg border border-border bg-white p-5">
               <GitPullRequest className="h-5 w-5 text-openhw-green" aria-hidden="true" />
               <h3 className="mt-3 text-base font-bold text-openhw-navy">Roadmap changes</h3>
               <p className="mt-2 text-sm leading-6 text-muted">
                 Public roadmap data is maintained through reviewed Markdown files and GitHub pull
                 requests before the site is updated.
-              </p>
-            </article>
-            <article className="rounded-lg border border-border bg-white p-5">
-              <CalendarDays className="h-5 w-5 text-openhw-green" aria-hidden="true" />
-              <h3 className="mt-3 text-base font-bold text-openhw-navy">Meeting notes</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                CVA6 meeting notes can support roadmap changes, but reviewed notes should remain source
-                material rather than public commitments by themselves.
               </p>
             </article>
           </div>

@@ -11,7 +11,7 @@ labels:
 sourceUrl: https://github.com/openhwgroup/cva6/releases
 includedRoadmapItems:
   - formal-verif
-  - rva23-profile
+  - iso26262-collateral
 releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
 ---
 # CVA6 roadmap candidate (expected)
@@ -24,7 +24,7 @@ Demonstration planning line for showing how future OpenHW release candidates can
 
 - Expected scope should be approved in the monthly roadmap meeting before it becomes a commitment.
 - Formal verification evidence can be connected when public artifacts are available.
-- Profile-alignment work can be tracked here until maintainers create a concrete release tag.
+- Safety collateral can be tracked here until maintainers create a concrete release tag.
 
 ## Support
 
