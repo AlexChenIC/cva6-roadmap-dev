@@ -1,5 +1,5 @@
-name: Roadmap item proposal
-description: Propose a new CVA6 roadmap item or a change to an existing item.
+name: Roadmap or partner need proposal
+description: Propose a new CVA6 roadmap item, partner need, or change to an existing item.
 title: "[Roadmap]: "
 labels:
   - roadmap
@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping keep the CVA6 roadmap accurate. Please provide enough detail for maintainers and contributing organizations to review the proposal.
+        Thanks for helping keep the CVA6 roadmap accurate. Partner requests usually start in roadmap-source/partner-needs.yml. Accepted public commitments move into roadmap-source/roadmap-items.yml after maintainer review.
   - type: input
     id: title
     attributes:
@@ -55,6 +55,17 @@ body:
         - In Progress
         - Planned
         - Future Idea
+    validations:
+      required: true
+  - type: dropdown
+    id: proposal-type
+    attributes:
+      label: Proposal type
+      options:
+        - Partner need / requested capability
+        - Official roadmap item candidate
+        - Existing roadmap item update
+        - Release target update
     validations:
       required: true
   - type: input

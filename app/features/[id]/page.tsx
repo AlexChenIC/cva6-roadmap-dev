@@ -211,7 +211,7 @@ export default async function FeatureDetailPage({ params }: FeatureDetailPagePro
                 <div>
                   <h2 className="text-2xl font-bold">Propose a change or discuss this item</h2>
                   <p className="mt-3 text-sm leading-6 text-slate-200">
-                    Roadmap entries are maintained as typed data so the community can propose updates through the
+                    Roadmap entries are maintained in roadmap-source so the community can propose updates through the
                     contribution flow.
                   </p>
                 </div>

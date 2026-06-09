@@ -1,0 +1,463 @@
+- id: rv64gc-core
+  title: RV64GC application core
+  summary: Mature 6-stage, single-issue, in-order RV64GC core capable of booting Linux. This is the
+    baseline application-class configuration most integrators start from.
+  description: The RV64GC configuration provides the main Linux-capable CVA6 profile, combining
+    integer, compressed, multiply/divide, atomic, and floating-point capabilities in a proven
+    in-order pipeline.
+  theme: Architecture & ISA
+  status: Released
+  proposingOrgs:
+    - openhw
+    - unibo
+  owner: OpenHW CVA6 maintainers
+  targetWindow: Available
+  targetRelease: CVA6 4.x
+  tags:
+    - RV64GC
+    - Linux
+    - application-class
+  userValue: Gives SoC teams a stable, open application-class RISC-V core for real software bring-up.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-01-15
+  featured: true
+- id: rv32-config
+  title: RV32 configuration
+  summary: A 32-bit CVA6 build profile for embedded and area-sensitive systems. It keeps the CVA6
+    architecture usable where RV64 is more than the product needs.
+  description: The RV32 configuration preserves the CVA6 implementation style while targeting smaller
+    address spaces and embedded integration constraints.
+  theme: Architecture & ISA
+  status: Released
+  proposingOrgs:
+    - openhw
+  owner: OpenHW CVA6 maintainers
+  targetWindow: Available
+  tags:
+    - RV32
+    - embedded
+    - configuration
+  userValue: Lets teams reuse CVA6 in smaller products without adopting a full 64-bit platform.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-01-18
+- id: sv39-mmu
+  title: Sv39 MMU & virtual memory
+  summary: Sv39 virtual memory support for Linux-class systems and process isolation. It anchors CVA6
+    as a practical application processor core.
+  description: The Sv39 MMU capability supports page-based address translation, privilege separation,
+    and the operating-system features expected by RISC-V application profiles.
+  theme: Architecture & ISA
+  status: Released
+  proposingOrgs:
+    - openhw
+    - unibo
+  owner: OpenHW CVA6 maintainers
+  targetWindow: Available
+  targetRelease: CVA6 4.x
+  tags:
+    - Sv39
+    - MMU
+    - virtual-memory
+    - Linux
+  userValue: Enables standard OS ports and memory protection for application workloads.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-01-22
+- id: fpu-fd
+  title: IEEE FPU (F/D)
+  summary: Single- and double-precision IEEE floating-point support for compute and control workloads.
+    The capability is part of the released CVA6 application profile.
+  description: The F/D floating-point unit gives CVA6 software compatibility with common RISC-V
+    numeric workloads, toolchains, and benchmark suites.
+  theme: Architecture & ISA
+  status: Released
+  proposingOrgs:
+    - unibo
+  owner: University of Bologna / PULP team
+  targetWindow: Available
+  tags:
+    - FPU
+    - IEEE-754
+    - F-extension
+    - D-extension
+  userValue: Broadens CVA6 to numeric software without requiring external acceleration.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-02-01
+- id: axi-subsystem
+  title: AXI memory subsystem & caches
+  summary: AXI-based memory interfaces and cache hierarchy for practical SoC integration. This
+    provides the connective tissue between CVA6 and system-level fabrics.
+  description: The memory subsystem gives CVA6 a reusable path into AXI-based SoCs, including cache
+    behavior and integration points expected by platform teams.
+  theme: Performance
+  status: Released
+  proposingOrgs:
+    - unibo
+    - openhw
+  owner: University of Bologna / OpenHW
+  targetWindow: Available
+  tags:
+    - AXI
+    - cache
+    - memory-subsystem
+    - SoC
+  userValue: Reduces integration effort for teams building CVA6-based chips or FPGA prototypes.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-02-05
+- id: riscv-debug
+  title: RISC-V external debug
+  summary: External debug support for bring-up, firmware development, and lab diagnosis. It helps
+    developers inspect CVA6 systems with standard RISC-V debug flows.
+  description: The released debug capability provides the hooks needed for breakpoints, inspection,
+    and tool-driven development during hardware and software bring-up.
+  theme: Tooling & Ecosystem
+  status: Released
+  proposingOrgs:
+    - openhw
+  owner: OpenHW CVA6 maintainers
+  targetWindow: Available
+  tags:
+    - debug
+    - JTAG
+    - bring-up
+    - tooling
+  userValue: Makes CVA6 easier to integrate, debug, and support in real boards.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-02-10
+- id: core-v-verif
+  title: core-v-verif verification environment
+  summary: Open UVM-based verification flow with passing regression for CVA6. It provides a shared
+    baseline for community confidence and release readiness.
+  description: The core-v-verif environment captures reusable verification infrastructure, tests, and
+    regressions that help contributors validate CVA6 changes consistently.
+  theme: Verification
+  status: Released
+  proposingOrgs:
+    - openhw
+  owner: OpenHW verification working group
+  targetWindow: Available
+  targetRelease: CVA6 4.x
+  tags:
+    - UVM
+    - regression
+    - verification
+    - CORE-V
+  userValue: Gives adopters a transparent signal that released capabilities are tested in the open.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+    - label: core-v-verif GitHub repository
+      url: https://github.com/openhwgroup/core-v-verif
+  lastUpdated: 2026-02-14
+  featured: true
+- id: hypervisor-h
+  title: Hypervisor extension (H)
+  summary: Implementation and verification of the RISC-V Hypervisor extension for CVA6. The work
+    targets virtualization-ready deployments and richer software stacks.
+  description: Hypervisor support adds architectural state and privilege behavior needed to run
+    virtualized guests, enabling CVA6 in systems that need isolation and consolidation.
+  theme: Architecture & ISA
+  status: In Progress
+  proposingOrgs:
+    - thales
+    - openhw
+  owner: Thales / OpenHW architecture reviewers
+  targetWindow: 2026 H2
+  targetRelease: CVA6 5.x
+  tags:
+    - hypervisor
+    - virtualization
+    - privilege
+    - RISC-V-H
+  userValue: Opens CVA6 to virtualized embedded and edge platforms with stronger software isolation.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-03-01
+  featured: true
+- id: cv-x-if
+  title: CV-X-IF coprocessor interface
+  summary: Standardized coprocessor interface work for attaching domain-specific accelerators to CVA6.
+    The goal is a clean extension point without forking the core.
+  description: CV-X-IF support gives integrators a structured path to connect custom execution
+    resources while preserving the maintainability of the upstream CVA6 core.
+  theme: Tooling & Ecosystem
+  status: In Progress
+  proposingOrgs:
+    - openhw
+    - unibo
+  owner: OpenHW CV-X-IF maintainers
+  targetWindow: 2026 H1
+  tags:
+    - CV-X-IF
+    - coprocessor
+    - accelerator
+    - integration
+  userValue: Lets projects add specialized compute while staying aligned with the shared CVA6 roadmap.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-03-05
+- id: vector-cvxif
+  title: Vector acceleration via CV-X-IF
+  summary: Vector-style acceleration explored through the CV-X-IF integration path. The current focus
+    is verification of coupling behavior and software-visible semantics.
+  description: This work validates whether vector acceleration can be exposed through a coprocessor
+    interface before committing to a native vector unit in the core pipeline.
+  theme: Performance
+  status: Verification
+  proposingOrgs:
+    - unibo
+  owner: University of Bologna / PULP team
+  targetWindow: 2026 H1
+  tags:
+    - vector
+    - CV-X-IF
+    - acceleration
+    - verification
+  userValue: Provides a lower-risk path to performance exploration for vector-heavy workloads.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-03-12
+- id: formal-verif
+  title: Formal verification of control path
+  summary: Formal verification campaign for key CVA6 control-path behavior. It complements simulation
+    regressions with stronger proofs around critical state transitions.
+  description: The effort targets properties where formal methods can catch corner cases that are hard
+    to reach through directed or random simulation alone.
+  theme: Verification
+  status: Verification
+  proposingOrgs:
+    - openhw
+    - lowrisc
+  owner: OpenHW verification working group
+  targetWindow: 2026 H1
+  targetRelease: CVA6 5.x
+  tags:
+    - formal
+    - control-path
+    - properties
+    - verification
+  userValue: Increases confidence in safety- and security-relevant control behavior before release.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-03-20
+  featured: true
+- id: pmp-enhance
+  title: PMP / memory protection hardening
+  summary: Hardening work around Physical Memory Protection configuration and edge cases. The effort
+    focuses on robust isolation behavior for security-sensitive deployments.
+  description: The PMP hardening track reviews access checks, privilege interactions, and verification
+    coverage so CVA6 behaves predictably under constrained memory policies.
+  theme: Security
+  status: In Progress
+  proposingOrgs:
+    - thales
+    - lowrisc
+  owner: Thales / lowRISC security reviewers
+  targetWindow: 2026 H2
+  tags:
+    - PMP
+    - memory-protection
+    - security
+    - privilege
+  userValue: Helps teams use CVA6 in systems where memory isolation is part of the threat model.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-03-24
+- id: rva23-profile
+  title: RVA23 profile alignment
+  summary: Alignment work for the RVA23 application profile and its expected extension set. It gives
+    users a clearer compatibility target for future CVA6 releases.
+  description: This roadmap item tracks gaps between CVA6 and the RVA23 profile, translating profile
+    requirements into implementation and verification milestones.
+  theme: Architecture & ISA
+  status: Planned
+  proposingOrgs:
+    - openhw
+  owner: OpenHW CVA6 maintainers
+  targetWindow: 2026 H2
+  targetRelease: CVA6 5.x
+  tags:
+    - RVA23
+    - profile
+    - compatibility
+    - ISA
+  userValue: Makes CVA6 easier to position against standard RISC-V platform expectations.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-04-01
+  featured: true
+- id: branch-predictor
+  title: Advanced branch prediction
+  summary: Planned branch prediction improvements for higher instruction throughput on control-heavy
+    workloads. The work is expected to balance performance with area cost.
+  description: This item explores predictor structures and integration trade-offs that could improve
+    CVA6 performance without undermining its maintainable in-order design.
+  theme: Performance
+  status: Planned
+  proposingOrgs:
+    - unibo
+  owner: University of Bologna / PULP team
+  targetWindow: 2027 H1
+  tags:
+    - branch-prediction
+    - performance
+    - microarchitecture
+  userValue: Can improve real application performance while preserving the core's open, understandable
+    structure.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-04-05
+- id: iso26262-collateral
+  title: ISO 26262 safety collateral
+  summary: Planned collateral package to support ISO 26262-oriented evaluation of CVA6. The scope is
+    documentation, traceability, and verification evidence, not certification by the website.
+  description: The safety collateral track organizes the artifacts integrators need when assessing
+    CVA6 for automotive or other functional-safety programs.
+  theme: Safety & Certification
+  status: Planned
+  proposingOrgs:
+    - thales
+  owner: Thales safety team
+  targetWindow: "2027"
+  tags:
+    - ISO-26262
+    - safety
+    - collateral
+    - traceability
+  userValue: Helps safety-focused adopters understand what evidence exists and what remains to be produced.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-04-12
+  featured: true
+- id: cache-coherency
+  title: Multi-core cache coherency
+  summary: Planned exploration of coherent multi-core CVA6 configurations. It targets the system
+    architecture needed for shared-memory multi-core products.
+  description: This work will define coherency expectations, integration boundaries, and verification
+    needs before the roadmap commits to a concrete implementation.
+  theme: Performance
+  status: Planned
+  proposingOrgs:
+    - openhw
+    - unibo
+  owner: OpenHW / University of Bologna
+  targetWindow: "2027"
+  tags:
+    - multi-core
+    - cache-coherency
+    - shared-memory
+    - performance
+  userValue: Shows a path toward CVA6 platforms that need more than one application-class core.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-04-18
+- id: cheri-capabilities
+  title: CHERI capabilities support
+  summary: Exploratory support for CHERI-style architectural capabilities in CVA6. The goal is to
+    assess memory-safety benefits and implementation impact before commitment.
+  description: This future idea looks at capability-aware pointers, bounds, permissions, and the
+    verification implications of bringing CHERI concepts into CVA6.
+  theme: Security
+  status: Proposed
+  proposingOrgs:
+    - lowrisc
+    - capabilities
+  owner: lowRISC / Capabilities working group
+  targetWindow: Exploratory
+  tags:
+    - CHERI
+    - capabilities
+    - memory-safety
+    - security
+  userValue: Could make CVA6 a stronger platform for memory-safe open hardware research and products.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-05-01
+  featured: true
+- id: rvv-native
+  title: Native RVV vector unit
+  summary: Exploratory native RISC-V Vector support inside the CVA6 core. This is a larger
+    architectural option than accelerator coupling and needs careful cost-benefit analysis.
+  description: A native RVV unit could improve vector workload performance, but it also affects
+    pipeline complexity, verification scope, and software compatibility commitments.
+  theme: Performance
+  status: Idea
+  proposingOrgs:
+    - unibo
+  owner: University of Bologna / PULP team
+  targetWindow: Exploratory
+  tags:
+    - RVV
+    - vector
+    - performance
+    - microarchitecture
+  userValue: Signals a possible long-term path for compute-heavy CVA6 deployments.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-05-06
+- id: tee-enclave
+  title: Trusted execution / enclave
+  summary: Exploratory trusted-execution support for isolating sensitive workloads. The item is
+    intentionally early-stage and will need threat-model alignment before design work.
+  description: The enclave track considers the architectural, memory-protection, and lifecycle pieces
+    needed to support trusted execution on a CVA6-based platform.
+  theme: Security
+  status: Idea
+  proposingOrgs:
+    - capabilities
+  owner: Capabilities working group
+  targetWindow: Exploratory
+  tags:
+    - TEE
+    - enclave
+    - trusted-execution
+    - security
+  userValue: Gives security stakeholders a visible place to shape isolation requirements before commitment.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-05-10
+- id: ml-coupling
+  title: ML accelerator coupling
+  summary: Exploratory coupling patterns for machine-learning accelerators next to CVA6. The work
+    focuses on clean interfaces and software handoff rather than a specific accelerator block.
+  description: This idea evaluates how CVA6 could orchestrate ML accelerators through memory,
+    interrupt, and coprocessor integration models while keeping the CPU roadmap focused.
+  theme: Tooling & Ecosystem
+  status: Proposed
+  proposingOrgs:
+    - capabilities
+  owner: Capabilities working group
+  targetWindow: Exploratory
+  tags:
+    - ML
+    - accelerator
+    - integration
+    - ecosystem
+  userValue: Helps AI-oriented integrators understand how CVA6 might sit beside domain-specific compute.
+  links:
+    - label: CVA6 GitHub repository
+      url: https://github.com/openhwgroup/cva6
+  lastUpdated: 2026-05-15

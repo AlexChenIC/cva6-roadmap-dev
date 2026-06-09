@@ -27,15 +27,15 @@ const steps = [
   {
     title: "Open a roadmap proposal issue",
     description:
-      "Use the structured issue form for a new capability, lifecycle change, or ownership clarification.",
+      "Use the structured issue form for a new capability, partner need, lifecycle change, or ownership clarification.",
     icon: FilePlus2,
     href: issueTemplateUrl,
     label: "Open issue template",
   },
   {
-    title: "Or send a typed data PR",
+    title: "Or send a roadmap-source PR",
     description:
-      "Add or edit a RoadmapItem in data/roadmap.ts, keeping theme, status, organizations, tags, and dates complete.",
+      "Edit roadmap-source YAML, keeping theme, status, organizations, owner, tags, evidence, and dates complete.",
     icon: GitPullRequest,
     href: `${roadmapRepoUrl}/compare`,
     label: "Start a pull request",
@@ -85,7 +85,7 @@ export default function ContributePage() {
           <SectionHeading
             eyebrow="Contribute"
             title="Help keep the CVA6 roadmap accurate"
-            description="The roadmap is structured data in data/roadmap.ts. Community updates come through issues and pull requests, then the portal renders the accepted data automatically."
+            description="The roadmap is structured source data in roadmap-source/. Community updates come through issues and pull requests, then the portal renders accepted data automatically."
             action={
               <a
                 href={roadmapRepoUrl}
@@ -110,9 +110,10 @@ export default function ContributePage() {
               </div>
               <h2 className="mt-4 text-2xl font-bold text-openhw-navy">One source of truth</h2>
               <p className="mt-3 text-base leading-7 text-slate-700">
-                A roadmap entry is a typed object with a title, summary, lifecycle status, theme, proposing
-                organizations, owner, tags, target window, and evidence links. Updating that data is enough for
-                the public portal to refresh its board, catalog, organization pages, release pages, and detail pages.
+                A roadmap entry is a structured YAML object with a title, summary, lifecycle status, theme,
+                proposing organizations, owner, tags, target window, and evidence links. Updating roadmap-source is
+                enough for the public portal to refresh its board, catalog, organization pages, release pages, and
+                detail pages.
               </p>
               <p className="mt-4 rounded-lg border border-border bg-slate-50 px-3 py-2 text-sm font-semibold text-openhw-navy [overflow-wrap:anywhere]">
                 {`Repository URL: ${roadmapRepoUrl}`}
@@ -210,12 +211,12 @@ export default function ContributePage() {
           <div className="rounded-xl border border-border bg-surface p-6 shadow-sm">
             <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-normal text-openhw-green">
               <Lightbulb className="h-4 w-4" aria-hidden="true" />
-              Seeded starting point
+              Partner needs first
             </div>
-            <h2 className="mt-3 text-2xl font-bold text-openhw-navy">A starting point, not the final word</h2>
+            <h2 className="mt-3 text-2xl font-bold text-openhw-navy">Requests are not commitments yet</h2>
             <p className="mt-3 text-base leading-7 text-slate-700">
-              The current dataset is seeded by the portal team so the site is useful from day one. Real ownership,
-              dates, and scope should be refined by the organizations doing the work through public review.
+              Partner expectations should start in roadmap-source/partner-needs.yml. They move into the official
+              roadmap only after maintainers confirm scope, owner, status, timing, and public evidence.
             </p>
           </div>
 

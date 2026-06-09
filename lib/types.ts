@@ -44,6 +44,32 @@ export interface RoadmapItem {
   featured?: boolean;
 }
 
+export interface RoadmapStrategy {
+  organizationName: string;
+  roadmapName: string;
+  roadmapCycle: string;
+  visionSummary: string;
+  missionSummary: string;
+  strategicFocus: Theme[];
+  decisionCadence: string;
+  sourcePolicy: string;
+}
+
+export interface PartnerNeed {
+  id: string;
+  title: string;
+  summary: string;
+  sourceType: "meeting-synthesis" | "partner-proposal" | "maintainer-note";
+  status: "candidate" | "under-review" | "accepted" | "declined";
+  proposingOrgs: string[];
+  relatedRoadmapItems: string[];
+  requestedCapabilities: string[];
+  targetWindow?: string;
+  owner?: string;
+  publicNotes?: string;
+  evidence?: { label: string; url: string }[];
+}
+
 export interface Release {
   id: string;
   version: string;

@@ -1,0 +1,75 @@
+- id: partner-hypervisor-readiness
+  title: Virtualization-ready CVA6 platforms
+  summary: >-
+    Partners want a clear path for running isolated software stacks and virtualized
+    guests on CVA6-based systems.
+  sourceType: meeting-synthesis
+  status: under-review
+  proposingOrgs:
+    - thales
+    - openhw
+  relatedRoadmapItems:
+    - hypervisor-h
+    - pmp-enhance
+  requestedCapabilities:
+    - RISC-V Hypervisor extension support
+    - stronger privilege and memory-protection validation
+    - public verification evidence for virtualization use cases
+  targetWindow: 2026 H2
+  owner: OpenHW CVA6 maintainers
+  publicNotes: >-
+    Keep this as a partner signal until release scope and verification evidence
+    are confirmed by maintainers.
+  evidence:
+    - label: CVA6 upstream repository
+      url: https://github.com/openhwgroup/cva6
+- id: partner-safety-collateral
+  title: Safety-oriented collateral and traceability
+  summary: >-
+    Safety-focused adopters need public collateral that explains assumptions,
+    verification coverage, and traceability boundaries for CVA6 evaluation.
+  sourceType: meeting-synthesis
+  status: candidate
+  proposingOrgs:
+    - thales
+  relatedRoadmapItems:
+    - iso26262-collateral
+    - formal-verif
+  requestedCapabilities:
+    - safety collateral package
+    - traceability from roadmap item to verification evidence
+    - clear disclaimer between evaluation support and certification claims
+  targetWindow: "2027"
+  owner: Thales safety team
+  publicNotes: >-
+    This should remain framed as collateral support, not as a website-level
+    certification claim.
+  evidence:
+    - label: CVA6 upstream repository
+      url: https://github.com/openhwgroup/cva6
+- id: partner-extension-and-acceleration
+  title: Clean extension points for accelerators
+  summary: >-
+    Research and product teams want a maintained way to connect domain-specific
+    accelerators without fragmenting the core roadmap.
+  sourceType: meeting-synthesis
+  status: candidate
+  proposingOrgs:
+    - unibo
+    - capabilities
+  relatedRoadmapItems:
+    - cv-x-if
+    - vector-cvxif
+    - ml-coupling
+  requestedCapabilities:
+    - CV-X-IF integration guidance
+    - accelerator verification strategy
+    - software-visible semantics for coupled compute blocks
+  targetWindow: Exploratory
+  owner: OpenHW CV-X-IF maintainers
+  publicNotes: >-
+    Useful as a partner signal for future feature prioritization; not all
+    accelerator ideas should become native CVA6 core features.
+  evidence:
+    - label: CVA6 upstream repository
+      url: https://github.com/openhwgroup/cva6

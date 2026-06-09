@@ -5,15 +5,18 @@ import {
   CheckCheck,
   Cpu,
   Gauge,
+  Handshake,
   Shield,
 } from "lucide-react";
 import Link from "next/link";
 import { OrgChip, RoadmapCard, SectionHeading } from "@/components";
 import { organizations } from "@/data/organizations";
+import { partnerNeeds } from "@/data/partner-needs";
 import { pillars } from "@/data/pillars";
 import { projects } from "@/data/projects";
 import { releases } from "@/data/releases";
 import { roadmapItems } from "@/data/roadmap";
+import { strategy } from "@/data/strategy";
 import { itemsByLane, LANES } from "@/lib/lanes";
 
 const pillarIconMap = {
@@ -30,6 +33,8 @@ export default function Home() {
   const featuredItems = roadmapItems.filter((item) => item.featured);
   const totalOrgCount = organizations.length;
   const plannedReleaseCount = releases.filter((release) => release.status === "planned").length;
+  const roadmapItemById = new Map(roadmapItems.map((item) => [item.id, item]));
+  const partnerSignals = partnerNeeds.slice(0, 3);
 
   return (
     <div className="bg-background">
@@ -43,9 +48,8 @@ export default function Home() {
               Where CVA6 is going.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-              Explore the public roadmap for the OpenHW CVA6 application-class RISC-V core, including
-              available capabilities, committed work, planned milestones, and future ideas from the
-              community.
+              {strategy.visionSummary} Explore available capabilities, committed work, planned milestones,
+              partner signals, and future ideas from the community.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -207,6 +211,65 @@ export default function Home() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-surface py-14">
+        <div className="page-container">
+          <SectionHeading
+            eyebrow="Partner signals"
+            title="Partner needs are tracked before they become commitments"
+            description={strategy.sourcePolicy}
+            action={
+              <Link href="/contribute" className="inline-flex items-center gap-2 text-sm font-bold text-openhw-green">
+                Propose a partner need
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            }
+          />
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            {partnerSignals.map((need) => {
+              const relatedItems = need.relatedRoadmapItems.flatMap((itemId) => {
+                const item = roadmapItemById.get(itemId);
+                return item ? [item] : [];
+              });
+
+              return (
+                <article key={need.id} className="rounded-xl border border-border bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-normal text-openhw-green">
+                    <Handshake className="h-4 w-4" aria-hidden="true" />
+                    {need.status.replace("-", " ")}
+                  </div>
+                  <h3 className="mt-3 text-xl font-bold text-openhw-navy">{need.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">{need.summary}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {need.proposingOrgs.map((orgId) => {
+                      const org = organizations.find((candidate) => candidate.id === orgId);
+                      return org ? <OrgChip key={org.id} org={org} href={`/organizations#${org.id}`} /> : null;
+                    })}
+                  </div>
+                  {relatedItems.length > 0 ? (
+                    <div className="mt-5 border-t border-border pt-4">
+                      <p className="text-xs font-bold uppercase tracking-normal text-slate-500">
+                        Related roadmap items
+                      </p>
+                      <div className="mt-2 grid gap-2">
+                        {relatedItems.map((item) => (
+                          <Link
+                            key={item.id}
+                            href={`/features/${item.id}`}
+                            className="text-sm font-bold text-openhw-navy hover:text-openhw-green"
+                          >
+                            {item.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 

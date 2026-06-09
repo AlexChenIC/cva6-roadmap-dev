@@ -1,0 +1,22 @@
+organizationName: OpenHW Group
+roadmapName: CVA6 Roadmap
+roadmapCycle: "2026"
+visionSummary: >-
+  Make CVA6 a transparent, community-shaped application-class RISC-V core roadmap
+  that helps adopters understand what is available, what is being built, and what
+  still needs ownership.
+missionSummary: >-
+  Keep public strategy, project context, feature-level plans, release windows,
+  ownership, and evidence links in one reviewable source of truth.
+strategicFocus:
+  - Architecture & ISA
+  - Verification
+  - Security
+  - Safety & Certification
+  - Performance
+  - Tooling & Ecosystem
+decisionCadence: Monthly CVA6 roadmap review
+sourcePolicy: >-
+  Official roadmap changes are made through pull requests against roadmap-source.
+  Partner requests are welcome, but they remain partner needs until OpenHW/CVA6
+  maintainers accept ownership, scope, and evidence.

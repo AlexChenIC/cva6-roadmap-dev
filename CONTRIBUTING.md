@@ -1,14 +1,18 @@
 # Contributing to the CVA6 Roadmap
 
 This repository maintains a public roadmap portal for the OpenHW CVA6 RISC-V core.
-The site is intentionally data driven: roadmap content lives in typed files under
-`data/`, and the Next.js app renders that data into the board, catalog, organization
-pages, and feature detail pages.
+The site is intentionally source driven: roadmap content lives in YAML and Markdown
+files under `roadmap-source/`, and the Next.js app renders that data into the board,
+catalog, organization pages, release pages, partner signals, and feature detail pages.
 
 ## Ways to propose a change
 
 Use a roadmap proposal issue when a topic needs discussion before a data change.
 Use a pull request when the requested data update is already clear.
+
+Start partner requests in `roadmap-source/partner-needs.yml`. Move content into
+`roadmap-source/roadmap-items.yml` only after maintainers accept the owner, scope,
+status, timing, and evidence.
 
 Good proposals include:
 
@@ -21,22 +25,32 @@ Good proposals include:
 - A target window or release, if known.
 - Links to design notes, issues, specs, or implementation work.
 
-## Editing roadmap data
+## Editing roadmap source
 
-Roadmap items are defined in `data/roadmap.ts` as `RoadmapItem` objects. The shared
-type lives in `lib/types.ts`.
+Roadmap items are defined in `roadmap-source/roadmap-items.yml`. Partner expectations
+that are not yet official commitments are defined in `roadmap-source/partner-needs.yml`.
+The app reads those files at build time through `lib/roadmap-source.ts`.
 
 When adding or editing an item:
 
 - Keep the `id` stable and URL-safe.
 - Use one of the existing `Theme` values from `lib/types.ts`.
 - Use one of the lifecycle statuses from `LifecycleStatus`.
-- Include at least one `proposingOrgs` id from `data/organizations.ts`.
+- Include at least one `proposingOrgs` id from `roadmap-source/organizations.yml`.
 - Include an `owner` value that names a responsible team or point of contact group.
 - Keep `summary` to one or two sentences.
 - Add a practical `userValue` line.
 - Use ISO dates for `lastUpdated`, such as `2026-05-01`.
 - Add links when useful, especially to public specs, issues, or repositories.
+
+When adding or editing a partner need:
+
+- Keep the `id` stable and URL-safe.
+- Use a clear `status`: `candidate`, `under-review`, `accepted`, or `declined`.
+- Include at least one `proposingOrgs` id.
+- Link to related roadmap item IDs when they exist.
+- Keep `requestedCapabilities` concrete enough for maintainers to review.
+- Add public evidence or meeting notes when available.
 
 ## Lifecycle rules
 
@@ -63,6 +77,7 @@ Use the most specific lifecycle status that reflects current commitment:
 Before opening a PR, run:
 
 ```bash
+npm run validate:data
 npm run lint
 npx tsc --noEmit
 ```

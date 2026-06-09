@@ -1,3 +1,3 @@
 import { roadmapSource } from "@/lib/roadmap-source";
 
-export const pillars = roadmapSource.pillars;
+export const strategy = roadmapSource.strategy;

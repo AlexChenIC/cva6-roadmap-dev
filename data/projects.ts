@@ -1,28 +1,3 @@
-import type { Project } from "@/lib/types";
+import { roadmapSource } from "@/lib/roadmap-source";
 
-export const projects: Project[] = [
-  {
-    id: "cva6",
-    name: "CVA6",
-    slug: "cva6",
-    summary: "OpenHW's application-class, Linux-capable RISC-V core roadmap.",
-    description:
-      "This first portal scope focuses on CVA6 as the pilot project for the roadmap protocol: public strategy, structured roadmap items, release windows, feature details, ownership, and contribution flow.",
-    maturity: "Application-class core",
-    status: "Active public roadmap pilot",
-    owner: "OpenHW CVA6 maintainers",
-    repositoryUrl: "https://github.com/openhwgroup/cva6",
-    docsUrl: "https://docs.openhwgroup.org/projects/cva6-user-manual/",
-    participatingOrgs: ["openhw", "thales", "unibo", "lowrisc", "capabilities"],
-    strategicPillars: [
-      "Architecture & ISA",
-      "Security",
-      "Safety & Certification",
-      "Verification",
-      "Performance",
-      "Tooling & Ecosystem",
-    ],
-    defaultBranch: "master",
-    nextRelease: "CVA6 5.x",
-  },
-];
+export const projects = roadmapSource.projects;
