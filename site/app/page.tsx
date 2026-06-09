@@ -1,6 +1,5 @@
 import {
   ArrowRight,
-  CircleCheck,
   FileText,
   GitPullRequest,
   Map,
@@ -40,26 +39,38 @@ const entryPoints = [
 
 const roadmapFlow = [
   {
-    title: "Bring needs to the CVA6 meeting",
-    description: "Partners and maintainers raise target use cases, feature needs, and release context.",
+    title: "CVA6 meeting",
+    description: "Partners bring needs, target use cases, and candidate roadmap topics.",
     icon: MessageSquareText,
   },
   {
-    title: "Capture consensus in Markdown",
-    description: "Accepted direction is written into the shared roadmap-source Markdown files.",
+    title: "Markdown source",
+    description: "Agreed direction is captured in shared roadmap-source files.",
     icon: FileText,
   },
   {
-    title: "Review through Pull Request",
-    description: "Maintainers check wording, attribution, release links, and data consistency before merge.",
+    title: "Pull Request review",
+    description: "Maintainers review scope, attribution, release links, and wording.",
     icon: GitPullRequest,
   },
   {
-    title: "Publish the updated portal",
-    description: "After approval, the generated site refreshes Roadmap, Release, and Organizations pages.",
+    title: "Portal update",
+    description: "Merged changes regenerate the public Roadmap, Release, and Organizations pages.",
     icon: RefreshCw,
   },
 ];
+
+function flowArrowClassName(index: number) {
+  if (index === 0) {
+    return "lg:[clip-path:polygon(0_0,calc(100%_-_28px)_0,100%_50%,calc(100%_-_28px)_100%,0_100%)]";
+  }
+
+  if (index === roadmapFlow.length - 1) {
+    return "lg:[clip-path:polygon(28px_0,100%_0,100%_100%,28px_100%,0_50%)]";
+  }
+
+  return "lg:[clip-path:polygon(28px_0,calc(100%_-_28px)_0,100%_50%,calc(100%_-_28px)_100%,28px_100%,0_50%)]";
+}
 
 export default function Home() {
   return (
@@ -129,54 +140,53 @@ export default function Home() {
 
       <section className="border-y border-border bg-surface py-12 lg:py-16">
         <div className="page-container">
-          <div className="grid gap-5 lg:grid-cols-[0.75fr_1fr] lg:items-end">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-normal text-openhw-green">Roadmap workflow</p>
-              <h2 className="mt-2 text-2xl font-bold leading-tight text-openhw-navy sm:text-3xl">
-                From meeting signal to published roadmap
-              </h2>
-            </div>
-            <p className="text-base leading-7 text-muted">
-              The portal is not edited by hand. Roadmap changes move through a maintainer-reviewed path so
-              public pages reflect agreed CVA6 direction rather than unreviewed notes.
-            </p>
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-normal text-openhw-green">Roadmap workflow</p>
+            <h2 className="mt-2 text-2xl font-bold leading-tight text-openhw-navy sm:text-3xl">
+              From CVA6 discussion to published roadmap
+            </h2>
           </div>
 
-          <div className="mt-8 grid gap-4 lg:grid-cols-4">
+          <ol className="mt-8 grid gap-3 lg:grid-cols-4 lg:gap-0">
             {roadmapFlow.map((step, index) => {
               const Icon = step.icon;
               const isLast = index === roadmapFlow.length - 1;
+              const itemTone = [
+                "bg-[#EEF8F1] text-openhw-navy",
+                "bg-[#F3F7FA] text-openhw-navy",
+                "bg-[#EEF4FF] text-openhw-navy",
+                "bg-openhw-green text-white",
+              ][index];
+              const labelTone = isLast ? "bg-white/20 text-white" : "bg-white/80 text-slate-600";
+              const iconTone = isLast ? "bg-white text-openhw-green" : "bg-openhw-green text-white";
+              const bodyTone = isLast ? "text-white/85" : "text-muted";
 
               return (
-                <article
+                <li
                   key={step.title}
-                  className="relative rounded-lg border border-border bg-white p-5 shadow-sm"
+                  className={[
+                    "relative min-h-44 rounded-lg p-5 transition lg:min-h-48 lg:rounded-none lg:py-6 lg:pl-9 lg:pr-12",
+                    "drop-shadow-sm",
+                    index > 0 ? "lg:-ml-7 lg:pl-14" : "",
+                    itemTone,
+                    flowArrowClassName(index),
+                  ].join(" ")}
+                  style={{ zIndex: roadmapFlow.length - index }}
                 >
-                  {!isLast ? (
-                    <div
-                      className="pointer-events-none absolute -right-3 top-8 z-20 hidden h-7 w-7 items-center justify-center rounded-full border border-border bg-surface text-openhw-green shadow-sm lg:flex"
-                      aria-hidden="true"
-                    >
-                      <ArrowRight className="h-4 w-4" />
-                    </div>
-                  ) : null}
-                  <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-lg bg-openhw-green text-white">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <div className="mt-5 flex items-center gap-2">
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-openhw-navy">
-                      {index + 1}
+                  <div className="flex items-center justify-between gap-4">
+                    <span className={`rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-normal ${labelTone}`}>
+                      Step {index + 1}
                     </span>
-                    {isLast ? (
-                      <CircleCheck className="h-5 w-5 text-openhw-green" aria-hidden="true" />
-                    ) : null}
+                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${iconTone}`}>
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-base font-bold leading-6 text-openhw-navy">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">{step.description}</p>
-                </article>
+                  <h3 className="mt-5 text-lg font-bold leading-6">{step.title}</h3>
+                  <p className={`mt-3 text-sm leading-6 ${bodyTone}`}>{step.description}</p>
+                </li>
               );
             })}
-          </div>
+          </ol>
         </div>
       </section>
     </div>
