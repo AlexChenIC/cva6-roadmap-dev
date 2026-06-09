@@ -340,3 +340,38 @@
       url: https://tristan-project.eu/2025/11/04/using-a-performance-model-to-implement-a-superscalar-cva6/
   lastUpdated: 2026-06-09
   featured: false
+- id: unibo-hpdcache-integration
+  title: HPDcache integration and performance evaluation
+  summary: Active UniBo-related performance roadmap signal around CVA6 and OpenHW HPDcache
+    integration, evaluation, and documentation for higher-throughput memory-subsystem
+    configurations.
+  description: OpenHW's HPDcache repository states that HPDcache is integrated with CVA6 and selected
+    through CVA6 configuration. Public CVA6S+ material from University of Bologna researchers also
+    evaluates CVA6 with OpenHW HPDcache as part of a higher-throughput memory architecture. This
+    roadmap item keeps that work visible as an integration/evaluation direction, not as an
+    unreviewed upstream delivery commitment.
+  theme: Performance
+  status: In Progress
+  proposingOrgs:
+    - unibo
+  owner: OpenHW CVA6 maintainers (scoping review)
+  targetWindow: Performance integration review
+  tags:
+    - HPDcache
+    - CVA6S+
+    - memory-subsystem
+    - performance
+    - cache
+  userValue: Helps partners discuss CVA6 performance paths with concrete cache-system references
+    instead of treating memory-subsystem work as an unspecified future idea.
+  links:
+    - label: OpenHW cv-hpdcache repository
+      url: https://github.com/openhwgroup/cv-hpdcache
+    - label: HPDcache User Guide
+      url: https://openhw-group-cv-hpdcache.readthedocs-hosted.com/
+    - label: CVA6S+ paper on arXiv
+      url: https://arxiv.org/html/2505.03762v2
+    - label: RISC-V Summit Europe CVA6S+ slides
+      url: https://riscv-europe.org/summit/2025/media/proceedings/2025-05-14-RISC-V-Summit-Europe-12h15-TEDESCHI-slides.pdf
+  lastUpdated: 2026-06-09
+  featured: true

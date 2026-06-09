@@ -15,6 +15,7 @@ includedRoadmapItems:
   - formal-verif
   - safety-evaluation-evidence
   - cvxif-integration-guide
+  - unibo-hpdcache-integration
 releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
 ---
 # CVA6 roadmap candidate (expected)
@@ -30,6 +31,7 @@ Demonstration planning line for showing how future OpenHW release candidates can
 - RVB23 verification-suite integration can be tracked as planned work without claiming completed qualification.
 - CVA6-CHERI and CVA6-Safe evidence can be connected when public artifacts are available.
 - CV-X-IF integration guidance can be included once maintainers agree the issue-linked guidance is ready.
+- HPDcache integration/evaluation can be discussed as a performance path without implying a fixed upstream release scope.
 
 ## Support
 
