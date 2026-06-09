@@ -38,7 +38,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
     `FilterBar` (search + multiselect + group-by, URL-synced), `SectionHeading`, `EmptyState`.
   - **Accept:** components render in isolation without errors; typed props. Commit `feat: ui components`.
 
-- [ ] **T6 — Home page**
+- [x] **T6 — Home page**
   - Build `/` per SPEC §7.1. All counts derived from data. Featured items from `featured:true`.
   - **Accept:** hero, lane strip (correct counts), pillars, highlights, org row, releases, CTA, footer.
     Commit `feat: home page`.

@@ -49,3 +49,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `components/LanePill.tsx`, `components/OrgChip.tsx`, `components/ThemeTag.tsx`, `components/RoadmapCard.tsx`, `components/SummaryBar.tsx`, `components/FilterBar.tsx`, `components/SectionHeading.tsx`, `components/EmptyState.tsx`, `components/index.ts`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed.
 - Status: DONE
+
+## 2026-06-09 13:46 — T6 Home page
+- Did: Replaced the scaffolded homepage with the CVA6 Roadmap home experience: hero, data-derived lane strip, strategic pillars, featured roadmap cards, contributing organization row, release cards, and navy contribute CTA.
+- Files: `app/page.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npx tsc --noEmit` passed; browser checks confirmed hero, footer, lane counts `7/5/4/4`, 7 featured cards, 6 pillars, 5 organizations, 2 releases, CTA, and no horizontal overflow at 375px; `npm run build` passed.
+- Status: DONE
