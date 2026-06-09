@@ -1,8 +1,7 @@
 import { ArrowRight, ExternalLink, Globe2, Users } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { LanePill, SectionHeading, ThemeTag } from "@/components";
+import { LanePill, OrganizationLogo, SectionHeading, ThemeTag } from "@/components";
 import { organizations } from "@/data/organizations";
 import { roadmapItems } from "@/data/roadmap";
 
@@ -37,30 +36,29 @@ export default function OrganizationsPage() {
               <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.5fr)]">
                 <div>
                   <div className="flex items-center gap-3">
-                    {org.logo ? (
-                      <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-white p-1.5">
-                        <Image
-                          src={org.logo}
-                          alt=""
-                          width={42}
-                          height={42}
-                          className="h-full w-full"
-                          aria-hidden="true"
-                          loading="eager"
-                          unoptimized
-                        />
-                      </span>
-                    ) : (
-                      <span
-                        className="flex h-12 w-12 items-center justify-center rounded-xl text-base font-bold text-white"
-                        style={{ backgroundColor: org.color }}
-                        aria-hidden="true"
+                    {org.website ? (
+                      <a
+                        href={org.website}
+                        className="rounded-xl focus:outline-none focus:ring-2 focus:ring-openhw-green"
+                        aria-label={`${org.name} website`}
+                        rel="noreferrer"
                       >
-                        {org.shortName.slice(0, 2)}
-                      </span>
+                        <OrganizationLogo org={org} size="lg" decorative priority />
+                      </a>
+                    ) : (
+                      <OrganizationLogo org={org} size="lg" decorative priority />
                     )}
                     <div>
-                      <h2 className="text-2xl font-bold text-openhw-navy">{org.name}</h2>
+                      {org.website ? (
+                        <a href={org.website} className="group inline-flex items-center gap-2" rel="noreferrer">
+                          <h2 className="text-2xl font-bold text-openhw-navy transition group-hover:text-openhw-green">
+                            {org.name}
+                          </h2>
+                          <ExternalLink className="h-4 w-4 text-slate-400 transition group-hover:text-openhw-green" />
+                        </a>
+                      ) : (
+                        <h2 className="text-2xl font-bold text-openhw-navy">{org.name}</h2>
+                      )}
                       <p className="mt-1 text-sm font-bold text-slate-500">{items.length} roadmap items</p>
                     </div>
                   </div>

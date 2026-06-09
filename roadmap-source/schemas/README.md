@@ -14,7 +14,8 @@ the YAML files in `roadmap-source/generated/`, and the website reads those
 generated files.
 
 - Organization input supports `logo` and `tags`. Logos should point to files in
-  `site/public/`, for example `/org-logos/openhw.svg`.
+  `site/public/`, for example `/openhw/openhw-horizontal.svg` or
+  `/org-logos/lowrisc.svg`.
 - Partner need input supports `tags` so partner expectations can be grouped
   before they become accepted roadmap items.
 - Roadmap item input is the accepted public roadmap layer. Its `targetRelease`

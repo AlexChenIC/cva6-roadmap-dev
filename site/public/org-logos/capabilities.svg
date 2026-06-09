@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Capabilities badge">
-  <rect width="64" height="64" rx="14" fill="#B45309"/>
-  <path d="M32 13 50 23v18L32 51 14 41V23z" fill="#fff" opacity=".18"/>
-  <path d="M32 19c7 0 13 5 15 12h-7c-2-4-5-6-9-6-6 0-10 4-10 10s4 10 10 10c4 0 7-2 9-6h7c-2 7-8 12-15 12-10 0-18-7-18-16s8-16 18-16z" fill="#fff"/>
-</svg>

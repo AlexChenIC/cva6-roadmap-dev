@@ -1,15 +1,16 @@
 ---
 id: capabilities
-name: Capabilities
+name: Capabilities Limited
 shortName: Capabilities
 color: "#B45309"
-logo: /org-logos/capabilities.svg
+logo: /org-logos/capabilities.png
 tags:
   - memory-safety
   - CHERI
   - research
+website: https://www.eclipse.org/membership/show-member/?member_id=1742
 ---
-# Capabilities
+# Capabilities Limited
 
 ## Blurb
 

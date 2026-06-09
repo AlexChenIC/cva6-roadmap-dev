@@ -3,7 +3,7 @@
   name: OpenHW Group
   shortName: OpenHW
   color: "#18A13B"
-  logo: /org-logos/openhw.svg
+  logo: /openhw/openhw-horizontal.svg
   tags:
     - governance
     - releases
@@ -25,7 +25,7 @@
   name: University of Bologna
   shortName: UniBo
   color: "#A21CAF"
-  logo: /org-logos/unibo.svg
+  logo: /org-logos/unibo.png
   tags:
     - PULP
     - microarchitecture
@@ -44,12 +44,13 @@
   website: https://lowrisc.org
   blurb: Security, CHERI/capabilities, and open verification collateral.
 - id: capabilities
-  name: Capabilities
+  name: Capabilities Limited
   shortName: Capabilities
   color: "#B45309"
-  logo: /org-logos/capabilities.svg
+  logo: /org-logos/capabilities.png
   tags:
     - memory-safety
     - CHERI
     - research
+  website: https://www.eclipse.org/membership/show-member/?member_id=1742
   blurb: Memory-safety and capability-hardware extensions for CVA6.

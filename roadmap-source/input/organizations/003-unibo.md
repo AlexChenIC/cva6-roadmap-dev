@@ -3,7 +3,7 @@ id: unibo
 name: University of Bologna
 shortName: UniBo
 color: "#A21CAF"
-logo: /org-logos/unibo.svg
+logo: /org-logos/unibo.png
 tags:
   - PULP
   - microarchitecture

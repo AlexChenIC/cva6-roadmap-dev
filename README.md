@@ -64,6 +64,9 @@ Examples:
 - A new organization starts participating: add or edit one file in
   `input/organizations/`, then refer to its `id` from roadmap items or partner
   needs.
+- Organization logos are referenced from the organization Markdown file. Logo
+  assets should live under `site/public/org-logos/` and render through the
+  shared `OrganizationLogo` component in chip, medium, and large sizes.
 
 ## Source Files
 

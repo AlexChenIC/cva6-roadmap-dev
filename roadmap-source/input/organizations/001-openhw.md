@@ -3,7 +3,7 @@ id: openhw
 name: OpenHW Group
 shortName: OpenHW
 color: "#18A13B"
-logo: /org-logos/openhw.svg
+logo: /openhw/openhw-horizontal.svg
 tags:
   - governance
   - releases
