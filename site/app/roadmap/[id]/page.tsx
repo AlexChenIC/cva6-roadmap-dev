@@ -151,6 +151,11 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
 
             <h1 className="mt-5 text-3xl font-bold leading-tight text-openhw-navy sm:text-5xl">{item.title}</h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">{item.summary}</p>
+            <p className="mt-5 rounded-lg border border-border bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
+              This entry is a reviewed roadmap signal. Released items point to public releases or maintained baselines;
+              future-looking items require maintainer confirmation before they should be read as OpenHW delivery
+              commitments.
+            </p>
           </header>
 
           <div className="mt-8 grid gap-8">
@@ -192,7 +197,7 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
                   <h3 className="text-sm font-bold uppercase tracking-normal text-openhw-green">Evidence basis</h3>
                   <p className="mt-3 text-sm leading-6 text-slate-700">
                     This entry is grounded in the linked public references and the structured roadmap data for
-                    status, owner, target window, release alignment, organizations, and tags.
+                    status, review lead, target window, release alignment, associated organizations, and tags.
                   </p>
                 </div>
                 <div className="rounded-xl border border-border bg-slate-50 p-5">
@@ -200,7 +205,7 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
                     Risks / validation needs
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-slate-700">
-                    Owner, release scope, and verification evidence should be confirmed by OpenHW maintainers
+                    Review lead, release scope, and verification evidence should be confirmed by OpenHW maintainers
                     before this roadmap item is treated as a formal delivery commitment.
                   </p>
                 </div>
@@ -235,7 +240,7 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
           <h2 className="text-lg font-bold text-openhw-navy">Roadmap item metadata</h2>
 
           <div className="mt-4">
-            <MetaRow icon={Users} label="Proposing organizations">
+            <MetaRow icon={Users} label="Associated organizations">
               <div className="flex flex-wrap gap-2">
                 {item.proposingOrgs.map((orgId) => (
                   <OrgChip key={orgId} org={organizationFor(orgId)} href={`/organizations#${orgId}`} />
@@ -244,7 +249,7 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
             </MetaRow>
 
             {item.owner ? (
-              <MetaRow icon={Users} label="Owner">
+              <MetaRow icon={Users} label="Review lead">
                 {item.owner}
               </MetaRow>
             ) : null}

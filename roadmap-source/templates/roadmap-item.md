@@ -17,11 +17,11 @@ featured: false
 
 ## Summary
 
-One or two sentences describing the accepted roadmap item.
+One or two sentences describing the reviewed roadmap signal.
 
 ## Description
 
-More detail about scope, design intent, and boundaries.
+More detail about scope, design intent, evidence, and boundaries. Avoid implying a partner owns delivery unless maintainers approved that wording.
 
 ## User value
 

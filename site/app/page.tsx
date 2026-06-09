@@ -15,7 +15,7 @@ const entryPoints = [
     href: "/roadmap",
     title: "Roadmap",
     description:
-      "Review maintainer-curated roadmap items by status, theme, owner, organization, and target window.",
+      "Review maintainer-curated roadmap items by status, theme, review lead, organization, and target window.",
     icon: Map,
     cta: "Open roadmap",
   },
@@ -89,8 +89,9 @@ export default function Home() {
               participating organizations.
             </p>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-              This site is a curated public view of selected roadmap topics. It is not a complete CVA6
-              feature inventory, issue tracker, or delivery guarantee.
+              This review draft is a curated public view of selected roadmap topics. It is suitable for
+              group review and wording feedback, but it is not a complete CVA6 feature inventory, issue
+              tracker, or delivery guarantee.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link

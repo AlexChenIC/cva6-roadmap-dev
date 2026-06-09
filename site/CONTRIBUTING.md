@@ -12,7 +12,7 @@ Use a pull request when the requested data update is already clear.
 
 Start partner requests in `roadmap-source/input/partner-needs/`. Move content
 into `roadmap-source/input/roadmap-items/` only after maintainers accept the
-owner, scope, status, timing, and evidence.
+review lead, scope, status, timing, and evidence.
 
 Good proposals include:
 
@@ -20,8 +20,8 @@ Good proposals include:
 - A short summary and clear user value.
 - The proposed theme.
 - The proposed lifecycle status or public lane.
-- The proposing or owning organization.
-- A named owner or responsible team.
+- The associated organization or contributor group.
+- A named maintainer contact, review lead, or `To be confirmed`.
 - A target window or release, if known.
 - Links to design notes, issues, specs, or implementation work.
 
@@ -39,7 +39,8 @@ When adding or editing an item:
 - Use one of the existing `Theme` values from `lib/types.ts`.
 - Use one of the lifecycle statuses from `LifecycleStatus`.
 - Include at least one `proposingOrgs` id from `roadmap-source/input/organizations/`.
-- Include an `owner` value that names a responsible team or point of contact group.
+  Treat this as attribution or association unless delivery ownership is explicitly reviewed.
+- Include an `owner` value that names a maintainer contact, review lead, or `To be confirmed`.
 - Keep `summary` to one or two sentences.
 - Add a practical `userValue` line.
 - Use ISO dates for `lastUpdated`, such as `2026-05-01`.
@@ -67,10 +68,10 @@ The public board has four lanes. Lanes are derived from lifecycle status in
 Use the most specific lifecycle status that reflects current commitment:
 
 - `Released`: merged, verified, and available in a public CVA6 release or stable configuration.
-- `In Progress`: active implementation with a named owner or organization.
+- `In Progress`: active implementation, verification, or evidence work with a named review lead.
 - `Verification`: implementation exists and verification is the main remaining work.
 - `Planned`: accepted direction with expected scope or timing, but not yet active execution.
-- `Proposed`: community proposal that needs review, ownership, or scope refinement.
+- `Proposed`: community proposal that needs review lead, evidence, or scope refinement.
 - `Idea`: exploratory direction without a concrete commitment.
 - `Deferred`: valid topic intentionally pushed out of the active plan.
 
@@ -91,4 +92,4 @@ npm run build
 ```
 
 The PR should explain what changed, why it belongs on the public roadmap, and which
-organization or maintainer should review it.
+maintainer group or associated organization should review it.

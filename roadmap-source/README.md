@@ -25,7 +25,7 @@ what is merged into the official roadmap.
 1. Copy the relevant template from `templates/`.
 2. Put the new Markdown file in the matching `input/` folder.
 3. For a partner request, start in `input/partner-needs/`.
-4. For an accepted roadmap commitment, use `input/roadmap-items/`.
+4. For an accepted or reviewed public roadmap signal, use `input/roadmap-items/`.
 5. Link public evidence such as issues, PRs, specs, meeting notes, or verification results.
 6. Run `cd site && npm run validate:data` before asking for review.
 
@@ -36,7 +36,7 @@ references, dates, IDs, URLs, release links, and organization IDs.
 
 A partner need becomes an official roadmap item only when maintainers agree on:
 
-- owner or responsible team
+- maintainer contact or review lead
 - lifecycle status
 - target window or release
 - public evidence links

@@ -64,7 +64,7 @@ export function RoadmapCard({
         </div>
 
         <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border pt-4 text-xs font-semibold text-slate-500">
-          {item.owner ? <span className="text-openhw-navy">Owner: {item.owner}</span> : null}
+          {item.owner ? <span className="text-openhw-navy">Review lead: {item.owner}</span> : null}
           {item.targetWindow ? <span>{item.targetWindow}</span> : null}
           <span className="inline-flex items-center gap-1.5">
             <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />

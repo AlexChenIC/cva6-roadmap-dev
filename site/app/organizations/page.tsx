@@ -17,8 +17,8 @@ export default function OrganizationsPage() {
         <div className="page-container">
           <SectionHeading
             eyebrow="Organizations"
-            title="Who is shaping CVA6"
-            description="CVA6 roadmap work can come from partner organizations, research groups, and individual contributors. Accepted items keep attribution visible as the project evolves."
+            title="Organizations represented in roadmap data"
+            description="CVA6 roadmap signals can come from partner organizations, research groups, and individual contributors. Related items keep public attribution visible without implying delivery ownership."
           />
         </div>
       </section>
@@ -59,7 +59,7 @@ export default function OrganizationsPage() {
                       ) : (
                         <h2 className="text-2xl font-bold text-openhw-navy">{org.name}</h2>
                       )}
-                      <p className="mt-1 text-sm font-bold text-slate-500">{items.length} roadmap feature items</p>
+                      <p className="mt-1 text-sm font-bold text-slate-500">{items.length} related roadmap items</p>
                     </div>
                   </div>
 
@@ -81,7 +81,7 @@ export default function OrganizationsPage() {
                       href={`/roadmap?org=${org.id}`}
                       className="inline-flex h-10 items-center gap-2 rounded-lg bg-openhw-green px-3 text-sm font-bold text-white transition hover:bg-openhw-green-dark"
                     >
-                      Roadmap items
+                      Related items
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                   </div>
@@ -89,7 +89,7 @@ export default function OrganizationsPage() {
 
                 <section className="rounded-xl border border-border bg-slate-50 p-4">
                   <div className="mb-4 flex items-center justify-between gap-3">
-                    <h3 className="text-sm font-bold uppercase tracking-normal text-slate-500">Roadmap feature items</h3>
+                    <h3 className="text-sm font-bold uppercase tracking-normal text-slate-500">Related roadmap items</h3>
                     <span
                       className="rounded-full border bg-white px-3 py-1 text-sm font-bold"
                       style={{ borderColor: org.color, color: org.color }}
@@ -149,8 +149,8 @@ export default function OrganizationsPage() {
               </div>
               <p className="mt-5 text-base leading-7 text-slate-700">
                 Not every CVA6 feature starts inside a listed organization. Individual contributors, research teams, and
-                prototype owners can bring implemented work or early proposals into CVA6 discussion; accepted work is
-                then represented as roadmap feature items with appropriate attribution.
+                prototype owners can bring implemented work or early proposals into CVA6 discussion; reviewed work can
+                then be represented as roadmap items with appropriate attribution.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link
@@ -181,7 +181,7 @@ export default function OrganizationsPage() {
                   },
                   {
                     title: "CVA6 discussion",
-                    text: "Maintainers and partners review fit, verification expectations, and upstream ownership.",
+                    text: "Maintainers and partners review fit, verification expectations, and the upstream review path.",
                   },
                   {
                     title: "Roadmap feature item",

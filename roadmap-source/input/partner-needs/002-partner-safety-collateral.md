@@ -13,7 +13,7 @@ tags:
   - traceability
   - evidence
 targetWindow: Candidate evidence package
-owner: OpenHW verification maintainers / Thales reviewers
+owner: OpenHW verification maintainers
 ---
 # Safety evaluation evidence and traceability
 

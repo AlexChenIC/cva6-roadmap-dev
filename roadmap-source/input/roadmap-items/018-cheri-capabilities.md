@@ -6,7 +6,7 @@ status: Idea
 proposingOrgs:
   - lowrisc
   - capabilities
-owner: lowRISC / Capabilities research partners
+owner: OpenHW CVA6 maintainers (scoping review)
 targetWindow: Research
 tags:
   - CHERI

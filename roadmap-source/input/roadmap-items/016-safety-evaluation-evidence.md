@@ -5,7 +5,7 @@ theme: Safety & Certification
 status: Proposed
 proposingOrgs:
   - thales
-owner: OpenHW verification maintainers / Thales reviewers
+owner: OpenHW verification maintainers
 targetWindow: Candidate evidence package
 tags:
   - safety

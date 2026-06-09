@@ -49,7 +49,7 @@ Most updates should touch one Markdown file under `roadmap-source/input/`:
 roadmap-source/input/partner-needs/*.md    Partner expectations before commitment
 roadmap-source/input/roadmap-items/*.md    Accepted roadmap items and feature plans
 roadmap-source/input/releases/*.md         Real releases and planned release windows
-roadmap-source/input/organizations/*.md    Organization names, labels, and logos
+roadmap-source/input/organizations/*.md    Organization names, websites, neutral descriptions, and logos
 roadmap-source/input/meeting-notes/*.md    Reviewed CVA6 meeting summaries
 ```
 
@@ -87,6 +87,13 @@ The current release data includes real entries from
 https://github.com/openhwgroup/cva6/releases. Planned entries are explicitly
 tagged as examples, not commitments.
 
+## Current Review Status
+
+This repository is ready for OpenHW/CVA6 group review, wording review, and
+workflow feedback. Future-looking items should not be treated as final OpenHW
+delivery commitments until maintainers confirm scope, review lead, target
+window, release linkage, and public evidence.
+
 ## Promotion Rule
 
 Partner needs are welcome, but they are not automatically official roadmap
@@ -94,7 +101,7 @@ commitments.
 
 A partner need becomes an official roadmap item only after maintainers agree on:
 
-- owner or responsible team
+- maintainer contact or review lead
 - lifecycle status
 - target window or release
 - scope and risk notes
@@ -113,7 +120,7 @@ OpenHW delivery promise.
 5. Run validation locally; it regenerates `roadmap-source/generated/*.yml`.
 6. Open a pull request.
 7. Review the Vercel preview.
-8. Merge only after owner, status, target window, and evidence are clear.
+8. Merge only after review lead, status, target window, and evidence are clear.
 9. Production updates automatically after merge or manual deployment.
 
 ## Local Review
@@ -146,21 +153,29 @@ common governance and data problems:
 
 ## Deployment
 
-Deploy from the repository root using a prebuilt deployment. The local build
-runs inside `site/`, where the app can read `../roadmap-source/`:
+Deploy from the repository root so the build can read both `site/` and
+`roadmap-source/`.
 
 ```bash
-npx vercel build --prod --cwd site
-npx vercel deploy --prebuilt --prod --cwd site
+npx vercel deploy . --prod --yes --local-config site/vercel.root.json
 ```
 
-The Vercel config lives in `site/vercel.json` to keep the root directory focused
-on the README, roadmap source, and site generator. For Git-based Vercel builds,
-set the Vercel project Root Directory to `site`.
+For Git-based Vercel builds, keep the project root at the repository root and
+configure:
+
+```text
+Install Command: cd site && npm ci
+Build Command:   cd site && npm run build
+Output Directory: site/.next
+Framework:       Next.js
+```
+
+Do not set the Vercel Root Directory to `site`, because the build would no
+longer include `roadmap-source/`.
 
 ## Generated Pages
 
-- `/` - overview, strategy, partner signals, highlights, organizations, releases
+- `/` - concise portal overview and roadmap workflow
 - `/roadmap` - roadmap board with lane, organization, theme, and text filters
 - `/roadmap/[id]` - roadmap item detail pages
 - `/releases` - real and planned release-oriented view

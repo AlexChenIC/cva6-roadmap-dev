@@ -22,7 +22,7 @@ export default function RoadmapPage() {
           <SectionHeading
             eyebrow="Roadmap"
             title="Browse CVA6 work by lane, theme, or organization"
-            description="Search the public roadmap, filter by organizations and themes, and inspect each item for owner, target window, release mapping, tags, and evidence links."
+            description="Search reviewed CVA6 roadmap signals, filter by organizations and themes, and inspect each item for review lead, target window, release mapping, tags, and evidence links."
           />
         </div>
       </section>

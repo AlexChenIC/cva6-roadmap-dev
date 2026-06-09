@@ -8,8 +8,9 @@
 
 - [ ] I updated `roadmap-source/input/` for roadmap content.
 - [ ] Partner requests start in `roadmap-source/input/partner-needs/*.md` unless maintainers have accepted them.
-- [ ] Official commitments in `roadmap-source/input/roadmap-items/*.md` have a clear owner, status, target window or release, and evidence.
-- [ ] New or edited items have a stable `id`, `title`, `summary`, `theme`, `status`, `proposingOrgs`, `owner`, `tags`, and `lastUpdated`.
+- [ ] Official commitments in `roadmap-source/input/roadmap-items/*.md` have a clear review lead, status, target window or release, and evidence.
+- [ ] New or edited items have a stable `id`, `title`, `summary`, `theme`, `status`, associated `proposingOrgs`, `owner` or `To be confirmed`, `tags`, and `lastUpdated`.
+- [ ] Organization associations are attribution/context, not delivery ownership, unless maintainers explicitly approved that wording.
 - [ ] The lifecycle status maps to the intended public lane in `site/lib/lanes.ts`.
 - [ ] Organization ids already exist in `roadmap-source/input/organizations/*.md`, or this PR adds them intentionally.
 - [ ] Links are public and useful to reviewers.

@@ -59,7 +59,7 @@
     - public description of verification assumptions, coverage boundaries, and release scope
     - wording that separates evaluation evidence from ISO 26262 certification claims
   targetWindow: Candidate evidence package
-  owner: OpenHW verification maintainers / Thales reviewers
+  owner: OpenHW verification maintainers
   publicNotes: This is deliberately framed as evaluation support. Any certification language must come
     from a separate approved safety program, not from this portal.
   evidence:

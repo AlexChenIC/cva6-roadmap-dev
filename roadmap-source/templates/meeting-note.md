@@ -17,7 +17,7 @@ relatedRoadmapItems: []
 
 ## Action items
 
-- Owner: action item
+- Review lead: action item
 
 ## Notes
 

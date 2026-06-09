@@ -18,7 +18,7 @@ export default function ReleasesPage() {
           <SectionHeading
             eyebrow="Releases"
             title="Roadmap items by release window"
-            description="Connect public roadmap commitments to stable and planned CVA6 release lines, including included features and verification notes."
+            description="Connect reviewed roadmap items to stable and planned CVA6 release lines, including included features and verification notes."
           />
         </div>
       </section>
@@ -132,7 +132,7 @@ export default function ReleasesPage() {
                             <ThemeTag theme={item.theme} />
                             {item.owner ? (
                               <span className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-slate-700">
-                                Owner: {item.owner}
+                                Review lead: {item.owner}
                               </span>
                             ) : null}
                           </div>
