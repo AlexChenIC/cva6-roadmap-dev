@@ -1,0 +1,43 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { SectionHeading } from "@/components";
+import { organizations } from "@/data/organizations";
+import { pillars } from "@/data/pillars";
+import { roadmapItems } from "@/data/roadmap";
+import type { Theme } from "@/lib/types";
+import { RoadmapExplorer } from "./RoadmapExplorer";
+
+export const metadata: Metadata = {
+  title: "Roadmap | CVA6 Roadmap",
+  description: "Browse, filter, and share the public CVA6 roadmap.",
+};
+
+const themes = pillars.map((pillar) => pillar.title) as Theme[];
+
+export default function RoadmapPage() {
+  return (
+    <div className="bg-background">
+      <section className="border-b border-border bg-surface py-12">
+        <div className="page-container">
+          <SectionHeading
+            eyebrow="Roadmap"
+            title="Browse CVA6 work by lane, theme, or organization"
+            description="Search the public roadmap, filter by the organizations and themes that matter to you, then share the resulting URL with the community."
+          />
+        </div>
+      </section>
+
+      <Suspense
+        fallback={
+          <div className="page-container py-10">
+            <div className="rounded-xl border border-border bg-surface p-6 text-sm font-semibold text-muted shadow-sm">
+              Loading roadmap filters...
+            </div>
+          </div>
+        }
+      >
+        <RoadmapExplorer items={roadmapItems} organizations={organizations} themes={themes} />
+      </Suspense>
+    </div>
+  );
+}

@@ -43,7 +43,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
   - **Accept:** hero, lane strip (correct counts), pillars, highlights, org row, releases, CTA, footer.
     Commit `feat: home page`.
 
-- [ ] **T7 — Roadmap page (core)**
+- [x] **T7 — Roadmap page (core)**
   - Build `/roadmap` per SPEC §7.2 with client filtering, board (group-by Lane) + grouped views,
     URL query sync (`?lane=&org=&theme=&q=`), summary bar, empty state.
   - **Accept:** filters/search/group-by work; reload preserves state via URL; cards link to detail.

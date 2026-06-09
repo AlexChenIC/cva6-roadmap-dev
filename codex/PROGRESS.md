@@ -55,3 +55,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `app/page.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run lint` passed; `npx tsc --noEmit` passed; browser checks confirmed hero, footer, lane counts `7/5/4/4`, 7 featured cards, 6 pillars, 5 organizations, 2 releases, CTA, and no horizontal overflow at 375px; `npm run build` passed.
 - Status: DONE
+
+## 2026-06-09 13:50 — T7 Roadmap page (core)
+- Did: Added `/roadmap` with a Suspense-wrapped client roadmap explorer, URL-synced filters, filtered summary counts, lane board view, grouped-by-theme view, grouped-by-organization view, empty state handling, and roadmap cards linking to detail URLs.
+- Files: `app/roadmap/page.tsx`, `app/roadmap/RoadmapExplorer.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed; browser checks confirmed default board counts `20/7/5/4/4`, search for `hypervisor` updates URL and filters to one card, `group=theme` survives reload, combined `lane=future&org=capabilities&theme=Security` filters to two cards, all cards link to `/features/[id]`, and the page has no horizontal overflow at 375px.
+- Status: DONE
