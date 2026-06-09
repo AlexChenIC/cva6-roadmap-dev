@@ -79,3 +79,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `app/organizations/page.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed; browser checks confirmed all 5 organization cards render, counts/lists match the typed roadmap data (`openhw=11`, `thales=3`, `unibo=9`, `lowrisc=3`, `capabilities=3`), item links point to `/features/[id]`, website/roadmap/contribute links render, and the page has no horizontal overflow at 375px.
 - Status: DONE
+
+## 2026-06-09 14:07 CEST — T11 Contribute page + GitHub templates
+- Did: Added `/contribute` with the data-driven roadmap model, GitHub issue/PR contribution paths, lifecycle-to-lane explanation, seeded starting point note, and review expectations. Added contributor documentation plus issue and pull request templates.
+- Files: `app/contribute/page.tsx`, `CONTRIBUTING.md`, `.github/ISSUE_TEMPLATE/roadmap-item.yml`, `.github/PULL_REQUEST_TEMPLATE.md`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npx tsc --noEmit` passed; issue-template YAML parsed with Ruby; `npm run build` passed and generated `/contribute`; browser checks confirmed required content and GitHub links, no console errors, and no horizontal overflow at 1280px or 375px.
+- Status: DONE

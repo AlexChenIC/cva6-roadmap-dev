@@ -61,7 +61,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
   - Build `/organizations` per SPEC §7.6: org cards with blurb, website, and their items (linked).
   - **Accept:** each org lists its items; counts correct. Commit `feat: organizations page`.
 
-- [ ] **T11 — Contribute page + GitHub templates**
+- [x] **T11 — Contribute page + GitHub templates**
   - Build `/contribute` (SPEC §7.7). Add `CONTRIBUTING.md`,
     `.github/ISSUE_TEMPLATE/roadmap-item.yml`, `.github/PULL_REQUEST_TEMPLATE.md`.
   - **Accept:** page explains the data-driven model + lifecycle; templates valid YAML/MD.

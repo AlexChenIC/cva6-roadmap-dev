@@ -1,0 +1,84 @@
+name: Roadmap item proposal
+description: Propose a new CVA6 roadmap item or a change to an existing item.
+title: "[Roadmap]: "
+labels:
+  - roadmap
+  - proposal
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the CVA6 roadmap accurate. Please provide enough detail for maintainers and contributing organizations to review the proposal.
+  - type: input
+    id: title
+    attributes:
+      label: Feature title
+      description: A concise public title for the roadmap item.
+      placeholder: Hypervisor extension (H)
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences describing the capability.
+      placeholder: Describe what this feature adds to CVA6.
+    validations:
+      required: true
+  - type: textarea
+    id: user-value
+    attributes:
+      label: User value
+      description: Why should the CVA6 community care about this item?
+      placeholder: This helps integrators...
+    validations:
+      required: true
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - Architecture & ISA
+        - Security
+        - Safety & Certification
+        - Verification
+        - Performance
+        - Tooling & Ecosystem
+    validations:
+      required: true
+  - type: dropdown
+    id: proposed-lane
+    attributes:
+      label: Proposed public lane
+      options:
+        - Available
+        - In Progress
+        - Planned
+        - Future Idea
+    validations:
+      required: true
+  - type: input
+    id: organizations
+    attributes:
+      label: Proposing or owning organization
+      description: Name the organization(s) proposing or owning this item.
+      placeholder: OpenHW Group, Thales, University of Bologna, lowRISC, Capabilities
+    validations:
+      required: true
+  - type: input
+    id: target-window
+    attributes:
+      label: Target window or release
+      description: Provide a window or release if known.
+      placeholder: 2026 H2, CVA6 5.x, Exploratory
+  - type: textarea
+    id: links
+    attributes:
+      label: Related links
+      description: Add public issues, specs, repositories, presentations, or discussion threads.
+      placeholder: https://github.com/openhwgroup/cva6
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: Anything reviewers should know about ownership, scope, risk, or dependencies.

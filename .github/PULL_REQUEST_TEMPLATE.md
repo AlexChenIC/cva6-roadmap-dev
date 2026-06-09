@@ -1,0 +1,29 @@
+# Pull Request
+
+## Summary
+
+- 
+
+## Roadmap data checklist
+
+- [ ] I updated `data/roadmap.ts` only for public roadmap content.
+- [ ] New or edited items have a stable `id`, `title`, `summary`, `theme`, `status`, `proposingOrgs`, `tags`, and `lastUpdated`.
+- [ ] The lifecycle status maps to the intended public lane in `lib/lanes.ts`.
+- [ ] Organization ids already exist in `data/organizations.ts`, or this PR adds them intentionally.
+- [ ] Links are public and useful to reviewers.
+
+## Page or UI checklist
+
+- [ ] Counts are derived from typed data, not hardcoded.
+- [ ] Links to feature detail pages use `/features/[id]`.
+- [ ] The change remains static: no auth, database, or live API dependency.
+
+## Verification
+
+- [ ] `npm run lint`
+- [ ] `npx tsc --noEmit`
+- [ ] `npm run build` if page or component behavior changed
+
+## Notes for reviewers
+
+-
