@@ -1,51 +1,14 @@
-import { ArrowRight, CheckCircle2, ExternalLink, FileText, GitPullRequest, Globe2, Users } from "lucide-react";
+import { ArrowRight, ExternalLink, Globe2, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LanePill, OrganizationLogo, SectionHeading, ThemeTag } from "@/components";
 import { organizations } from "@/data/organizations";
-import { partnerNeeds } from "@/data/partner-needs";
 import { roadmapItems } from "@/data/roadmap";
-import type { PartnerNeed, RoadmapItem } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Organizations",
   description: "Organizations contributing to the public CVA6 roadmap.",
 };
-
-const signalStatusLabels: Record<PartnerNeed["status"], string> = {
-  candidate: "Candidate",
-  "under-review": "Under review",
-  accepted: "Accepted",
-  declined: "Declined",
-};
-
-const signalStatusStyles: Record<PartnerNeed["status"], string> = {
-  candidate: "border-sky-200 bg-sky-50 text-sky-800",
-  "under-review": "border-amber-200 bg-amber-50 text-amber-800",
-  accepted: "border-emerald-200 bg-emerald-50 text-emerald-800",
-  declined: "border-slate-200 bg-slate-100 text-slate-700",
-};
-
-const sourceTypeLabels: Record<PartnerNeed["sourceType"], string> = {
-  "maintainer-note": "Maintainer note",
-  "meeting-synthesis": "Meeting synthesis",
-  "partner-proposal": "Partner proposal",
-};
-
-function signalCode(id: string) {
-  return `SIG-${id
-    .replace(/^partner-/, "")
-    .split("-")
-    .slice(0, 2)
-    .join("-")
-    .toUpperCase()}`;
-}
-
-function relatedRoadmapItems(need: PartnerNeed): RoadmapItem[] {
-  return need.relatedRoadmapItems
-    .map((itemId) => roadmapItems.find((item) => item.id === itemId))
-    .filter((item): item is RoadmapItem => Boolean(item));
-}
 
 export default function OrganizationsPage() {
   return (
@@ -63,7 +26,6 @@ export default function OrganizationsPage() {
       <section className="page-container grid gap-6 py-10">
         {organizations.map((org) => {
           const items = roadmapItems.filter((item) => item.proposingOrgs.includes(org.id));
-          const signals = partnerNeeds.filter((need) => need.proposingOrgs.includes(org.id));
 
           return (
             <article
@@ -97,9 +59,7 @@ export default function OrganizationsPage() {
                       ) : (
                         <h2 className="text-2xl font-bold text-openhw-navy">{org.name}</h2>
                       )}
-                      <p className="mt-1 text-sm font-bold text-slate-500">
-                        {signals.length} partner signals · {items.length} roadmap items
-                      </p>
+                      <p className="mt-1 text-sm font-bold text-slate-500">{items.length} roadmap feature items</p>
                     </div>
                   </div>
 
@@ -137,145 +97,47 @@ export default function OrganizationsPage() {
                   </div>
                 </div>
 
-                <div className="grid gap-6">
-                  <section>
-                    <div className="mb-3 flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2">
-                        <GitPullRequest className="h-4 w-4 text-openhw-green" aria-hidden="true" />
-                        <h3 className="text-sm font-bold uppercase tracking-normal text-slate-500">Partner signals</h3>
-                      </div>
-                      <span
-                        className="rounded-full border bg-white px-3 py-1 text-sm font-bold"
-                        style={{ borderColor: org.color, color: org.color }}
+                <section className="rounded-xl border border-border bg-slate-50 p-4">
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <h3 className="text-sm font-bold uppercase tracking-normal text-slate-500">Roadmap feature items</h3>
+                    <span
+                      className="rounded-full border bg-white px-3 py-1 text-sm font-bold"
+                      style={{ borderColor: org.color, color: org.color }}
+                    >
+                      {items.length}
+                    </span>
+                  </div>
+
+                  <div className="grid gap-3">
+                    {items.map((item) => (
+                      <Link
+                        key={item.id}
+                        href={`/roadmap/${item.id}`}
+                        className="group rounded-lg border border-border bg-white p-4 transition hover:border-openhw-green hover:shadow-sm"
                       >
-                        {signals.length}
-                      </span>
-                    </div>
-
-                    {signals.length > 0 ? (
-                      <div className="grid gap-3">
-                        {signals.map((need) => {
-                          const relatedItems = relatedRoadmapItems(need);
-
-                          return (
-                            <div key={need.id} className="rounded-lg border border-border bg-white p-4 shadow-sm">
-                              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                                <div className="min-w-0">
-                                  <div className="flex flex-wrap items-center gap-2">
-                                    <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
-                                      {signalCode(need.id)}
-                                    </span>
-                                    <span
-                                      className={`rounded-full border px-2.5 py-1 text-xs font-bold ${signalStatusStyles[need.status]}`}
-                                    >
-                                      {signalStatusLabels[need.status]}
-                                    </span>
-                                    <span className="rounded-full border border-border bg-white px-2.5 py-1 text-xs font-bold text-slate-600">
-                                      {sourceTypeLabels[need.sourceType]}
-                                    </span>
-                                  </div>
-                                  <h4 className="mt-3 font-bold text-openhw-navy">{need.title}</h4>
-                                  <p className="mt-1 text-sm leading-6 text-muted">{need.summary}</p>
-                                </div>
-                                <FileText className="h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
-                              </div>
-
-                              <div className="mt-3 flex flex-wrap gap-2">
-                                {need.requestedCapabilities.slice(0, 4).map((capability) => (
-                                  <span
-                                    key={capability}
-                                    className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700"
-                                  >
-                                    {capability}
-                                  </span>
-                                ))}
-                              </div>
-
-                              {relatedItems.length > 0 ? (
-                                <div className="mt-3 flex flex-wrap gap-2">
-                                  {relatedItems.map((item) => (
-                                    <Link
-                                      key={item.id}
-                                      href={`/roadmap/${item.id}`}
-                                      className="inline-flex items-center gap-1 rounded-full border border-border bg-white px-2.5 py-1 text-xs font-bold text-openhw-navy transition hover:border-openhw-green hover:text-openhw-green"
-                                    >
-                                      <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
-                                      {item.title}
-                                    </Link>
-                                  ))}
-                                </div>
-                              ) : null}
-
-                              {need.evidence && need.evidence.length > 0 ? (
-                                <div className="mt-3 flex flex-wrap gap-2">
-                                  {need.evidence.slice(0, 4).map((link) => (
-                                    <a
-                                      key={`${need.id}-${link.url}`}
-                                      href={link.url}
-                                      rel="noreferrer"
-                                      className="inline-flex items-center gap-1 text-xs font-bold text-openhw-green transition hover:text-openhw-green-dark"
-                                    >
-                                      {link.label}
-                                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                                    </a>
-                                  ))}
-                                </div>
-                              ) : null}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <div className="rounded-lg border border-dashed border-border bg-slate-50 p-4 text-sm font-semibold text-muted">
-                        No partner signal recorded yet.
-                      </div>
-                    )}
-                  </section>
-
-                  <section>
-                    <div className="mb-3 flex items-center justify-between gap-3">
-                      <h3 className="text-sm font-bold uppercase tracking-normal text-slate-500">
-                        Release-linked roadmap items
-                      </h3>
-                      <span
-                        className="rounded-full border bg-white px-3 py-1 text-sm font-bold"
-                        style={{ borderColor: org.color, color: org.color }}
-                      >
-                        {items.length}
-                      </span>
-                    </div>
-
-                    <div className="grid gap-3">
-                      {items.map((item) => (
-                        <Link
-                          key={item.id}
-                          href={`/roadmap/${item.id}`}
-                          className="group rounded-lg border border-border bg-white p-4 transition hover:border-openhw-green hover:shadow-sm"
-                        >
-                          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                            <div className="min-w-0">
-                              <h4 className="font-bold text-openhw-navy">{item.title}</h4>
-                              <p className="mt-1 text-sm leading-6 text-muted">{item.summary}</p>
-                            </div>
-                            <ArrowRight
-                              className="h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-openhw-green"
-                              aria-hidden="true"
-                            />
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                          <div className="min-w-0">
+                            <h4 className="font-bold text-openhw-navy">{item.title}</h4>
+                            <p className="mt-1 text-sm leading-6 text-muted">{item.summary}</p>
                           </div>
-                          <div className="mt-3 flex flex-wrap gap-2">
-                            <LanePill status={item.status} />
-                            <ThemeTag theme={item.theme} />
-                            {item.targetWindow ? (
-                              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
-                                {item.targetWindow}
-                              </span>
-                            ) : null}
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </section>
-                </div>
+                          <ArrowRight
+                            className="h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-openhw-green"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          <LanePill status={item.status} />
+                          <ThemeTag theme={item.theme} />
+                          {item.targetWindow ? (
+                            <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
+                              {item.targetWindow}
+                            </span>
+                          ) : null}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
               </div>
             </article>
           );
