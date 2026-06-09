@@ -4,9 +4,9 @@ import Link from "next/link";
 const footerLinks = [
   { href: "https://www.openhw.org", label: "OpenHW Group" },
   { href: "https://github.com/openhwgroup/cva6", label: "CVA6 GitHub" },
-  { href: "/projects", label: "Projects" },
-  { href: "/releases", label: "Releases" },
-  { href: "/contribute", label: "Contribute" },
+  { href: "/roadmap", label: "Roadmap" },
+  { href: "/releases", label: "Release" },
+  { href: "/organizations", label: "Organizations" },
   { href: "/license", label: "License" },
 ];
 

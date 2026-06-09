@@ -114,7 +114,7 @@ export default function ReleasesPage() {
                       includedItems.map((item) => (
                         <Link
                           key={item.id}
-                          href={`/features/${item.id}`}
+                          href={`/roadmap/${item.id}`}
                           className="group rounded-xl border border-border bg-slate-50 p-4 transition hover:border-openhw-green hover:shadow-sm"
                         >
                           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">

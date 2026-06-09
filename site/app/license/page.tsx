@@ -26,10 +26,10 @@ export default function LicensePage() {
             See the repository `LICENSE` file for the complete Apache License 2.0 text.
           </p>
           <Link
-            href="/contribute"
+            href="https://github.com/AlexChenIC/cva6-roadmap-dev/tree/main/roadmap-source"
             className="mt-6 inline-flex h-11 items-center rounded-lg bg-openhw-green px-4 text-sm font-bold text-white transition hover:bg-openhw-green-dark"
           >
-            Contribution guidelines
+            View roadmap-source
           </Link>
         </div>
       </section>

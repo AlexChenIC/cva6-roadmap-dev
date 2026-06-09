@@ -29,7 +29,7 @@ export interface RoadmapCardProps {
 export function RoadmapCard({
   item,
   organizations,
-  href = `/features/${item.id}`,
+  href = `/roadmap/${item.id}`,
   className = "",
 }: RoadmapCardProps) {
   const orgById = new Map(organizations.map((org) => [org.id, org]));

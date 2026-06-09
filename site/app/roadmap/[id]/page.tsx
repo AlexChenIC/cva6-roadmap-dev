@@ -3,7 +3,6 @@ import {
   ArrowRight,
   CalendarDays,
   ExternalLink,
-  MessageSquare,
   Package,
   Tags,
   Target,
@@ -17,7 +16,7 @@ import { organizations } from "@/data/organizations";
 import { roadmapItems } from "@/data/roadmap";
 import type { Organization, RoadmapItem } from "@/lib/types";
 
-interface FeatureDetailPageProps {
+interface RoadmapItemDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
@@ -57,16 +56,16 @@ function MetaRow({
   );
 }
 
-function FeaturePager({ item }: { item: RoadmapItem }) {
+function RoadmapItemPager({ item }: { item: RoadmapItem }) {
   const index = roadmapItems.findIndex((candidate) => candidate.id === item.id);
   const previous = index > 0 ? roadmapItems[index - 1] : undefined;
   const next = index >= 0 && index < roadmapItems.length - 1 ? roadmapItems[index + 1] : undefined;
 
   return (
-    <nav className="grid gap-3 border-t border-border pt-8 sm:grid-cols-2" aria-label="Feature navigation">
+    <nav className="grid gap-3 border-t border-border pt-8 sm:grid-cols-2" aria-label="Roadmap item navigation">
       {previous ? (
         <Link
-          href={`/features/${previous.id}`}
+          href={`/roadmap/${previous.id}`}
           className="group rounded-xl border border-border bg-surface p-4 transition hover:border-openhw-green hover:shadow-sm"
         >
           <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-normal text-slate-500">
@@ -81,7 +80,7 @@ function FeaturePager({ item }: { item: RoadmapItem }) {
 
       {next ? (
         <Link
-          href={`/features/${next.id}`}
+          href={`/roadmap/${next.id}`}
           className="group rounded-xl border border-border bg-surface p-4 text-left transition hover:border-openhw-green hover:shadow-sm sm:text-right"
         >
           <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-normal text-slate-500">
@@ -99,13 +98,13 @@ export function generateStaticParams() {
   return roadmapItems.map((item) => ({ id: item.id }));
 }
 
-export async function generateMetadata({ params }: FeatureDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: RoadmapItemDetailPageProps): Promise<Metadata> {
   const { id } = await params;
   const item = findItem(id);
 
   if (!item) {
     return {
-      title: "Feature not found",
+      title: "Roadmap item not found",
     };
   }
 
@@ -115,7 +114,7 @@ export async function generateMetadata({ params }: FeatureDetailPageProps): Prom
   };
 }
 
-export default async function FeatureDetailPage({ params }: FeatureDetailPageProps) {
+export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetailPageProps) {
   const { id } = await params;
   const item = findItem(id);
 
@@ -132,8 +131,8 @@ export default async function FeatureDetailPage({ params }: FeatureDetailPagePro
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            <Link href="/features" className="hover:text-openhw-green">
-              Features
+            <Link href="/roadmap" className="hover:text-openhw-green">
+              Roadmap
             </Link>
             <span aria-hidden="true">/</span>
             <span className="text-openhw-navy">{item.title}</span>
@@ -209,28 +208,29 @@ export default async function FeatureDetailPage({ params }: FeatureDetailPagePro
             <section className="rounded-xl bg-openhw-navy p-6 text-white sm:p-8">
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold">Propose a change or discuss this item</h2>
+                  <h2 className="text-2xl font-bold">Source-controlled roadmap item</h2>
                   <p className="mt-3 text-sm leading-6 text-slate-200">
-                    Roadmap entries are maintained in roadmap-source so the community can propose updates through the
-                    contribution flow.
+                    This entry is maintained in roadmap-source. Changes should be reviewed through pull requests
+                    before they become part of the public roadmap.
                   </p>
                 </div>
-                <Link
-                  href="/contribute"
+                <a
+                  href="https://github.com/AlexChenIC/cva6-roadmap-dev/tree/main/roadmap-source"
                   className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-bold text-openhw-navy transition hover:bg-slate-100"
+                  rel="noreferrer"
                 >
-                  <MessageSquare className="h-4 w-4" aria-hidden="true" />
-                  Contribute
-                </Link>
+                  View roadmap-source
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
               </div>
             </section>
 
-            <FeaturePager item={item} />
+            <RoadmapItemPager item={item} />
           </div>
         </div>
 
         <aside className="rounded-xl border border-border bg-surface p-6 shadow-sm lg:sticky lg:top-24">
-          <h2 className="text-lg font-bold text-openhw-navy">Feature metadata</h2>
+          <h2 className="text-lg font-bold text-openhw-navy">Roadmap item metadata</h2>
 
           <div className="mt-4">
             <MetaRow icon={Users} label="Proposing organizations">
@@ -279,10 +279,10 @@ export default async function FeatureDetailPage({ params }: FeatureDetailPagePro
               Back to roadmap
             </Link>
             <Link
-              href="/features"
+              href="/roadmap"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-openhw-green px-4 text-sm font-bold text-white transition hover:bg-openhw-green-dark"
             >
-              Browse all features
+              View roadmap board
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

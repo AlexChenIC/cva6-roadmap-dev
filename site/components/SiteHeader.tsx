@@ -9,11 +9,8 @@ import { useState } from "react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/roadmap", label: "Roadmap" },
-  { href: "/projects", label: "Projects" },
-  { href: "/features", label: "Features" },
-  { href: "/releases", label: "Releases" },
+  { href: "/releases", label: "Release" },
   { href: "/organizations", label: "Organizations" },
-  { href: "/contribute", label: "Contribute" },
 ];
 
 function GitHubMark({ className }: { className?: string }) {

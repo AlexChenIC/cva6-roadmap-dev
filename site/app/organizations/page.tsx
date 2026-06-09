@@ -114,7 +114,7 @@ export default function OrganizationsPage() {
                     {items.map((item) => (
                       <Link
                         key={item.id}
-                        href={`/features/${item.id}`}
+                        href={`/roadmap/${item.id}`}
                         className="group rounded-lg border border-border bg-white p-4 transition hover:border-openhw-green hover:shadow-sm"
                       >
                         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -151,19 +151,19 @@ export default function OrganizationsPage() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-normal text-slate-200">
               <Users className="h-4 w-4" aria-hidden="true" />
-              More contributors welcome
+              Organization updates through reviewed source
             </div>
-            <h2 className="mt-3 text-3xl font-bold">Bring your organization into the roadmap</h2>
+            <h2 className="mt-3 text-3xl font-bold">Keep attribution clear</h2>
             <p className="mt-3 text-sm leading-6 text-slate-200">
-              Propose a new item or clarify ownership through the contribution flow so the public roadmap reflects
-              the full CVA6 community.
+              Organization names, labels, and related roadmap items are maintained in roadmap-source so attribution
+              stays reviewable.
             </p>
           </div>
           <Link
-            href="/contribute"
+            href="https://github.com/AlexChenIC/cva6-roadmap-dev/tree/main/roadmap-source"
             className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-bold text-openhw-navy transition hover:bg-slate-100"
           >
-            Contribute
+            Roadmap source
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>

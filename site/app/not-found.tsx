@@ -23,10 +23,10 @@ export default function NotFound() {
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             </Link>
             <Link
-              href="/features"
+              href="/roadmap"
               className="inline-flex h-11 items-center gap-2 rounded-lg border border-border px-4 text-sm font-bold text-openhw-navy transition hover:border-openhw-green hover:text-openhw-green"
             >
-              Browse features
+              View roadmap board
             </Link>
           </div>
         </div>

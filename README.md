@@ -146,12 +146,9 @@ set the Vercel project Root Directory to `site`.
 
 - `/` - overview, strategy, partner signals, highlights, organizations, releases
 - `/roadmap` - roadmap board with lane, organization, theme, and text filters
-- `/projects` - project-level protocol view for the CVA6 pilot
-- `/features` - searchable feature catalog
-- `/features/[id]` - roadmap item detail pages
+- `/roadmap/[id]` - roadmap item detail pages
 - `/releases` - real and planned release-oriented view
 - `/organizations` - organization attribution
-- `/contribute` - contribution and PR workflow
 
 ## Editing Boundary
 

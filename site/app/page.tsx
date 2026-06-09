@@ -60,10 +60,10 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
-                href="/contribute"
+                href="/releases"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-white px-5 text-sm font-bold text-openhw-navy transition hover:border-openhw-green hover:text-openhw-green"
               >
-                Propose a feature
+                View releases
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
@@ -173,15 +173,9 @@ export default function Home() {
 
       <section className="page-container py-14">
         <SectionHeading
-          eyebrow="Project portfolio"
-          title="CVA6 as the roadmap protocol pilot"
-          description="The first scope is a single project, but it keeps project metadata explicit so the same protocol can later aggregate multiple OpenHW roadmaps."
-          action={
-            <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-bold text-openhw-green">
-              View project layer
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          }
+          eyebrow="CVA6 context"
+          title="One project, one reviewed source of truth"
+          description="The first public scope is CVA6. Project metadata is shown here so readers can identify the upstream repository, maintainers, participating organizations, and next expected roadmap candidate without opening a separate project page."
         />
         <div className="mt-8 grid gap-5">
           {projects.map((project) => (
@@ -220,12 +214,6 @@ export default function Home() {
             eyebrow="Partner signals"
             title="Partner needs are tracked before they become commitments"
             description={strategy.sourcePolicy}
-            action={
-              <Link href="/contribute" className="inline-flex items-center gap-2 text-sm font-bold text-openhw-green">
-                Propose a partner need
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            }
           />
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {partnerSignals.map((need) => {
@@ -266,7 +254,7 @@ export default function Home() {
                         {relatedItems.map((item) => (
                           <Link
                             key={item.id}
-                            href={`/features/${item.id}`}
+                            href={`/roadmap/${item.id}`}
                             className="text-sm font-bold text-openhw-navy hover:text-openhw-green"
                           >
                             {item.title}
@@ -288,8 +276,8 @@ export default function Home() {
           title="Featured roadmap items"
           description="A quick look at representative work across released capabilities, committed engineering, planned milestones, and exploratory ideas."
           action={
-            <Link href="/features" className="inline-flex items-center gap-2 text-sm font-bold text-openhw-green">
-              Browse all features
+            <Link href="/roadmap" className="inline-flex items-center gap-2 text-sm font-bold text-openhw-green">
+              View roadmap board
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           }
@@ -371,18 +359,18 @@ export default function Home() {
       <section className="bg-openhw-navy py-14 text-white">
         <div className="page-container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-normal text-slate-200">Contribute</p>
-            <h2 className="mt-2 text-3xl font-bold">Help shape CVA6</h2>
+            <p className="text-sm font-bold uppercase tracking-normal text-slate-200">Maintenance model</p>
+            <h2 className="mt-2 text-3xl font-bold">Reviewed source, public site</h2>
             <p className="mt-3 text-base leading-7 text-slate-200">
-              Propose new roadmap items, clarify ownership, or help refine the seeded dataset through the
-              project contribution flow.
+              Weekly or monthly updates should land in roadmap-source through pull requests. Maintainers review
+              ownership, evidence, and scope before the public pages change.
             </p>
           </div>
           <Link
-            href="/contribute"
+            href="https://github.com/AlexChenIC/cva6-roadmap-dev/tree/main/roadmap-source"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-white px-5 text-sm font-bold text-openhw-navy transition hover:bg-slate-100"
           >
-            Propose a feature
+            View roadmap-source
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
