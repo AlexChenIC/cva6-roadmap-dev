@@ -27,7 +27,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
     Type out all ~18 roadmap items with real summaries, userValue, tags, dates.
   - **Accept:** data imports type-check; `npx tsc --noEmit` clean. Commit `feat: seed roadmap dataset`.
 
-- [ ] **T4 — Layout: header + footer + nav**
+- [x] **T4 — Layout: header + footer + nav**
   - `app/layout.tsx`: global Header (logo→openhw.org, "CVA6 Roadmap" wordmark, nav links, GitHub icon)
     and Footer (white logo on navy, "a project of the OpenHW Group", links, © year).
   - Active-link styling. Mobile nav (simple disclosure/menu).

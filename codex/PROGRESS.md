@@ -37,3 +37,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `data/organizations.ts`, `data/releases.ts`, `data/pillars.ts`, `data/roadmap.ts`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npx tsc --noEmit` passed.
 - Status: DONE
+
+## 2026-06-09 13:38 — T4 Layout: header + footer + nav
+- Did: Added the global app shell with an OpenHW-linked header logo, CVA6 Roadmap wordmark, active primary navigation, GitHub icon link, responsive mobile disclosure menu, and a navy footer with the white OpenHW logo, project attribution, footer links, and current-year copyright.
+- Files: `app/layout.tsx`, `components/SiteHeader.tsx`, `components/SiteFooter.tsx`, `package.json`, `package-lock.json`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run dev` loaded `http://localhost:3000`; browser checks confirmed header/footer render, OpenHW logos load, Home active-link state works, and at 375px the desktop nav hides while the mobile menu opens with all nav links and no horizontal overflow.
+- Status: DONE
