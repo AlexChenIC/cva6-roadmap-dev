@@ -57,7 +57,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
   - Build `/features/[id]` with `generateStaticParams`. Layout per SPEC §7.5. Handle unknown id → 404.
   - **Accept:** every item id renders; meta panel + org chips + links correct. Commit `feat: item detail`.
 
-- [ ] **T10 — Organizations page**
+- [x] **T10 — Organizations page**
   - Build `/organizations` per SPEC §7.6: org cards with blurb, website, and their items (linked).
   - **Accept:** each org lists its items; counts correct. Commit `feat: organizations page`.
 

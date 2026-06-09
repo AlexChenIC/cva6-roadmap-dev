@@ -73,3 +73,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `app/features/[id]/page.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed and generated 20 `/features/[id]` SSG paths; browser checks confirmed `/features/hypervisor-h` renders metadata, org links, related GitHub link, contribute link, and navigation; `/features/not-a-real-item` returns the 404 page; `/features/rv64gc-core` has no horizontal overflow at 375px.
 - Status: DONE
+
+## 2026-06-09 14:01 — T10 Organizations page
+- Did: Added `/organizations` with an attribution-focused intro, one anchored organization card per seeded organization, website and roadmap-filter links, correct item counts, linked item lists, and a CTA inviting more organizations to contribute.
+- Files: `app/organizations/page.tsx`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed; browser checks confirmed all 5 organization cards render, counts/lists match the typed roadmap data (`openhw=11`, `thales=3`, `unibo=9`, `lowrisc=3`, `capabilities=3`), item links point to `/features/[id]`, website/roadmap/contribute links render, and the page has no horizontal overflow at 375px.
+- Status: DONE
