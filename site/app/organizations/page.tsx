@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink, Globe2, Users } from "lucide-react";
+import { ArrowRight, ExternalLink, Globe2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LanePill, OrganizationLogo, SectionHeading, ThemeTag } from "@/components";
@@ -144,28 +144,6 @@ export default function OrganizationsPage() {
         })}
       </section>
 
-      <section className="bg-openhw-navy py-12 text-white">
-        <div className="page-container flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-normal text-slate-200">
-              <Users className="h-4 w-4" aria-hidden="true" />
-              Organization updates through reviewed source
-            </div>
-            <h2 className="mt-3 text-3xl font-bold">Keep attribution clear</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-200">
-              Organization names, labels, and related roadmap items are maintained in roadmap-source so attribution
-              stays reviewable.
-            </p>
-          </div>
-          <Link
-            href="https://github.com/AlexChenIC/cva6-roadmap-dev/tree/main/roadmap-source"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-bold text-openhw-navy transition hover:bg-slate-100"
-          >
-            Roadmap source
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
     </div>
   );
 }
