@@ -8,7 +8,7 @@ tags:
   - governance
   - releases
   - verification
-website: https://www.openhw.org
+website: https://openhwfoundation.org/
 ---
 # OpenHW Group
 

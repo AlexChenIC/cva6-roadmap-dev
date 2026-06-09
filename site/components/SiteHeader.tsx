@@ -38,7 +38,7 @@ export function SiteHeader() {
       <div className="page-container flex min-h-16 items-center justify-between gap-4 py-3">
         <div className="flex min-w-0 items-center gap-4">
           <a
-            href="https://www.openhw.org"
+            href="https://openhwfoundation.org/"
             className="flex shrink-0 items-center"
             aria-label="OpenHW Group"
             rel="noreferrer"

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const footerLinks = [
-  { href: "https://www.openhw.org", label: "OpenHW Group" },
+  { href: "https://openhwfoundation.org/", label: "OpenHW Group" },
   { href: "https://github.com/openhwgroup/cva6", label: "CVA6 GitHub" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/releases", label: "Release" },
@@ -18,7 +18,7 @@ export function SiteFooter() {
       <div className="page-container grid gap-8 py-10 md:grid-cols-[1fr_auto] md:items-end">
         <div className="max-w-2xl">
           <a
-            href="https://www.openhw.org"
+            href="https://openhwfoundation.org/"
             className="inline-flex items-center"
             aria-label="OpenHW Group"
             rel="noreferrer"
