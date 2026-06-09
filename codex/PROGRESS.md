@@ -25,3 +25,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `app/globals.css`, `app/layout.tsx`, `app/icon.svg`, `public/openhw/openhw-horizontal.svg`, `public/openhw/openhw-horizontal-white.svg`, `public/openhw/openhw-stacked.svg`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run lint` passed; `npm run dev` started; browser check confirmed body background `rgb(248, 250, 252)`, body text `rgb(15, 23, 42)`, Inter font stack, OpenHW CSS tokens, and all four SVG assets returning HTTP 200.
 - Status: DONE
+
+## 2026-06-09 13:29 — T2 Types & lane logic
+- Did: Added the shared roadmap data model types and the lifecycle-status-to-lane mapping helpers, including ordered lane metadata and an `itemsByLane` grouping helper.
+- Files: `lib/types.ts`, `lib/lanes.ts`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npx tsc --noEmit` passed.
+- Status: DONE

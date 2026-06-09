@@ -18,7 +18,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
   - Set base page bg `--surface-subtle`, ink text color, container width.
   - **Accept:** tokens usable as Tailwind classes or CSS vars; Inter renders. Commit `style: brand tokens + logos`.
 
-- [ ] **T2 — Types & lane logic**
+- [x] **T2 — Types & lane logic**
   - Create `lib/types.ts` (SPEC §5) and `lib/lanes.ts` (`statusToLane`, `LANES` metadata, `itemsByLane`).
   - **Accept:** `npx tsc --noEmit` passes. Commit `feat: core types + lane mapping`.
 
