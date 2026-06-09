@@ -1,4 +1,14 @@
-import { ArrowRight, GitPullRequest, Map, Package, Users } from "lucide-react";
+import {
+  ArrowRight,
+  CircleCheck,
+  FileText,
+  GitPullRequest,
+  Map,
+  MessageSquareText,
+  Package,
+  RefreshCw,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 
 const entryPoints = [
@@ -25,6 +35,29 @@ const entryPoints = [
       "See the organizations currently represented in the roadmap data and the work attributed to them.",
     icon: Users,
     cta: "View organizations",
+  },
+];
+
+const roadmapFlow = [
+  {
+    title: "Bring needs to the CVA6 meeting",
+    description: "Partners and maintainers raise target use cases, feature needs, and release context.",
+    icon: MessageSquareText,
+  },
+  {
+    title: "Capture consensus in Markdown",
+    description: "Accepted direction is written into the shared roadmap-source Markdown files.",
+    icon: FileText,
+  },
+  {
+    title: "Review through Pull Request",
+    description: "Maintainers check wording, attribution, release links, and data consistency before merge.",
+    icon: GitPullRequest,
+  },
+  {
+    title: "Publish the updated portal",
+    description: "After approval, the generated site refreshes Roadmap, Release, and Organizations pages.",
+    icon: RefreshCw,
   },
 ];
 
@@ -94,23 +127,55 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-surface py-12">
-        <div className="page-container grid gap-6 lg:grid-cols-[0.8fr_1fr] lg:items-start">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-normal text-openhw-green">Update model</p>
-            <h2 className="mt-2 text-2xl font-bold leading-tight text-openhw-navy">
-              Reviewed source, public pages
-            </h2>
+      <section className="border-y border-border bg-surface py-12 lg:py-16">
+        <div className="page-container">
+          <div className="grid gap-5 lg:grid-cols-[0.75fr_1fr] lg:items-end">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-normal text-openhw-green">Roadmap workflow</p>
+              <h2 className="mt-2 text-2xl font-bold leading-tight text-openhw-navy sm:text-3xl">
+                From meeting signal to published roadmap
+              </h2>
+            </div>
+            <p className="text-base leading-7 text-muted">
+              The portal is not edited by hand. Roadmap changes move through a maintainer-reviewed path so
+              public pages reflect agreed CVA6 direction rather than unreviewed notes.
+            </p>
           </div>
-          <div>
-            <article className="rounded-lg border border-border bg-white p-5">
-              <GitPullRequest className="h-5 w-5 text-openhw-green" aria-hidden="true" />
-              <h3 className="mt-3 text-base font-bold text-openhw-navy">Roadmap changes</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                Public roadmap data is maintained through reviewed Markdown files and GitHub pull
-                requests before the site is updated.
-              </p>
-            </article>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-4">
+            {roadmapFlow.map((step, index) => {
+              const Icon = step.icon;
+              const isLast = index === roadmapFlow.length - 1;
+
+              return (
+                <article
+                  key={step.title}
+                  className="relative rounded-lg border border-border bg-white p-5 shadow-sm"
+                >
+                  {!isLast ? (
+                    <div
+                      className="pointer-events-none absolute -right-3 top-8 z-20 hidden h-7 w-7 items-center justify-center rounded-full border border-border bg-surface text-openhw-green shadow-sm lg:flex"
+                      aria-hidden="true"
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </div>
+                  ) : null}
+                  <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-lg bg-openhw-green text-white">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <div className="mt-5 flex items-center gap-2">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-openhw-navy">
+                      {index + 1}
+                    </span>
+                    {isLast ? (
+                      <CircleCheck className="h-5 w-5 text-openhw-green" aria-hidden="true" />
+                    ) : null}
+                  </div>
+                  <h3 className="mt-4 text-base font-bold leading-6 text-openhw-navy">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">{step.description}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
