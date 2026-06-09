@@ -33,7 +33,7 @@ Working dir for all commands: `/Users/alexchen/1_workspace/4_openhw/8_roadmap_we
   - Active-link styling. Mobile nav (simple disclosure/menu).
   - **Accept:** header/footer on every route; logos load; responsive at 375px. Commit `feat: app shell`.
 
-- [ ] **T5 — Shared components**
+- [x] **T5 — Shared components**
   - `components/`: `LanePill`, `OrgChip`, `ThemeTag`, `RoadmapCard` (SPEC §7.3), `SummaryBar`,
     `FilterBar` (search + multiselect + group-by, URL-synced), `SectionHeading`, `EmptyState`.
   - **Accept:** components render in isolation without errors; typed props. Commit `feat: ui components`.

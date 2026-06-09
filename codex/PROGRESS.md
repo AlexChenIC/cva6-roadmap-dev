@@ -43,3 +43,9 @@ Architect reads this between cycles. Newest entries at the bottom.
 - Files: `app/layout.tsx`, `components/SiteHeader.tsx`, `components/SiteFooter.tsx`, `package.json`, `package-lock.json`, `codex/TASKS.md`, `codex/PROGRESS.md`
 - Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run dev` loaded `http://localhost:3000`; browser checks confirmed header/footer render, OpenHW logos load, Home active-link state works, and at 375px the desktop nav hides while the mobile menu opens with all nav links and no horizontal overflow.
 - Status: DONE
+
+## 2026-06-09 13:42 — T5 Shared components
+- Did: Added reusable typed UI primitives for lane pills, organization chips, theme tags, roadmap cards, summary counts, URL-synced filters, section headings, and empty states, plus a component barrel export.
+- Files: `components/LanePill.tsx`, `components/OrgChip.tsx`, `components/ThemeTag.tsx`, `components/RoadmapCard.tsx`, `components/SummaryBar.tsx`, `components/FilterBar.tsx`, `components/SectionHeading.tsx`, `components/EmptyState.tsx`, `components/index.ts`, `codex/TASKS.md`, `codex/PROGRESS.md`
+- Verify: `npm run lint` passed; `npx tsc --noEmit` passed; `npm run build` passed.
+- Status: DONE
