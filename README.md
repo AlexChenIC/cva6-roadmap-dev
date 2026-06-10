@@ -123,6 +123,89 @@ OpenHW delivery promise.
 8. Merge only after review lead, status, target window, and evidence are clear.
 9. Production updates automatically after merge or manual deployment.
 
+## Minimal Example: Add One Roadmap Item
+
+Use this example when a maintainer-reviewed topic is ready to appear on the
+public roadmap. If the topic is only a request or early discussion, create a
+partner need instead.
+
+1. Create a new Markdown file from the roadmap-item template:
+
+```bash
+cp roadmap-source/templates/roadmap-item.md \
+  roadmap-source/input/roadmap-items/026-example-feature.md
+```
+
+2. Edit `roadmap-source/input/roadmap-items/026-example-feature.md`.
+
+Replace the template frontmatter with stable, public data:
+
+```yaml
+id: example-feature
+title: Example feature for CVA6
+theme: Verification
+status: Proposed
+proposingOrgs:
+  - openhw
+owner: OpenHW CVA6 maintainers
+targetWindow: Exploratory
+targetRelease:
+tags:
+  - verification
+  - example
+lastUpdated: 2026-06-10
+featured: false
+showOnOrganizations: true
+```
+
+Then replace the Markdown sections:
+
+```markdown
+## Summary
+
+One or two sentences describing the reviewed roadmap signal.
+
+## Description
+
+State what is in scope, what is not yet committed, and what evidence exists.
+
+## User value
+
+Explain why adopters, contributors, or maintainers should care.
+
+## Links
+
+- [Public issue, PR, spec, or repository](https://github.com/openhwgroup/cva6)
+```
+
+3. Use `showOnOrganizations` intentionally.
+
+- `showOnOrganizations: true` means this item appears under the listed
+  organizations on the Organizations page.
+- `showOnOrganizations: false` is for release facts, baseline references, or
+  historical context that should not look like an organization-owned feature
+  plan.
+
+4. Validate and preview:
+
+```bash
+cd site
+npm run validate:data
+npm run lint
+npx tsc --noEmit
+npm run build
+npm run dev
+```
+
+Open http://localhost:3000 and check the Roadmap, Release, and Organizations
+pages before opening the pull request.
+
+5. Open a pull request.
+
+The PR should explain why the item belongs on the public roadmap, who should
+review it, what evidence supports it, and whether the wording is a commitment,
+a proposed direction, or an exploratory signal.
+
 ## Local Review
 
 The implementation lives under `site/`, so local commands run there:

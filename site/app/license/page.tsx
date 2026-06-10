@@ -13,6 +13,7 @@ export default function LicensePage() {
       <section className="border-b border-border bg-surface py-12">
         <div className="page-container">
           <SectionHeading
+            as="h1"
             eyebrow="License"
             title="Apache License 2.0"
             description="The CVA6 Roadmap portal source is prepared under the Apache License 2.0, matching the intended open-source publication model."

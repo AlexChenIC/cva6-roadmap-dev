@@ -80,6 +80,7 @@ Use the most specific lifecycle status that reflects current commitment:
 Before opening a PR, run:
 
 ```bash
+cd site
 npm run validate:data
 npm run lint
 npx tsc --noEmit
@@ -88,6 +89,7 @@ npx tsc --noEmit
 For page or component changes, also run:
 
 ```bash
+cd site
 npm run build
 ```
 

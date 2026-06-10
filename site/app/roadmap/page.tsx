@@ -20,6 +20,7 @@ export default function RoadmapPage() {
       <section className="border-b border-border bg-surface py-12">
         <div className="page-container">
           <SectionHeading
+            as="h1"
             eyebrow="Roadmap"
             title="Browse CVA6 work by lane, theme, or organization"
             description="Search reviewed CVA6 roadmap signals, filter by organizations and themes, and inspect each item for review lead, target window, release mapping, tags, and evidence links."

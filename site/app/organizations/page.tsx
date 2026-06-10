@@ -18,6 +18,7 @@ export default function OrganizationsPage() {
       <section className="border-b border-border bg-surface py-12">
         <div className="page-container">
           <SectionHeading
+            as="h1"
             eyebrow="Organizations"
             title="Organizations represented in roadmap data"
             description="CVA6 roadmap signals can come from partner organizations, research groups, and individual contributors. Related items keep public attribution visible without implying delivery ownership."

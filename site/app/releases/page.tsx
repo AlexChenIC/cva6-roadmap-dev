@@ -16,6 +16,7 @@ export default function ReleasesPage() {
       <section className="border-b border-border bg-surface py-12">
         <div className="page-container">
           <SectionHeading
+            as="h1"
             eyebrow="Releases"
             title="Roadmap items by release window"
             description="Connect reviewed roadmap items to stable and planned CVA6 release lines, including included features and verification notes."

@@ -89,9 +89,9 @@ export default function Home() {
               participating organizations.
             </p>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-              This review draft is a curated public view of selected roadmap topics. It is suitable for
-              group review and wording feedback, but it is not a complete CVA6 feature inventory, issue
-              tracker, or delivery guarantee.
+              This review version is a curated public view of selected roadmap topics. Future-looking
+              entries are discussion-ready signals until OpenHW maintainers confirm scope, evidence, and
+              release alignment.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
