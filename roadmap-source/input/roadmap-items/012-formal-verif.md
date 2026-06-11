@@ -13,8 +13,6 @@ tags:
   - CHERI
   - formal
   - COSMIC
-  - verification
-  - evidence
 lastUpdated: 2026-06-09
 featured: true
 ---

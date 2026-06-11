@@ -6,9 +6,8 @@ status: Idea
 proposingOrgs:
   - thales
 owner: OpenHW CVA6 maintainers (scoping review)
-targetWindow: Exploratory
+targetWindow: Modeling review
 tags:
-  - performance
   - model
   - dual-issue
   - superscalar

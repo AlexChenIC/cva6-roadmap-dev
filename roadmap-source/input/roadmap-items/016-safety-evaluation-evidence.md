@@ -10,8 +10,6 @@ targetWindow: Candidate evidence review
 tags:
   - CVA6-Safe
   - DCLS
-  - safety
-  - evidence
   - EDAC
 lastUpdated: 2026-06-09
 featured: true

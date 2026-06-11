@@ -3,6 +3,7 @@ import {
   ArrowRight,
   CalendarDays,
   ExternalLink,
+  ListChecks,
   Package,
   Tags,
   Target,
@@ -143,9 +144,6 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
           <header className="mt-8 rounded-xl border border-border bg-surface p-6 shadow-sm sm:p-8">
             <div className="flex flex-wrap items-center gap-2">
               <LanePill status={item.status} />
-              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
-                {item.status}
-              </span>
               <ThemeTag theme={item.theme} />
             </div>
 
@@ -255,6 +253,10 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
                 {item.owner}
               </MetaRow>
             ) : null}
+
+            <MetaRow icon={ListChecks} label="Lifecycle status">
+              {item.status}
+            </MetaRow>
 
             <MetaRow icon={Target} label="Target window">
               {item.targetWindow ?? "Not assigned"}

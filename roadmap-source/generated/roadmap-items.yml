@@ -44,7 +44,6 @@
     - TRL5
     - OBI
     - coverage
-    - release
   userValue: Gives partners a concrete, dated upstream release reference for the CV32A60X
     configuration instead of relying on placeholder roadmap data.
   links:
@@ -143,8 +142,6 @@
     - CHERI
     - formal
     - COSMIC
-    - verification
-    - evidence
   userValue: Helps maintainers and partners discuss memory-safety verification using concrete public
     references instead of broad, unattributed formal-verification claims.
   links:
@@ -173,8 +170,6 @@
   tags:
     - CVA6-Safe
     - DCLS
-    - safety
-    - evidence
     - EDAC
   userValue: Gives safety-focused adopters a concrete public reference for discussing DCLS and
     evidence expectations before any stronger platform or certification claims are made.
@@ -205,8 +200,6 @@
     - CHERI
     - capabilities
     - memory-safety
-    - security
-    - research
   userValue: Keeps memory-safety research visible while making the boundary clear between external
     CHERI-Mocha activity and the shared CVA6 roadmap.
   links:
@@ -294,12 +287,11 @@
   proposingOrgs:
     - openhw
   owner: OpenHW CVA6 verification maintainers
-  targetWindow: Planned verification integration
+  targetWindow: Profile regression integration
   tags:
     - RVB23
     - RVA23
     - Spike
-    - verification
     - regression
   userValue: Gives maintainers and partners a clear place to track profile-oriented verification
     coverage before it becomes release evidence.
@@ -325,9 +317,8 @@
   proposingOrgs:
     - thales
   owner: OpenHW CVA6 maintainers (scoping review)
-  targetWindow: Exploratory
+  targetWindow: Modeling review
   tags:
-    - performance
     - model
     - dual-issue
     - superscalar
@@ -360,7 +351,6 @@
     - HPDcache
     - CVA6S+
     - memory-subsystem
-    - performance
     - cache
   userValue: Helps partners discuss CVA6 performance paths with concrete cache-system references
     instead of treating memory-subsystem work as an unspecified future idea.

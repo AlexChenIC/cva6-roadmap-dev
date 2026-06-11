@@ -12,8 +12,6 @@ tags:
   - CHERI
   - capabilities
   - memory-safety
-  - security
-  - research
 lastUpdated: 2026-06-09
 featured: true
 ---

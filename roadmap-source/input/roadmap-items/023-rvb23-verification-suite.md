@@ -6,12 +6,11 @@ status: Planned
 proposingOrgs:
   - openhw
 owner: OpenHW CVA6 verification maintainers
-targetWindow: Planned verification integration
+targetWindow: Profile regression integration
 tags:
   - RVB23
   - RVA23
   - Spike
-  - verification
   - regression
 lastUpdated: 2026-06-09
 featured: true
