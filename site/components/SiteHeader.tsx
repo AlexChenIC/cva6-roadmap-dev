@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { publicAssetPath } from "@/lib/site";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -44,7 +45,7 @@ export function SiteHeader() {
             rel="noreferrer"
           >
             <Image
-              src="/openhw/openhw-horizontal.svg"
+              src={publicAssetPath("/openhw/openhw-horizontal.svg")}
               alt="OpenHW Group"
               width={148}
               height={42}

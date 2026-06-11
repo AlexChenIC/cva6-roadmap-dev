@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cva6-roadmap-dev.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "CVA6 Roadmap",
     template: "%s | CVA6 Roadmap",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     title: "CVA6 Roadmap",
     description: "Public roadmap for the OpenHW CVA6 RISC-V core.",
     type: "website",
-    url: "https://cva6-roadmap-dev.vercel.app",
+    url: siteUrl,
   },
 };
 

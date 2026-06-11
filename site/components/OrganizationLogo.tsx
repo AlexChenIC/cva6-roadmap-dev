@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { publicAssetPath } from "@/lib/site";
 import type { Organization } from "@/lib/types";
 
 type LogoShape = "wide" | "square" | "seal";
@@ -109,7 +110,7 @@ export function OrganizationLogo({
   return (
     <span className={boxClassName}>
       <Image
-        src={org.logo}
+        src={publicAssetPath(org.logo)}
         alt={decorative ? "" : `${label} logo`}
         width={180}
         height={96}

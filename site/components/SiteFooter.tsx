@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { publicAssetPath } from "@/lib/site";
 
 const footerLinks = [
   { href: "https://openhwfoundation.org/", label: "OpenHW Group" },
@@ -24,7 +25,7 @@ export function SiteFooter() {
             rel="noreferrer"
           >
             <Image
-              src="/openhw/openhw-horizontal-white.svg"
+              src={publicAssetPath("/openhw/openhw-horizontal-white.svg")}
               alt="OpenHW Group"
               width={170}
               height={48}

@@ -15,7 +15,8 @@ deployment, and repository metadata.
 
 ## Live Links
 
-- Production site: https://cva6-roadmap-dev.vercel.app
+- GitHub Pages site: https://alexchenic.github.io/cva6-roadmap-dev/
+- Vercel preview / fallback site: https://cva6-roadmap-dev.vercel.app
 - GitHub repository: https://github.com/AlexChenIC/cva6-roadmap-dev
 - Upstream CVA6 releases: https://github.com/openhwgroup/cva6/releases
 
@@ -119,9 +120,9 @@ OpenHW delivery promise.
 4. Update the relevant Markdown file under `roadmap-source/input/`.
 5. Run validation locally; it regenerates `roadmap-source/generated/*.yml`.
 6. Open a pull request.
-7. Review the Vercel preview.
+7. Review the generated site preview.
 8. Merge only after review lead, status, target window, and evidence are clear.
-9. Production updates automatically after merge or manual deployment.
+9. GitHub Pages updates automatically after merge to `main`.
 
 ## Minimal Example: Add One Roadmap Item
 
@@ -236,8 +237,51 @@ common governance and data problems:
 
 ## Deployment
 
-Deploy from the repository root so the build can read both `site/` and
-`roadmap-source/`.
+The preferred long-term public deployment is GitHub Pages, because roadmap
+updates already move through GitHub pull requests and maintainer review.
+
+### GitHub Pages
+
+The workflow lives at `.github/workflows/deploy-github-pages.yml`.
+
+On every push to `main`, GitHub Actions:
+
+1. checks out the repository
+2. installs dependencies under `site/`
+3. regenerates roadmap YAML from Markdown
+4. validates roadmap data
+5. runs lint and TypeScript checks
+6. builds a static Next.js export into `site/out`
+7. publishes `site/out` through GitHub Pages
+
+The GitHub Pages build sets:
+
+```text
+GITHUB_PAGES=true
+GITHUB_PAGES_BASE_PATH=/cva6-roadmap-dev
+NEXT_PUBLIC_BASE_PATH=/cva6-roadmap-dev
+NEXT_PUBLIC_SITE_URL=https://alexchenic.github.io/cva6-roadmap-dev
+```
+
+This makes the static export work under the default GitHub Pages project URL:
+
+```text
+https://alexchenic.github.io/cva6-roadmap-dev/
+```
+
+In GitHub repository settings, Pages should use **GitHub Actions** as the source.
+No branch-based `gh-pages` publishing is required.
+
+If the site later moves to a formal custom domain such as
+`https://roadmap.example.org`, remove the project base path by setting
+`GITHUB_PAGES_BASE_PATH` to an empty value in the workflow and set
+`NEXT_PUBLIC_SITE_URL` to the custom domain.
+
+### Vercel Preview / Fallback
+
+Vercel remains useful for quick previews and manual production checks. Deploy
+from the repository root so the build can read both `site/` and
+`roadmap-source/`:
 
 ```bash
 npx vercel deploy . --prod --yes --local-config site/vercel.root.json
