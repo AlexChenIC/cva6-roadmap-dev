@@ -59,6 +59,23 @@ function MetaRow({
   );
 }
 
+function TextBlock({ text }: { text: string }) {
+  const paragraphs = text
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+  return (
+    <div className="mt-4 space-y-4">
+      {paragraphs.map((paragraph) => (
+        <p key={paragraph} className="text-base leading-8 text-slate-700">
+          {paragraph}
+        </p>
+      ))}
+    </div>
+  );
+}
+
 function RoadmapItemPager({ item }: { item: RoadmapItem }) {
   const index = roadmapItems.findIndex((candidate) => candidate.id === item.id);
   const previous = index > 0 ? roadmapItems[index - 1] : undefined;
@@ -154,13 +171,13 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
           <div className="mt-8 grid gap-8">
             <section className="rounded-xl border border-border bg-surface p-6 shadow-sm sm:p-8">
               <h2 className="text-2xl font-bold text-openhw-navy">What it covers</h2>
-              <p className="mt-4 text-base leading-8 text-slate-700">{item.description ?? item.summary}</p>
+              <TextBlock text={item.description ?? item.summary} />
             </section>
 
             {item.userValue ? (
               <section className="rounded-xl border border-openhw-green bg-surface p-6 shadow-sm sm:p-8">
                 <h2 className="text-2xl font-bold text-openhw-navy">Why it matters</h2>
-                <p className="mt-4 text-base leading-8 text-slate-700">{item.userValue}</p>
+                <TextBlock text={item.userValue} />
               </section>
             ) : null}
 
