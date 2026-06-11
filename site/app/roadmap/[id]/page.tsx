@@ -149,11 +149,6 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
 
             <h1 className="mt-5 text-3xl font-bold leading-tight text-openhw-navy sm:text-5xl">{item.title}</h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">{item.summary}</p>
-            <p className="mt-5 rounded-lg border border-border bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
-              This entry is a reviewed roadmap signal. Released items point to public releases or maintained baselines;
-              future-looking items require maintainer confirmation before they should be read as OpenHW delivery
-              commitments.
-            </p>
           </header>
 
           <div className="mt-8 grid gap-8">
@@ -187,48 +182,6 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
                 </div>
               </section>
             ) : null}
-
-            <section className="rounded-xl border border-border bg-surface p-6 shadow-sm sm:p-8">
-              <h2 className="text-2xl font-bold text-openhw-navy">Evidence and review notes</h2>
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                <div className="rounded-xl border border-border bg-slate-50 p-5">
-                  <h3 className="text-sm font-bold uppercase tracking-normal text-openhw-green">Evidence basis</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-700">
-                    This entry is grounded in the linked public references and the structured roadmap data for
-                    status, review lead, target window, release alignment, associated organizations, and tags.
-                  </p>
-                </div>
-                <div className="rounded-xl border border-border bg-slate-50 p-5">
-                  <h3 className="text-sm font-bold uppercase tracking-normal text-openhw-green">
-                    Risks / validation needs
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-700">
-                    Review lead, release scope, and verification evidence should be confirmed by OpenHW maintainers
-                    before this roadmap item is treated as a formal delivery commitment.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section className="rounded-xl bg-openhw-navy p-6 text-white sm:p-8">
-              <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold">Source-controlled roadmap item</h2>
-                  <p className="mt-3 text-sm leading-6 text-slate-200">
-                    This entry is maintained in roadmap-source. Changes should be reviewed through pull requests
-                    before they become part of the public roadmap.
-                  </p>
-                </div>
-                <a
-                  href="https://github.com/AlexChenIC/cva6-roadmap-dev/tree/main/roadmap-source"
-                  className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-bold text-openhw-navy transition hover:bg-slate-100"
-                  rel="noreferrer"
-                >
-                  View roadmap-source
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </div>
-            </section>
 
             <RoadmapItemPager item={item} />
           </div>
