@@ -85,13 +85,8 @@ export default function Home() {
               CVA6 Roadmap Portal
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
-              A maintainer-reviewed public portal for CVA6 roadmap direction, release context, and
-              participating organizations.
-            </p>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-              This review version is a curated public view of selected roadmap topics. Future-looking
-              entries are discussion-ready signals until OpenHW maintainers confirm scope, evidence, and
-              release alignment.
+              A public, maintainer-reviewed view of CVA6 roadmap direction, release context, and the
+              organizations shaping upstream work.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
