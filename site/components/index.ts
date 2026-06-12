@@ -1,4 +1,5 @@
 export { EmptyState } from "@/components/EmptyState";
+export { FeatureDraftBadge } from "@/components/FeatureDraftBadge";
 export { FilterBar, type GroupBy } from "@/components/FilterBar";
 export { LanePill } from "@/components/LanePill";
 export { OrgChip } from "@/components/OrgChip";

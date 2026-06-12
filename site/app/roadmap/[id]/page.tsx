@@ -12,7 +12,7 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { LanePill, OrgChip, ThemeTag } from "@/components";
+import { FeatureDraftBadge, LanePill, OrgChip, ThemeTag } from "@/components";
 import { organizations } from "@/data/organizations";
 import { roadmapItems } from "@/data/roadmap";
 import type { Organization, RoadmapItem } from "@/lib/types";
@@ -159,9 +159,12 @@ export default async function RoadmapItemDetailPage({ params }: RoadmapItemDetai
           </nav>
 
           <header className="mt-8 rounded-xl border border-border bg-surface p-6 shadow-sm sm:p-8">
-            <div className="flex flex-wrap items-center gap-2">
-              <LanePill status={item.status} />
-              <ThemeTag theme={item.theme} />
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <LanePill status={item.status} />
+                <ThemeTag theme={item.theme} />
+              </div>
+              <FeatureDraftBadge />
             </div>
 
             <h1 className="mt-5 text-3xl font-bold leading-tight text-openhw-navy sm:text-5xl">{item.title}</h1>

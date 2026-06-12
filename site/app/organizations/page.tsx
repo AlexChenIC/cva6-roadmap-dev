@@ -1,7 +1,7 @@
 import { ArrowRight, Code2, ExternalLink, GitPullRequest, Globe2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LanePill, OrganizationLogo, SectionHeading, ThemeTag } from "@/components";
+import { FeatureDraftBadge, LanePill, OrganizationLogo, SectionHeading, ThemeTag } from "@/components";
 import { organizations } from "@/data/organizations";
 import { roadmapItems } from "@/data/roadmap";
 
@@ -34,10 +34,10 @@ export default function OrganizationsPage() {
             <article
               key={org.id}
               id={org.id}
-              className="scroll-mt-24 rounded-xl border border-border bg-surface p-6 shadow-sm"
+              className="min-w-0 scroll-mt-24 rounded-xl border border-border bg-surface p-6 shadow-sm"
             >
-              <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.5fr)]">
-                <div>
+              <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.5fr)]">
+                <div className="min-w-0">
                   <div className="flex items-center gap-3">
                     {org.website ? (
                       <a
@@ -90,7 +90,7 @@ export default function OrganizationsPage() {
                   </div>
                 </div>
 
-                <section className="rounded-xl border border-border bg-slate-50 p-4">
+                <section className="min-w-0 rounded-xl border border-border bg-slate-50 p-4">
                   <div className="mb-4 flex items-center justify-between gap-3">
                     <h3 className="text-sm font-bold uppercase tracking-normal text-slate-500">Related roadmap items</h3>
                     <span
@@ -108,15 +108,18 @@ export default function OrganizationsPage() {
                         href={`/roadmap/${item.id}`}
                         className="group rounded-lg border border-border bg-white p-4 transition hover:border-openhw-green hover:shadow-sm"
                       >
-                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                        <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0">
                             <h4 className="font-bold text-openhw-navy">{item.title}</h4>
                             <p className="mt-1 text-sm leading-6 text-muted">{item.summary}</p>
                           </div>
-                          <ArrowRight
-                            className="h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-openhw-green"
-                            aria-hidden="true"
-                          />
+                          <div className="flex items-start gap-2">
+                            <FeatureDraftBadge />
+                            <ArrowRight
+                              className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-openhw-green"
+                              aria-hidden="true"
+                            />
+                          </div>
                         </div>
                         <div className="mt-3 flex flex-wrap gap-2">
                           <LanePill status={item.status} />

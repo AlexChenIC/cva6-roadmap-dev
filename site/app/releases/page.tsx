@@ -1,7 +1,7 @@
 import { ArrowRight, CalendarDays, ExternalLink, PackageCheck, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LanePill, SectionHeading, ThemeTag } from "@/components";
+import { FeatureDraftBadge, LanePill, SectionHeading, ThemeTag } from "@/components";
 import { releases } from "@/data/releases";
 import { roadmapItems } from "@/data/roadmap";
 
@@ -118,15 +118,18 @@ export default function ReleasesPage() {
                           href={`/roadmap/${item.id}`}
                           className="group rounded-xl border border-border bg-slate-50 p-4 transition hover:border-openhw-green hover:shadow-sm"
                         >
-                          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                          <div className="flex items-start justify-between gap-3">
                             <div className="min-w-0">
                               <h3 className="font-bold text-openhw-navy">{item.title}</h3>
                               <p className="mt-1 text-sm leading-6 text-muted">{item.summary}</p>
                             </div>
-                            <ArrowRight
-                              className="h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-openhw-green"
-                              aria-hidden="true"
-                            />
+                            <div className="flex items-start gap-2">
+                              <FeatureDraftBadge />
+                              <ArrowRight
+                                className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-openhw-green"
+                                aria-hidden="true"
+                              />
+                            </div>
                           </div>
                           <div className="mt-3 flex flex-wrap gap-2">
                             <LanePill status={item.status} />

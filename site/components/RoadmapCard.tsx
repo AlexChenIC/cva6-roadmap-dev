@@ -1,6 +1,7 @@
 import { ArrowUpRight, CalendarDays } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { FeatureDraftBadge } from "@/components/FeatureDraftBadge";
 import { LanePill } from "@/components/LanePill";
 import { OrgChip } from "@/components/OrgChip";
 import { ThemeTag } from "@/components/ThemeTag";
@@ -44,10 +45,13 @@ export function RoadmapCard({
       <article className="flex h-full flex-col gap-4">
         <div className="flex items-start justify-between gap-3">
           <LanePill status={item.status} />
-          <ArrowUpRight
-            className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:text-openhw-green"
-            aria-hidden="true"
-          />
+          <div className="flex items-start gap-2">
+            <FeatureDraftBadge />
+            <ArrowUpRight
+              className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:text-openhw-green"
+              aria-hidden="true"
+            />
+          </div>
         </div>
 
         <div>
