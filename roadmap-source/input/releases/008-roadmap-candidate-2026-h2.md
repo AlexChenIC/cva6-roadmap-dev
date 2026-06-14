@@ -28,7 +28,7 @@ Demonstration planning line for showing how future OpenHW release candidates can
 
 - Expected scope should be approved in the monthly roadmap meeting before it becomes a commitment.
 - OpenHW's Phase-1 tiered GitHub CI rollout can be tracked as active infrastructure work, with Tier 1 PR checks, Tier 2 Verilator regression, and dashboard maintenance visible to partners.
-- RVB23 verification-suite integration can be tracked as planned work without claiming completed qualification.
+- RVA23/RVB23-oriented verification scoping can be tracked as a review signal without claiming completed qualification.
 - CVA6-CHERI and CVA6-Safe evidence can be connected when public artifacts are available.
 - CV-X-IF integration guidance can be included once maintainers agree the issue-linked guidance is ready.
 - HPDcache integration/evaluation can be discussed as a performance path without implying a fixed upstream release scope.

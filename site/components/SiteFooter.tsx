@@ -33,7 +33,7 @@ export function SiteFooter() {
             />
           </a>
           <p className="mt-5 text-sm leading-6 text-slate-200">
-            CVA6 Roadmap is a project of the OpenHW Group.
+            CVA6 Roadmap is a review portal for OpenHW CVA6 roadmap discussion.
           </p>
         </div>
 

@@ -303,24 +303,25 @@
   lastUpdated: 2026-06-11
   featured: true
 - id: rvb23-verification-suite
-  title: RVB23 verification-suite integration
-  summary: Planned OpenHW work to integrate RVB23-oriented verification coverage into CVA6, with
-    simulator and toolchain configuration kept clean enough to support extension-focused tests.
+  title: RVA23/RVB23 verification scoping
+  summary: Proposed OpenHW discussion item for profile-oriented verification coverage, using
+    simulator/toolchain configuration separation as an early public hook.
   description: The public CVA6 issue and pull request around Spike-specific extension configuration
-    provide an early implementation hook for RVA23/RVB23-style verification. This item records the
-    planned integration direction without presenting a completed RVB23 qualification result.
+    show an early tool-flow requirement for RVA23/RVB23-style verification. This item records a
+    scoping direction only; it does not present an accepted release plan or completed RVB23
+    qualification result.
   theme: Verification
-  status: Planned
+  status: Proposed
   proposingOrgs:
     - openhw
   owner: OpenHW CVA6 verification maintainers
-  targetWindow: Profile regression integration
+  targetWindow: Profile regression scoping
   tags:
     - RVB23
     - RVA23
     - Spike
     - regression
-  userValue: Gives maintainers and partners a clear place to track profile-oriented verification
+  userValue: Gives maintainers and partners a clear place to discuss profile-oriented verification
     coverage before it becomes release evidence.
   links:
     - label: "Issue #3249 - Allow Spike-specific ISA/extension configuration in cva6.py"

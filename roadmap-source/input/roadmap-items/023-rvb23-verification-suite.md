@@ -1,12 +1,12 @@
 ---
 id: rvb23-verification-suite
-title: RVB23 verification-suite integration
+title: RVA23/RVB23 verification scoping
 theme: Verification
-status: Planned
+status: Proposed
 proposingOrgs:
   - openhw
 owner: OpenHW CVA6 verification maintainers
-targetWindow: Profile regression integration
+targetWindow: Profile regression scoping
 tags:
   - RVB23
   - RVA23
@@ -15,19 +15,19 @@ tags:
 lastUpdated: 2026-06-09
 featured: true
 ---
-# RVB23 verification-suite integration
+# RVA23/RVB23 verification scoping
 
 ## Summary
 
-Planned OpenHW work to integrate RVB23-oriented verification coverage into CVA6, with simulator and toolchain configuration kept clean enough to support extension-focused tests.
+Proposed OpenHW discussion item for profile-oriented verification coverage, using simulator/toolchain configuration separation as an early public hook.
 
 ## Description
 
-The public CVA6 issue and pull request around Spike-specific extension configuration provide an early implementation hook for RVA23/RVB23-style verification. This item records the planned integration direction without presenting a completed RVB23 qualification result.
+The public CVA6 issue and pull request around Spike-specific extension configuration show an early tool-flow requirement for RVA23/RVB23-style verification. This item records a scoping direction only; it does not present an accepted release plan or completed RVB23 qualification result.
 
 ## User value
 
-Gives maintainers and partners a clear place to track profile-oriented verification coverage before it becomes release evidence.
+Gives maintainers and partners a clear place to discuss profile-oriented verification coverage before it becomes release evidence.
 
 ## Links
 

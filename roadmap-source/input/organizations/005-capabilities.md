@@ -10,4 +10,4 @@ website: https://www.eclipse.org/membership/show-member/?member_id=1742
 
 ## Blurb
 
-Capabilities Limited is a security consultancy focused on hardware and software security and privacy. Its public materials describe expertise across CHERI, toolchains, hardware-software co-design, and formal verification.
+Capabilities Limited is a security consultancy focused on hardware and software security and privacy. Its public materials describe expertise around CHERI, advanced security projects, and formal modelling of CHERI-RISC-V.
