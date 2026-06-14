@@ -39,9 +39,6 @@ Think of it as a public departure board:
 - `site/` is the screen that displays the timetable.
 - Pull requests are the control gate.
 
-This is a good fit for an open-source organization because partners can propose
-changes openly, while OpenHW maintainers still decide what becomes official.
-
 ## What Partners Usually Edit
 
 Most updates should touch one Markdown file under `roadmap-source/input/`:
