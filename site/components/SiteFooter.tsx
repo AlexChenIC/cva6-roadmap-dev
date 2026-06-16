@@ -8,6 +8,7 @@ const footerLinks = [
   { href: "/organizations", label: "Organizations" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/releases", label: "Release" },
+  { href: "/resources", label: "Resources" },
   { href: "/license", label: "License" },
 ];
 

@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  BookOpenText,
   FileText,
   GitPullRequest,
   Map,
@@ -11,6 +12,14 @@ import {
 import Link from "next/link";
 
 const entryPoints = [
+  {
+    href: "/organizations",
+    title: "Organizations",
+    description:
+      "See the organizations currently represented in the roadmap data and the work attributed to them.",
+    icon: Users,
+    cta: "View organizations",
+  },
   {
     href: "/roadmap",
     title: "Roadmap",
@@ -28,12 +37,11 @@ const entryPoints = [
     cta: "View releases",
   },
   {
-    href: "/organizations",
-    title: "Organizations",
-    description:
-      "See the organizations currently represented in the roadmap data and the work attributed to them.",
-    icon: Users,
-    cta: "View organizations",
+    href: "/resources",
+    title: "Resources",
+    description: "Open key CVA6 links for CI status, technical discussion, and core documentation.",
+    icon: BookOpenText,
+    cta: "View resources",
   },
 ];
 
@@ -109,7 +117,7 @@ export default function Home() {
       </section>
 
       <section className="page-container py-12 lg:py-16">
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {entryPoints.map((entry) => {
             const Icon = entry.icon;
 

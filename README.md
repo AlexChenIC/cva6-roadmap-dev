@@ -267,6 +267,7 @@ If the site later moves to a formal custom domain such as
 - `/roadmap/[id]` - roadmap item detail pages
 - `/releases` - real and planned release-oriented view
 - `/organizations` - organization attribution
+- `/resources` - key external CVA6 links for CI status, discussion, and documentation
 
 ## Editing Boundary
 

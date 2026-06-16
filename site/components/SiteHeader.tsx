@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/organizations", label: "Organizations" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/releases", label: "Release" },
+  { href: "/resources", label: "Resources" },
 ];
 
 function GitHubMark({ className }: { className?: string }) {
