@@ -10,13 +10,12 @@ roadmap-source/  The daily editing area for roadmap data.
 site/            The static website generator. Edit only when changing rendering.
 ```
 
-Hidden folders such as `.github/`, `.vercel/`, and `.git/` contain automation,
-deployment, and repository metadata.
+Hidden folders such as `.github/` and `.git/` contain automation and repository
+metadata.
 
 ## Live Links
 
 - GitHub Pages site: https://alexchenic.github.io/cva6-roadmap-dev/
-- Vercel preview / fallback site: https://cva6-roadmap-dev.vercel.app
 - GitHub repository: https://github.com/AlexChenIC/cva6-roadmap-dev
 - Upstream CVA6 releases: https://github.com/openhwgroup/cva6/releases
 
@@ -260,29 +259,6 @@ If the site later moves to a formal custom domain such as
 `https://roadmap.example.org`, remove the project base path by setting
 `GITHUB_PAGES_BASE_PATH` to an empty value in the workflow and set
 `NEXT_PUBLIC_SITE_URL` to the custom domain.
-
-### Vercel Preview / Fallback
-
-Vercel remains useful for quick previews and manual production checks. Deploy
-from the repository root so the build can read both `site/` and
-`roadmap-source/`:
-
-```bash
-npx vercel deploy . --prod --yes --local-config site/vercel.root.json
-```
-
-For Git-based Vercel builds, keep the project root at the repository root and
-configure:
-
-```text
-Install Command: cd site && npm ci
-Build Command:   cd site && npm run build
-Output Directory: site/.next
-Framework:       Next.js
-```
-
-Do not set the Vercel Root Directory to `site`, because the build would no
-longer include `roadmap-source/`.
 
 ## Generated Pages
 
