@@ -40,6 +40,5 @@ For contributors, this gives faster and more predictable pull-request feedback. 
 ## Links
 
 - [PR #3285 - Phase 1 tier workflows and tier dashboard](https://github.com/openhwgroup/cva6/pull/3285)
-- [Tier dashboard demo](https://alexchenic.github.io/cva6/tier/)
+- [Tier dashboard demo](https://openhwgroup.github.io/cva6/)
 - [PR #3343 - Update GitHub checkout action for new CI](https://github.com/openhwgroup/cva6/pull/3343)
-- [OpenHW CORE-V CVA6 Platform project announcement](https://openhwfoundation.org/news/2023/11/07/openhw-group-announces-core-v-cva6-platform-project-for-risc-v-software-development-and-testing/)

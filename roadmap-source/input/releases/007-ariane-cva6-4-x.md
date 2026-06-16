@@ -10,8 +10,6 @@ labels:
   - historical-baseline
   - Ariane
 sourceUrl: https://github.com/openhwgroup/cva6/releases/tag/v4.2.0
-includedRoadmapItems:
-  - rv64gc-core
 releaseNotesUrl: https://github.com/openhwgroup/cva6/releases
 ---
 # Ariane/CVA6 4.x

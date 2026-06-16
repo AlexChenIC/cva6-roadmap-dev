@@ -1,41 +1,16 @@
 # Generated from roadmap-source/input/*.md. Do not edit by hand.
-- id: rv64gc-core
-  title: RV64GC application core
-  summary: Mature 6-stage, single-issue, in-order RV64GC core capable of booting Linux. This is the
-    baseline application-class configuration most integrators start from.
-  description: The RV64GC configuration provides the main Linux-capable CVA6 profile, combining
-    integer, compressed, multiply/divide, atomic, and floating-point capabilities in a proven
-    in-order pipeline.
-  theme: Architecture & ISA
-  status: Released
-  proposingOrgs:
-    - openhw
-    - unibo
-  owner: OpenHW CVA6 maintainers
-  targetWindow: Released baseline
-  targetRelease: Ariane/CVA6 4.x
-  tags:
-    - RV64GC
-    - Linux
-    - application-class
-  userValue: Gives SoC teams a stable, open application-class RISC-V core for real software bring-up.
-  links:
-    - label: CVA6 GitHub repository
-      url: https://github.com/openhwgroup/cva6
-  lastUpdated: 2026-01-15
-  featured: true
-  showOnOrganizations: false
 - id: cv32a60x-trl5
   title: CV32A60X TRL5 configuration release
-  summary: Real upstream CV32A60X 6.0.0 release focused on a TRL5-oriented CV32A60X configuration,
-    with configuration, coverage, lint, and documentation updates called out in the release notes.
-  description: This item records the real CV32A60X 6.0.0 upstream release as a public roadmap fact,
+  summary: The upstream CV32A60X 6.0.0 release focused on a TRL5-oriented CV32A60X configuration, with
+    configuration, coverage, lint, and documentation updates called out in the release notes.
+  description: This item records the CV32A60X 6.0.0 upstream release as a public roadmap fact,
     separate from future planning examples. It gives partners a concrete reference point for current
     CVA6-family release evidence.
   theme: Architecture & ISA
   status: Released
   proposingOrgs:
     - openhw
+    - thales
   owner: OpenHW CV32A60X maintainers
   targetWindow: 2025-04
   targetRelease: CV32A60X 6.0.0
@@ -53,7 +28,7 @@
       url: https://github.com/openhwgroup/cva6/releases
   lastUpdated: 2025-04-23
   featured: true
-  showOnOrganizations: false
+  showOnOrganizations: true
 - id: hypervisor-h
   title: Hypervisor extension (H)
   summary: Released RISC-V Hypervisor extension support for CVA6, recorded from the real CVA6 5.1.0
@@ -211,38 +186,6 @@
       url: https://www.capabilitieslimited.co.uk/cheri
   lastUpdated: 2026-06-09
   featured: true
-- id: cvxif-integration-guide
-  title: CV-X-IF custom extension integration guide
-  summary: Proposed guidance package for custom instructions and external coprocessors using CV-X-IF,
-    grounded in public CVA6 releases and open integration issues.
-  description: "The item keeps accelerator discussion at the integration-contract level: how to use
-    the released CV-X-IF interface, what verification evidence is expected, and which corner cases
-    need issue-driven closure before stronger platform claims are made."
-  theme: Tooling & Ecosystem
-  status: Proposed
-  proposingOrgs:
-    - unibo
-  owner: OpenHW CV-X-IF maintainers
-  targetWindow: Candidate guidance
-  tags:
-    - CV-X-IF
-    - custom-instructions
-    - coprocessor
-    - verification
-  userValue: Helps research and product teams integrate custom execution resources without turning
-    every accelerator idea into a native CVA6 core feature.
-  links:
-    - label: CVA6 5.2.0 release
-      url: https://github.com/openhwgroup/cva6/releases/tag/v5.2.0
-    - label: CVA6 v5.3.0 release
-      url: https://github.com/openhwgroup/cva6/releases/tag/v5.3.0
-    - label: "Issue #3279 - WFI, interrupt flush, and CV-X-IF instructions"
-      url: https://github.com/openhwgroup/cva6/issues/3279
-    - label: "Issue #3308 - CV-X-IF result.data and commit timing"
-      url: https://github.com/openhwgroup/cva6/issues/3308
-    - label: "Issue #2499 - Custom instruction guidance"
-      url: https://github.com/openhwgroup/cva6/issues/2499
-  lastUpdated: 2026-06-09
 - id: openhw-tiered-ci
   title: CVA6 Phase-1 tiered CI rollout
   summary: Active OpenHW work to introduce a Phase-1 GitHub CI structure for CVA6. The rollout adds a
@@ -295,21 +238,19 @@
     - label: "PR #3285 - Phase 1 tier workflows and tier dashboard"
       url: https://github.com/openhwgroup/cva6/pull/3285
     - label: Tier dashboard demo
-      url: https://alexchenic.github.io/cva6/tier/
+      url: https://openhwgroup.github.io/cva6/
     - label: "PR #3343 - Update GitHub checkout action for new CI"
       url: https://github.com/openhwgroup/cva6/pull/3343
-    - label: OpenHW CORE-V CVA6 Platform project announcement
-      url: https://openhwfoundation.org/news/2023/11/07/openhw-group-announces-core-v-cva6-platform-project-for-risc-v-software-development-and-testing/
   lastUpdated: 2026-06-11
   featured: true
 - id: rvb23-verification-suite
-  title: RVA23/RVB23 verification scoping
+  title: RVB23 verification scoping
   summary: Proposed OpenHW discussion item for profile-oriented verification coverage, using
     simulator/toolchain configuration separation as an early public hook.
   description: The public CVA6 issue and pull request around Spike-specific extension configuration
-    show an early tool-flow requirement for RVA23/RVB23-style verification. This item records a
-    scoping direction only; it does not present an accepted release plan or completed RVB23
-    qualification result.
+    show an early tool-flow requirement for RVB23-style verification. This item records a scoping
+    direction only; it does not present an accepted release plan or completed RVB23 qualification
+    result.
   theme: Verification
   status: Proposed
   proposingOrgs:
@@ -318,7 +259,6 @@
   targetWindow: Profile regression scoping
   tags:
     - RVB23
-    - RVA23
     - Spike
     - regression
   userValue: Gives maintainers and partners a clear place to discuss profile-oriented verification
@@ -330,66 +270,5 @@
       url: https://github.com/openhwgroup/cva6/pull/3280
     - label: CVA6 GitHub repository
       url: https://github.com/openhwgroup/cva6
-  lastUpdated: 2026-06-09
-  featured: true
-- id: thales-performance-model
-  title: Performance-model-guided CVA6 exploration
-  summary: Exploratory roadmap signal based on public Thales work using a CVA6 performance model to
-    study superscalar and dual-issue design choices before RTL changes.
-  description: The public article describes performance modeling as a way to evaluate CVA6
-    microarchitectural changes before implementation. The roadmap keeps this as an exploratory item
-    so it can support discussion without implying that a specific superscalar configuration has been
-    accepted into upstream CVA6.
-  theme: Performance
-  status: Idea
-  proposingOrgs:
-    - thales
-  owner: OpenHW CVA6 maintainers (scoping review)
-  targetWindow: Modeling review
-  tags:
-    - model
-    - dual-issue
-    - superscalar
-  userValue: Creates a realistic discussion point for performance-oriented roadmap ideas while keeping
-    implementation scope and upstream acceptance separate.
-  links:
-    - label: Using a Performance Model to Implement a Superscalar CVA6
-      url: https://riscv.org/blog/using-a-performance-model-to-implement-a-superscalar-cva6/
-    - label: TRISTAN project article on superscalar CVA6 modeling
-      url: https://tristan-project.eu/2025/11/04/using-a-performance-model-to-implement-a-superscalar-cva6/
-  lastUpdated: 2026-06-09
-  featured: false
-- id: unibo-hpdcache-integration
-  title: HPDcache integration and performance evaluation
-  summary: Active UniBo-related performance roadmap signal around CVA6 and OpenHW HPDcache
-    integration, evaluation, and documentation for higher-throughput memory-subsystem
-    configurations.
-  description: OpenHW's HPDcache repository states that HPDcache is integrated with CVA6 and selected
-    through CVA6 configuration. Public CVA6S+ material from University of Bologna researchers also
-    evaluates CVA6 with OpenHW HPDcache as part of a higher-throughput memory architecture. This
-    roadmap item keeps that work visible as an integration/evaluation direction, not as an
-    unreviewed upstream delivery commitment.
-  theme: Performance
-  status: In Progress
-  proposingOrgs:
-    - unibo
-  owner: OpenHW CVA6 maintainers (scoping review)
-  targetWindow: Performance integration review
-  tags:
-    - HPDcache
-    - CVA6S+
-    - memory-subsystem
-    - cache
-  userValue: Helps partners discuss CVA6 performance paths with concrete cache-system references
-    instead of treating memory-subsystem work as an unspecified future idea.
-  links:
-    - label: OpenHW cv-hpdcache repository
-      url: https://github.com/openhwgroup/cv-hpdcache
-    - label: HPDcache User Guide
-      url: https://openhw-group-cv-hpdcache.readthedocs-hosted.com/
-    - label: CVA6S+ paper on arXiv
-      url: https://arxiv.org/html/2505.03762v2
-    - label: RISC-V Summit Europe CVA6S+ slides
-      url: https://riscv-europe.org/summit/2025/media/proceedings/2025-05-14-RISC-V-Summit-Europe-12h15-TEDESCHI-slides.pdf
   lastUpdated: 2026-06-09
   featured: true
