@@ -84,7 +84,7 @@ export default function Home() {
   return (
     <div className="bg-background">
       <section className="border-b border-border bg-surface">
-        <div className="page-container py-16 lg:py-24">
+        <div className="page-container py-14 lg:py-20">
           <div className="max-w-4xl">
             <p className="text-sm font-bold uppercase tracking-normal text-openhw-green">
               OpenHW CVA6 public roadmap
@@ -96,22 +96,6 @@ export default function Home() {
               A public, maintainer-reviewed view of CVA6 roadmap direction, release context, and the
               organizations shaping upstream work.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/roadmap"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-openhw-green px-5 text-sm font-bold text-white shadow-sm transition hover:bg-openhw-green-dark"
-              >
-                Open roadmap
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link
-                href="/releases"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-white px-5 text-sm font-bold text-openhw-navy transition hover:border-openhw-green hover:text-openhw-green"
-              >
-                View releases
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
