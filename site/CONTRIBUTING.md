@@ -10,9 +10,8 @@ files under `roadmap-source/input/`, generated into YAML under
 Use a roadmap proposal issue when a topic needs discussion before a data change.
 Use a pull request when the requested data update is already clear.
 
-Start partner requests in `roadmap-source/input/partner-needs/`. Move content
-into `roadmap-source/input/roadmap-items/` only after maintainers accept the
-review lead, scope, status, timing, and evidence.
+Add or update public roadmap items only after maintainers accept the review lead,
+scope, status, timing, and evidence.
 
 Good proposals include:
 
@@ -27,11 +26,9 @@ Good proposals include:
 
 ## Editing roadmap source
 
-Roadmap items are defined in `roadmap-source/input/roadmap-items/*.md`. Partner
-expectations that are not yet official commitments are defined in
-`roadmap-source/input/partner-needs/*.md`. The generator writes
-`roadmap-source/generated/*.yml`, and the app reads those generated files at
-build time through `lib/roadmap-source.ts`.
+Roadmap items are defined in `roadmap-source/input/roadmap-items/*.md`. The
+generator writes `roadmap-source/generated/*.yml`, and the app reads those
+generated files at build time through `lib/roadmap-source.ts`.
 
 When adding or editing an item:
 
@@ -45,15 +42,6 @@ When adding or editing an item:
 - Add a practical `userValue` line.
 - Use ISO dates for `lastUpdated`, such as `2026-05-01`.
 - Add links when useful, especially to public specs, issues, or repositories.
-
-When adding or editing a partner need:
-
-- Keep the `id` stable and URL-safe.
-- Use a clear `status`: `candidate`, `under-review`, `accepted`, or `declined`.
-- Include at least one `proposingOrgs` id.
-- Link to related roadmap item IDs when they exist.
-- Keep `requestedCapabilities` concrete enough for maintainers to review.
-- Add public evidence or meeting notes when available.
 
 ## Lifecycle rules
 

@@ -10,8 +10,8 @@ what is merged into the official roadmap.
 
 - `input/` - the normal editing area. Partners and maintainers add or update
   Markdown files here.
-- `templates/` - copyable Markdown templates for new roadmap items, partner
-  needs, releases, organizations, and meeting notes.
+- `templates/` - copyable Markdown templates for new roadmap items, releases,
+  and organizations.
 - `generated/` - YAML produced from `input/`. The website reads these files at
   build time. Do not hand-edit them.
 - `strategy.yml` - organization-level roadmap framing and policy.
@@ -24,26 +24,22 @@ what is merged into the official roadmap.
 
 1. Copy the relevant template from `templates/`.
 2. Put the new Markdown file in the matching `input/` folder.
-3. For a partner request, start in `input/partner-needs/`.
-4. For an accepted or reviewed public roadmap signal, use `input/roadmap-items/`.
-5. Link public evidence such as issues, PRs, specs, meeting notes, or verification results.
-6. Run `cd site && npm run validate:data` before asking for review.
+3. For an accepted or reviewed public roadmap signal, use `input/roadmap-items/`.
+4. Link public evidence such as issues, PRs, specs, or verification results.
+5. Run `cd site && npm run validate:data` before asking for review.
 
 `npm run validate:data` regenerates `generated/*.yml` and then validates
 references, dates, IDs, URLs, release links, and organization IDs.
 
-## Promotion rule
+## Roadmap entry rule
 
-A partner need becomes an official roadmap item only when maintainers agree on:
+A feature should appear as a public roadmap item only when maintainers agree on:
 
 - maintainer contact or review lead
 - lifecycle status
 - target window or release
 - public evidence links
 - scope and risk notes
-
-This keeps the site open to partner input without turning every request into an
-OpenHW delivery commitment.
 
 Use `showOnOrganizations: false` on roadmap items that are release facts,
 baseline references, or historical context. They will still appear in the

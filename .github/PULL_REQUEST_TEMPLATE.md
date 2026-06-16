@@ -7,8 +7,7 @@
 ## Roadmap data checklist
 
 - [ ] I updated `roadmap-source/input/` for roadmap content.
-- [ ] Partner requests start in `roadmap-source/input/partner-needs/*.md` unless maintainers have accepted them.
-- [ ] Official commitments in `roadmap-source/input/roadmap-items/*.md` have a clear review lead, status, target window or release, and evidence.
+- [ ] Public roadmap items in `roadmap-source/input/roadmap-items/*.md` have a clear review lead, status, target window or release, and evidence.
 - [ ] New or edited items have a stable `id`, `title`, `summary`, `theme`, `status`, associated `proposingOrgs`, `owner` or `To be confirmed`, `tags`, and `lastUpdated`.
 - [ ] Organization associations are attribution/context, not delivery ownership, unless maintainers explicitly approved that wording.
 - [ ] The lifecycle status maps to the intended public lane in `site/lib/lanes.ts`.

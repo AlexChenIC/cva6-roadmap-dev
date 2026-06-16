@@ -6,7 +6,7 @@ This repository is intentionally split into three visible parts:
 
 ```text
 README.md        You are here: how to maintain and review the roadmap.
-roadmap-source/  The daily editing area for roadmap data and meeting notes.
+roadmap-source/  The daily editing area for roadmap data.
 site/            The static website generator. Edit only when changing rendering.
 ```
 
@@ -44,24 +44,19 @@ Think of it as a public departure board:
 Most updates should touch one Markdown file under `roadmap-source/input/`:
 
 ```text
-roadmap-source/input/partner-needs/*.md    Partner expectations before commitment
 roadmap-source/input/roadmap-items/*.md    Accepted roadmap items and feature plans
 roadmap-source/input/releases/*.md         Real releases and planned release windows
 roadmap-source/input/organizations/*.md    Organization names, websites, neutral descriptions, and logos
-roadmap-source/input/meeting-notes/*.md    Reviewed CVA6 meeting summaries
 ```
 
 Examples:
 
-- A partner asks for virtualization readiness: add or edit one file in
-  `input/partner-needs/`.
 - Maintainers accept a feature into the public roadmap: add or edit one file in
   `input/roadmap-items/`.
 - A new upstream CVA6 release is published: add or edit one file in
   `input/releases/`.
 - A new organization starts participating: add or edit one file in
-  `input/organizations/`, then refer to its `id` from roadmap items or partner
-  needs.
+  `input/organizations/`, then refer to its `id` from roadmap items.
 - Organization logos are referenced from the organization Markdown file. Logo
   assets should live under `site/public/org-logos/` and render through the
   shared `OrganizationLogo` component in chip, medium, and large sizes.
@@ -92,12 +87,9 @@ workflow feedback. Future-looking items should not be treated as final OpenHW
 delivery commitments until maintainers confirm scope, review lead, target
 window, release linkage, and public evidence.
 
-## Promotion Rule
+## Roadmap Entry Rule
 
-Partner needs are welcome, but they are not automatically official roadmap
-commitments.
-
-A partner need becomes an official roadmap item only after maintainers agree on:
+A feature should appear as a public roadmap item only after maintainers agree on:
 
 - maintainer contact or review lead
 - lifecycle status
@@ -106,26 +98,22 @@ A partner need becomes an official roadmap item only after maintainers agree on:
 - public evidence links
 - verification or validation expectations
 
-This lets the website show partner demand without turning every request into an
-OpenHW delivery promise.
-
 ## Monthly Workflow
 
 1. Discuss roadmap changes in the CVA6 roadmap meeting.
-2. Capture reviewed decisions in `roadmap-source/input/meeting-notes/`.
-3. Copy a template from `roadmap-source/templates/` when adding a new entry.
-4. Update the relevant Markdown file under `roadmap-source/input/`.
-5. Run validation locally; it regenerates `roadmap-source/generated/*.yml`.
-6. Open a pull request.
-7. Review the generated site preview.
-8. Merge only after review lead, status, target window, and evidence are clear.
-9. GitHub Pages updates automatically after merge to `main`.
+2. Copy a template from `roadmap-source/templates/` when adding a new entry.
+3. Update the relevant Markdown file under `roadmap-source/input/`.
+4. Run validation locally; it regenerates `roadmap-source/generated/*.yml`.
+5. Open a pull request.
+6. Review the generated site preview.
+7. Merge only after review lead, status, target window, and evidence are clear.
+8. GitHub Pages updates automatically after merge to `main`.
 
 ## Minimal Example: Add One Roadmap Item
 
 Use this example when a maintainer-reviewed topic is ready to appear on the
-public roadmap. If the topic is only a request or early discussion, create a
-partner need instead.
+public roadmap. If the topic is only a request or early discussion, keep it out
+of the public roadmap data until scope and wording are ready for review.
 
 1. Create a new Markdown file from the roadmap-item template:
 
@@ -228,7 +216,6 @@ common governance and data problems:
 - invalid organization references
 - invalid roadmap status or theme values
 - release entries pointing at nonexistent roadmap items
-- partner needs pointing at nonexistent roadmap items
 - malformed URLs
 - malformed `lastUpdated` dates
 

@@ -8,7 +8,7 @@ const sourceRootCandidates = [
   path.join(root, "..", "roadmap-source"),
 ];
 const sourceRoot = sourceRootCandidates.find((candidate) => fs.existsSync(candidate)) ?? sourceRootCandidates[0];
-const generatedFiles = new Set(["organizations.yml", "partner-needs.yml", "releases.yml", "roadmap-items.yml"]);
+const generatedFiles = new Set(["organizations.yml", "releases.yml", "roadmap-items.yml"]);
 
 const themes = new Set([
   "Architecture & ISA",
@@ -31,8 +31,6 @@ const lifecycleStatuses = new Set([
 
 const releaseStatuses = new Set(["released", "planned"]);
 const releaseTypes = new Set(["stable", "preview", "planned"]);
-const partnerStatuses = new Set(["candidate", "under-review", "accepted", "declined"]);
-const partnerSourceTypes = new Set(["meeting-synthesis", "partner-proposal", "maintainer-note"]);
 
 const errors = [];
 
@@ -122,7 +120,7 @@ function validateLinks(links, label) {
     return;
   }
 
-  assert(Array.isArray(links), `${label}: links/evidence must be an array`);
+  assert(Array.isArray(links), `${label}: links must be an array`);
   if (!Array.isArray(links)) {
     return;
   }
@@ -140,7 +138,6 @@ const pillars = readYaml("pillars.yml") ?? [];
 const projects = readYaml("projects.yml") ?? [];
 const releases = readYaml("releases.yml") ?? [];
 const roadmapItems = readYaml("roadmap-items.yml") ?? [];
-const partnerNeeds = readYaml("partner-needs.yml") ?? [];
 
 assert(isObject(strategy), "strategy.yml: root must be an object");
 assert(Array.isArray(organizations), "organizations.yml: root must be an array");
@@ -148,7 +145,6 @@ assert(Array.isArray(pillars), "pillars.yml: root must be an array");
 assert(Array.isArray(projects), "projects.yml: root must be an array");
 assert(Array.isArray(releases), "releases.yml: root must be an array");
 assert(Array.isArray(roadmapItems), "roadmap-items.yml: root must be an array");
-assert(Array.isArray(partnerNeeds), "partner-needs.yml: root must be an array");
 
 const organizationIds = uniqueIds(Array.isArray(organizations) ? organizations : [], "organizations.yml");
 const pillarIds = uniqueIds(Array.isArray(pillars) ? pillars : [], "pillars.yml");
@@ -156,7 +152,6 @@ const projectIds = uniqueIds(Array.isArray(projects) ? projects : [], "projects.
 const releaseIds = uniqueIds(Array.isArray(releases) ? releases : [], "releases.yml");
 const releaseVersions = new Set(releases.map((release) => release.version).filter(isString));
 const roadmapItemIds = uniqueIds(Array.isArray(roadmapItems) ? roadmapItems : [], "roadmap-items.yml");
-uniqueIds(Array.isArray(partnerNeeds) ? partnerNeeds : [], "partner-needs.yml");
 
 if (isObject(strategy)) {
   assert(isString(strategy.organizationName), "strategy.yml: organizationName is required");
@@ -262,32 +257,6 @@ releases.forEach((release) => {
   });
 });
 
-partnerNeeds.forEach((need) => {
-  assert(isString(need.title), `partner-needs.yml:${need.id}: title is required`);
-  assert(isString(need.summary), `partner-needs.yml:${need.id}: summary is required`);
-  assert(partnerSourceTypes.has(need.sourceType), `partner-needs.yml:${need.id}: unknown sourceType "${need.sourceType}"`);
-  assert(partnerStatuses.has(need.status), `partner-needs.yml:${need.id}: unknown status "${need.status}"`);
-  assert(isStringArray(need.proposingOrgs), `partner-needs.yml:${need.id}: proposingOrgs must be strings`);
-  (need.proposingOrgs ?? []).forEach((orgId) => {
-    assert(organizationIds.has(orgId), `partner-needs.yml:${need.id}: unknown organization "${orgId}"`);
-  });
-  assert(
-    isStringArray(need.relatedRoadmapItems),
-    `partner-needs.yml:${need.id}: relatedRoadmapItems must be strings`,
-  );
-  (need.relatedRoadmapItems ?? []).forEach((itemId) => {
-    assert(roadmapItemIds.has(itemId), `partner-needs.yml:${need.id}: unknown roadmap item "${itemId}"`);
-  });
-  assert(
-    isStringArray(need.requestedCapabilities) && need.requestedCapabilities.length > 0,
-    `partner-needs.yml:${need.id}: requestedCapabilities must not be empty`,
-  );
-  if (need.tags !== undefined) {
-    assert(isStringArray(need.tags), `partner-needs.yml:${need.id}: tags must be strings`);
-  }
-  validateLinks(need.evidence, `partner-needs.yml:${need.id}`);
-});
-
 if (errors.length > 0) {
   console.error("Roadmap source validation failed:");
   errors.forEach((error) => console.error(`- ${error}`));
@@ -302,6 +271,5 @@ console.log(
     `${projectIds.size} projects`,
     `${roadmapItemIds.size} roadmap items`,
     `${releaseIds.size} releases`,
-    `${partnerNeeds.length} partner needs`,
   ].join(" "),
 );

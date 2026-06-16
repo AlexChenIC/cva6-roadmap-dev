@@ -18,5 +18,5 @@ strategicFocus:
 decisionCadence: Monthly CVA6 roadmap review
 sourcePolicy: >-
   Official roadmap changes are made through pull requests against roadmap-source.
-  Partner requests are welcome, but they remain partner needs until OpenHW/CVA6
-  maintainers accept ownership, scope, and evidence.
+  Public roadmap items should only be added after OpenHW/CVA6 maintainers accept
+  ownership, scope, and evidence.

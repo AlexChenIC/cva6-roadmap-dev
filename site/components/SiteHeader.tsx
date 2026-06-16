@@ -9,9 +9,9 @@ import { publicAssetPath } from "@/lib/site";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/organizations", label: "Organizations" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/releases", label: "Release" },
-  { href: "/organizations", label: "Organizations" },
 ];
 
 function GitHubMark({ className }: { className?: string }) {

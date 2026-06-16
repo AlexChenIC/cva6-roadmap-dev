@@ -13,7 +13,6 @@ const generatedRoot = path.join(sourceRoot, "generated");
 
 const inputFolders = {
   organizations: path.join(inputRoot, "organizations"),
-  partnerNeeds: path.join(inputRoot, "partner-needs"),
   releases: path.join(inputRoot, "releases"),
   roadmapItems: path.join(inputRoot, "roadmap-items"),
 };
@@ -173,28 +172,6 @@ function buildOrganizations() {
   });
 }
 
-function buildPartnerNeeds() {
-  return readMarkdownFolder(inputFolders.partnerNeeds).map(({ markdown }) => {
-    const frontmatter = markdown.frontmatter;
-
-    return compact({
-      id: scalar(frontmatter.id),
-      title: scalar(frontmatter.title),
-      summary: section(markdown, "Summary") ?? scalar(frontmatter.summary),
-      sourceType: scalar(frontmatter.sourceType),
-      status: scalar(frontmatter.status),
-      proposingOrgs: array(frontmatter.proposingOrgs),
-      relatedRoadmapItems: array(frontmatter.relatedRoadmapItems),
-      tags: array(frontmatter.tags),
-      requestedCapabilities: listItems(section(markdown, "Requested capabilities")),
-      targetWindow: scalar(frontmatter.targetWindow),
-      owner: scalar(frontmatter.owner),
-      publicNotes: section(markdown, "Public notes") ?? scalar(frontmatter.publicNotes),
-      evidence: links(section(markdown, "Evidence")),
-    });
-  });
-}
-
 function buildReleases() {
   return readMarkdownFolder(inputFolders.releases).map(({ markdown }) => {
     const frontmatter = markdown.frontmatter;
@@ -258,7 +235,6 @@ function writeYaml(fileName, value) {
 
 const outputs = {
   "organizations.yml": buildOrganizations(),
-  "partner-needs.yml": buildPartnerNeeds(),
   "releases.yml": buildReleases(),
   "roadmap-items.yml": buildRoadmapItems(),
 };
@@ -271,7 +247,6 @@ console.log(
   [
     "Generated roadmap source:",
     `${outputs["organizations.yml"].length} organizations`,
-    `${outputs["partner-needs.yml"].length} partner needs`,
     `${outputs["releases.yml"].length} releases`,
     `${outputs["roadmap-items.yml"].length} roadmap items`,
   ].join(" "),

@@ -3,7 +3,6 @@ import path from "node:path";
 import { parse } from "yaml";
 import type {
   Organization,
-  PartnerNeed,
   Pillar,
   Project,
   Release,
@@ -12,7 +11,7 @@ import type {
 } from "@/lib/types";
 
 const sourceRoot = path.join(process.cwd(), "..", "roadmap-source");
-const generatedFiles = new Set(["organizations.yml", "partner-needs.yml", "releases.yml", "roadmap-items.yml"]);
+const generatedFiles = new Set(["organizations.yml", "releases.yml", "roadmap-items.yml"]);
 
 function readYaml<T>(fileName: string): T {
   const generatedPath = path.join(sourceRoot, "generated", fileName);
@@ -30,5 +29,4 @@ export const roadmapSource = {
   projects: readYaml<Project[]>("projects.yml"),
   releases: readYaml<Release[]>("releases.yml"),
   roadmapItems: readYaml<RoadmapItem[]>("roadmap-items.yml"),
-  partnerNeeds: readYaml<PartnerNeed[]>("partner-needs.yml"),
 };

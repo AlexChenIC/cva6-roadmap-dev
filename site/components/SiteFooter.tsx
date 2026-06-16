@@ -5,9 +5,9 @@ import { publicAssetPath } from "@/lib/site";
 const footerLinks = [
   { href: "https://openhwfoundation.org/", label: "OpenHW Group" },
   { href: "https://github.com/openhwgroup/cva6", label: "CVA6 GitHub" },
+  { href: "/organizations", label: "Organizations" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/releases", label: "Release" },
-  { href: "/organizations", label: "Organizations" },
   { href: "/license", label: "License" },
 ];
 

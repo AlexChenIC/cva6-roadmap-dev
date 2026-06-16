@@ -9,10 +9,8 @@ human-readable context.
 ## Folders
 
 - `roadmap-items/` - accepted public roadmap items.
-- `partner-needs/` - partner requests that are not official commitments yet.
 - `releases/` - real upstream releases and clearly marked planned examples.
 - `organizations/` - organization names, websites, logos, and neutral public descriptions.
-- `meeting-notes/` - reviewed weekly or monthly meeting summaries.
 
 ## Workflow
 
@@ -32,8 +30,6 @@ references.
 
 ## Editing Examples
 
-- New partner request: copy `../templates/partner-need.md` into
-  `partner-needs/`.
 - Accepted roadmap item: copy `../templates/roadmap-item.md` into
   `roadmap-items/`.
 - Release facts or baseline references can set `showOnOrganizations: false` so
@@ -42,8 +38,6 @@ references.
 - New real or planned release: copy `../templates/release.md` into `releases/`.
 - New participating organization: copy `../templates/organization.md` into
   `organizations/`.
-- Reviewed meeting summary: copy `../templates/meeting-note.md` into
-  `meeting-notes/`.
 
 ## Rule
 
