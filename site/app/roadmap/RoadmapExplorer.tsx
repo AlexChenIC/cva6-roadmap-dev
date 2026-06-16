@@ -191,15 +191,6 @@ export function RoadmapExplorer({ items, organizations, themes }: RoadmapExplore
 
   return (
     <section className="page-container grid gap-8 py-10">
-      <div className="rounded-xl border border-openhw-green bg-surface p-5 shadow-sm">
-        <p className="text-sm font-bold uppercase tracking-normal text-openhw-green">Roadmap interpretation</p>
-        <p className="mt-2 text-sm leading-6 text-slate-700">
-          Items on this board are reviewed roadmap signals. Released items point to public releases or maintained
-          baselines; Active Work, Planned, and Exploratory items need maintainer confirmation before being treated as
-          OpenHW delivery commitments.
-        </p>
-      </div>
-
       <FilterBar organizations={organizations} themes={themes} />
       <SummaryBar items={filteredItems} />
 
